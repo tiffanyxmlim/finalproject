@@ -85,7 +85,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         }
         else if (wine == "Drink: ")
         {
-            // Alert if user did not select a drink
+            // Alert if user did not select a type of wine
             var alertView: UIAlertView = UIAlertView()
             alertView.title = "You goofed"
             alertView.message = "Please select a wine."
@@ -95,7 +95,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         }
         else if (container == "Container: ")
         {
-            // Alert if user did not select a drink
+            // Alert if user did not select a container
             var alertView: UIAlertView = UIAlertView()
             alertView.title = "You goofed"
             alertView.message = "Please select a container."
@@ -105,7 +105,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         }
         else
         {
-            // Alert user that they have completed registration
+            // Alert user that they have submitted a drink
             var success: UIAlertView = UIAlertView()
             success.title = "Success!"
             success.message = "You have entered a drink."
