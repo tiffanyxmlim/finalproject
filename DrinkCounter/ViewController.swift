@@ -9,17 +9,33 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var labelWelcome: UILabel! = nil
+    
+    @IBOutlet weak var labelName: UILabel! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        if (labelName.text != nil && defaults.objectForKey("NAME") != nil){
+            labelName.text = defaults.objectForKey("NAME") as NSString
+        }
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func buttonStartDrinking(sender: AnyObject) {
+    }
+    @IBAction func buttonRegisterPressed(sender: AnyObject)
+    {
 
-
+    }
+    
+    
 }
 

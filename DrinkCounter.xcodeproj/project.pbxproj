@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		4906FDAA1A2AD80E009E5BE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906FDA91A2AD80E009E5BE8 /* AppDelegate.swift */; };
 		4906FDAC1A2AD80E009E5BE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906FDAB1A2AD80E009E5BE8 /* ViewController.swift */; };
-		4906FDAF1A2AD80E009E5BE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4906FDAD1A2AD80E009E5BE8 /* Main.storyboard */; };
 		4906FDB11A2AD80E009E5BE8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4906FDB01A2AD80E009E5BE8 /* Images.xcassets */; };
 		4906FDB41A2AD80E009E5BE8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4906FDB21A2AD80E009E5BE8 /* LaunchScreen.xib */; };
 		4906FDC01A2AD80E009E5BE8 /* DrinkCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906FDBF1A2AD80E009E5BE8 /* DrinkCounterTests.swift */; };
+		4906FDCC1A2B8802009E5BE8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906FDCB1A2B8802009E5BE8 /* Register.swift */; };
+		4906FE001A2BFECF009E5BE8 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906FDFF1A2BFECF009E5BE8 /* Counter.swift */; };
+		4938D1721A2F6475002A83DE /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4938D1711A2F6475002A83DE /* Wine.swift */; };
+		49A3EDE61A2ED23A002D6A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A3EDE41A2ED23A002D6A66 /* Main.storyboard */; };
+		49ED8D241A2ECE240071FCBF /* Alcohol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED8D231A2ECE240071FCBF /* Alcohol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +34,16 @@
 		4906FDA81A2AD80E009E5BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4906FDA91A2AD80E009E5BE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4906FDAB1A2AD80E009E5BE8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4906FDAE1A2AD80E009E5BE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4906FDB01A2AD80E009E5BE8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4906FDB31A2AD80E009E5BE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4906FDB91A2AD80E009E5BE8 /* DrinkCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4906FDBE1A2AD80E009E5BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4906FDBF1A2AD80E009E5BE8 /* DrinkCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCounterTests.swift; sourceTree = "<group>"; };
+		4906FDCB1A2B8802009E5BE8 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		4906FDFF1A2BFECF009E5BE8 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		4938D1711A2F6475002A83DE /* Wine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
+		49A3EDE51A2ED23A002D6A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49ED8D231A2ECE240071FCBF /* Alcohol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alcohol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +87,11 @@
 			children = (
 				4906FDA91A2AD80E009E5BE8 /* AppDelegate.swift */,
 				4906FDAB1A2AD80E009E5BE8 /* ViewController.swift */,
-				4906FDAD1A2AD80E009E5BE8 /* Main.storyboard */,
+				4906FDCB1A2B8802009E5BE8 /* Register.swift */,
+				49ED8D231A2ECE240071FCBF /* Alcohol.swift */,
+				4938D1711A2F6475002A83DE /* Wine.swift */,
+				4906FDFF1A2BFECF009E5BE8 /* Counter.swift */,
+				49A3EDE41A2ED23A002D6A66 /* Main.storyboard */,
 				4906FDB01A2AD80E009E5BE8 /* Images.xcassets */,
 				4906FDB21A2AD80E009E5BE8 /* LaunchScreen.xib */,
 				4906FDA71A2AD80E009E5BE8 /* Supporting Files */,
@@ -192,7 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4906FDAF1A2AD80E009E5BE8 /* Main.storyboard in Resources */,
+				49A3EDE61A2ED23A002D6A66 /* Main.storyboard in Resources */,
 				4906FDB41A2AD80E009E5BE8 /* LaunchScreen.xib in Resources */,
 				4906FDB11A2AD80E009E5BE8 /* Images.xcassets in Resources */,
 			);
@@ -214,6 +226,10 @@
 			files = (
 				4906FDAC1A2AD80E009E5BE8 /* ViewController.swift in Sources */,
 				4906FDAA1A2AD80E009E5BE8 /* AppDelegate.swift in Sources */,
+				4938D1721A2F6475002A83DE /* Wine.swift in Sources */,
+				49ED8D241A2ECE240071FCBF /* Alcohol.swift in Sources */,
+				4906FDCC1A2B8802009E5BE8 /* Register.swift in Sources */,
+				4906FE001A2BFECF009E5BE8 /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,20 +252,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4906FDAD1A2AD80E009E5BE8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4906FDAE1A2AD80E009E5BE8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4906FDB21A2AD80E009E5BE8 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4906FDB31A2AD80E009E5BE8 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		49A3EDE41A2ED23A002D6A66 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49A3EDE51A2ED23A002D6A66 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -405,6 +421,7 @@
 				4906FDC51A2AD80E009E5BE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4906FDC61A2AD80E009E5BE8 /* Build configuration list for PBXNativeTarget "DrinkCounterTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +430,7 @@
 				4906FDC81A2AD80E009E5BE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
