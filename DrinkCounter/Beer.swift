@@ -1,66 +1,70 @@
 //
-//  Wine.swift
+//  Beer.swift
 //  DrinkCounter
 //
-//  Created by Tiffany Lim on 12/3/14.
+//  Created by Andres Gonzalez on 12/4/14.
 //  Copyright (c) 2014 Tiffany Lim. All rights reserved.
 //
 
 import UIKit
 
-class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
-
+class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
+    
     enum PickerComponent:Int{
-        case wines = 0
+        case beers = 0
         case containers = 1
     }
-    
+
     @IBOutlet weak var myPicker: UIPickerView!
     
-    @IBOutlet weak var drinkLabel: UILabel!
+    @IBOutlet weak var drinklabel: UILabel!
+
+    @IBOutlet weak var containerlabel: UILabel!
     
-    @IBOutlet weak var containerLabel: UILabel!
-    
-    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var quantitylabel: UILabel!
     
     @IBOutlet weak var ContainerView: UIImageView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         // Do any additional setup after loading the view.
         myPicker.delegate = self
         myPicker.dataSource = self
         
-        drinkLabel.text = ""
-        containerLabel.text = ""
-        quantityLabel.text = ""
+        drinklabel.text = ""
+        containerlabel.text = ""
+        quantitylabel.text = ""
     }
     
     var pickerchanged: Int = 0
     
-    let wineData = [
-        ["", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
-        ["", "Solo cup", "Wine glass"],
-        ["", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
+    let beerData = [
+        ["", "Light Beer", "Regular Beer", "IPA", "Ale", "Stout"],
+        
+        ["", "Solo cup", "Can", "Bottle", "Stein",],
+        
+        ["", "0.5", "1", "2", "3", "4", "5"]
     ]
     
-    var winePick = NSString()
+    var beerPick = NSString()
     var containerPick = NSString()
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
-        return wineData.count
+        return beerData.count
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component:Int) -> Int
     {
-        return wineData[component].count
+        return beerData[component].count
     }
     
     func pickerView(pickerView: UIPickerView!, titleForRow row:Int, forComponent component: Int) -> String!
     {
-       return wineData[component][row]
+        return beerData[component][row]
     }
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat
     {
@@ -74,16 +78,19 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     func updateLabels()
     {
-        let winePicked = wineData[0][myPicker.selectedRowInComponent(0)]
-        let containerPicked = wineData[1][myPicker.selectedRowInComponent(1)]
-        let quantityPicked = wineData[2][myPicker.selectedRowInComponent(2)]
-        drinkLabel.text = winePicked
-        containerLabel.text = containerPicked
-        quantityLabel.text = quantityPicked
+        let beerPicked = beerData[0][myPicker.selectedRowInComponent(0)]
+        let containerPicked = beerData[1][myPicker.selectedRowInComponent(1)]
+        let quantityPicked = beerData[2][myPicker.selectedRowInComponent(2)]
+        drinklabel.text = beerPicked
+        containerlabel.text = containerPicked
+        quantitylabel.text = quantityPicked
         
         switch containerPicked{
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.jpg")
-        case "Wine glass": return ContainerView.image = UIImage(named: "wineglass.jpg")
+        case "Can": return ContainerView.image = UIImage(named: "beercan.jpg")
+        case "Bottle": return ContainerView.image = UIImage(named: "beerbottle.jpg")
+        case "Stein": return ContainerView.image = UIImage(named: "stein.jpg")
+
         default: return
         }
     }
@@ -94,12 +101,10 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         updateLabels()
     }
     
-    @IBAction func submitButtonPressed(sender: AnyObject)
-    {
-        var wine: String = drinkLabel.text!
-        //var container: String = containerPicked!
-        var container: String = containerLabel.text!
-        var quantity: String = quantityLabel.text!
+    @IBAction func beersubmit(sender: AnyObject) {
+        var beer: String = drinklabel.text!
+        var container: String = containerlabel.text!
+        var quantity: String = quantitylabel.text!
         var message = String()
         
         
@@ -107,7 +112,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a wine and container."
         }
-        else if (wine == "")
+        else if (beer == "")
         {
             message = "Please select a wine."
         }
@@ -144,14 +149,11 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
 
     }
     
-    
-    
-    
-    
-    
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
