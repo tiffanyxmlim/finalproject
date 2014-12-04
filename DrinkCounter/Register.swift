@@ -75,7 +75,7 @@ class Register: UIViewController, UIPickerViewDelegate {
             alertView.addButtonWithTitle("OK")
             alertView.show()
         }
-        else if (weightTextField.text == "" || num == nil || num < 1)
+        else if (weightTextField.text == "" || num == nil || num < 50 || num > 800)
         {
             // Alert if user did not enter a positive integer for a weight
             var alertView: UIAlertView = UIAlertView()
