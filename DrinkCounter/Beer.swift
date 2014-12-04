@@ -16,12 +16,11 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     @IBOutlet weak var myPicker: UIPickerView!
-    
-    @IBOutlet weak var drinklabel: UILabel!
 
-    @IBOutlet weak var containerlabel: UILabel!
+    @IBOutlet weak var drinkLabel: UILabel!
+  //  @IBOutlet weak var containerlabel: UILabel!
     
-    @IBOutlet weak var quantitylabel: UILabel!
+   // @IBOutlet weak var quantitylabel: UILabel!
     
     @IBOutlet weak var ContainerView: UIImageView!
     
@@ -34,7 +33,7 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         myPicker.delegate = self
         myPicker.dataSource = self
         
-        //drinklabel.text = ""
+        drinkLabel.text = ""
         //containerlabel.text = ""
         //quantitylabel.text = ""
     }
@@ -45,9 +44,9 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     var quantitytry = ""
     
     let beerData = [
-        ["Type", "Light Beer", "Regular Beer", "IPA", "Ale", "Stout"],
+        ["TYPE", "Light", "Regular", "IPA", "Ale", "Stout"],
         
-        ["Container", "Solo cup", "Can", "Bottle", "Stein"],
+        ["SIZE", "Solo cup", "Can", "Bottle", "Stein"],
         
         ["#", "1", "0.5", "1", "2", "3", "4", "5"]
     ]
@@ -92,7 +91,9 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         containertry = beerData[1][myPicker.selectedRowInComponent(1)]
         let quantityPicked = beerData[2][myPicker.selectedRowInComponent(2)]
         quantitytry = beerData[2][myPicker.selectedRowInComponent(2)]
-        //drinklabel.text = beerPicked
+        
+        
+        drinkLabel.text = beerPicked
         //containerlabel.text = containerPicked
         //quantitylabel.text = quantityPicked
         

@@ -30,8 +30,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     var quantitytry = ""
     
     let wineData = [
-        ["Type", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
-        ["Container", "Solo cup", "Wine glass"],
+        ["TYPE", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
+        ["SIZE", "Solo cup", "Wine glass"],
         ["#", "1", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
     ]
     
@@ -48,15 +48,17 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         return wineData.count
     }
     
+    
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component:Int) -> Int
     {
         return wineData[component].count
     }
-    
+
     func pickerView(pickerView: UIPickerView!, titleForRow row:Int, forComponent component: Int) -> String!
     {
-       return wineData[component][row]
+        return wineData[component][row]
     }
+    
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat
     {
         switch component{

@@ -36,9 +36,9 @@ class Liquor:
     var quantitytry = ""
     
     let liquorData = [
-        ["Type", "Rum", "Vodka", "Tequila", "Fireball", "Gin", "Bailey's", "Whiskey"],
+        ["TYPE", "Rum", "Vodka", "Tequila", "Fireball", "Gin", "Bailey's", "Whiskey"],
         
-        ["Container", "Shotglass", "Solocup", "Martini"],
+        ["SIZE", "Shotglass", "Solocup", "Martini"],
         
         ["#", "1", "0.25", "0.5", "0.75", "1", "2", "3"]
     ]
