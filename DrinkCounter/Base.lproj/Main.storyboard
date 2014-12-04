@@ -721,9 +721,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="260" id="d41-aP-pMi">
-                                        <variation key="widthClass=compact" constant="290"/>
+                                        <variation key="widthClass=compact" constant="174"/>
                                     </constraint>
-                                    <constraint firstAttribute="width" constant="208" id="pIw-o3-ecq"/>
+                                    <constraint firstAttribute="width" constant="208" id="pIw-o3-ecq">
+                                        <variation key="widthClass=compact" constant="115"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -731,21 +733,27 @@
                                         <exclude reference="pIw-o3-ecq"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="44" y="267" width="115" height="174"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="d41-aP-pMi"/>
                                         <include reference="pIw-o3-ecq"/>
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCC-e1-2MK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantityLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3t-i8-wZR">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="drinkLabel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCC-e1-2MK">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="aDr-Ry-ryw"/>
+                                    <constraint firstAttribute="height" constant="36" id="aDr-Ry-ryw">
+                                        <variation key="widthClass=compact" constant="40"/>
+                                    </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -753,36 +761,60 @@
                                         <exclude reference="aDr-Ry-ryw"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="67" y="336" width="69" height="36"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="aDr-Ry-ryw"/>
                                     </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZlK-3c-wKX">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="167" y="447" width="137" height="40"/>
                                 </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.82597393959999998" green="0.88215343260000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mhO-Ss-Xv1" firstAttribute="top" secondItem="ziU-Sm-KPk" secondAttribute="bottom" constant="8" symbolic="YES" id="CMn-Xt-jU2">
-                                <variation key="widthClass=compact" constant="2"/>
+                                <variation key="widthClass=compact" constant="41"/>
                             </constraint>
                             <constraint firstItem="ziU-Sm-KPk" firstAttribute="leading" secondItem="tmi-7a-C1g" secondAttribute="leading" id="Fnm-by-nOv"/>
-                            <constraint firstItem="QCC-e1-2MK" firstAttribute="centerX" secondItem="mhO-Ss-Xv1" secondAttribute="centerX" id="O9S-Kl-TS9"/>
+                            <constraint firstItem="QCC-e1-2MK" firstAttribute="centerX" secondItem="mhO-Ss-Xv1" secondAttribute="centerX" id="O9S-Kl-TS9">
+                                <variation key="widthClass=compact" constant="-14"/>
+                            </constraint>
+                            <constraint firstItem="I3t-i8-wZR" firstAttribute="centerY" secondItem="mhO-Ss-Xv1" secondAttribute="centerY" id="P02-j3-V8e"/>
                             <constraint firstItem="ziU-Sm-KPk" firstAttribute="top" secondItem="REy-er-ysq" secondAttribute="bottom" id="RzS-FF-uux"/>
                             <constraint firstItem="mhO-Ss-Xv1" firstAttribute="centerX" secondItem="HfJ-61-hiT" secondAttribute="centerX" id="Smi-h6-qe0">
-                                <variation key="widthClass=compact" constant="-25"/>
+                                <variation key="widthClass=compact" constant="-58.5"/>
                             </constraint>
                             <constraint firstItem="x4C-sc-yaC" firstAttribute="top" secondItem="HfJ-61-hiT" secondAttribute="bottom" constant="8" symbolic="YES" id="XfJ-qa-3d6"/>
-                            <constraint firstItem="mhO-Ss-Xv1" firstAttribute="leading" secondItem="tmi-7a-C1g" secondAttribute="leadingMargin" constant="40" id="i9J-Pp-l7Y">
-                                <variation key="widthClass=compact" constant="15"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I3t-i8-wZR" secondAttribute="trailing" constant="10" id="aPx-Mg-m1p">
+                                <variation key="widthClass=compact" constant="11"/>
                             </constraint>
-                            <constraint firstItem="QCC-e1-2MK" firstAttribute="centerY" secondItem="mhO-Ss-Xv1" secondAttribute="centerY" id="meb-rh-gvg"/>
-                            <constraint firstItem="QCC-e1-2MK" firstAttribute="leading" secondItem="tmi-7a-C1g" secondAttribute="leadingMargin" constant="51" id="wbu-rf-0Wk"/>
+                            <constraint firstItem="mhO-Ss-Xv1" firstAttribute="leading" secondItem="tmi-7a-C1g" secondAttribute="leadingMargin" constant="40" id="i9J-Pp-l7Y">
+                                <variation key="widthClass=compact" constant="28"/>
+                            </constraint>
+                            <constraint firstItem="I3t-i8-wZR" firstAttribute="top" secondItem="ziU-Sm-KPk" secondAttribute="bottom" constant="98" id="jQO-0x-HNg">
+                                <variation key="widthClass=compact" constant="99"/>
+                            </constraint>
+                            <constraint firstItem="QCC-e1-2MK" firstAttribute="centerY" secondItem="mhO-Ss-Xv1" secondAttribute="centerY" id="meb-rh-gvg">
+                                <variation key="widthClass=compact" constant="113"/>
+                            </constraint>
+                            <constraint firstItem="QCC-e1-2MK" firstAttribute="leading" secondItem="tmi-7a-C1g" secondAttribute="leadingMargin" constant="51" id="wbu-rf-0Wk">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="I3t-i8-wZR" firstAttribute="leading" secondItem="mhO-Ss-Xv1" secondAttribute="trailing" constant="74" id="x1c-NU-0IQ">
+                                <variation key="widthClass=compact" constant="19"/>
+                            </constraint>
                             <constraint firstItem="HfJ-61-hiT" firstAttribute="top" secondItem="mhO-Ss-Xv1" secondAttribute="bottom" constant="32" id="xQg-O8-S9K">
-                                <variation key="widthClass=compact" constant="8"/>
+                                <variation key="widthClass=compact" constant="85"/>
                             </constraint>
                             <constraint firstItem="ziU-Sm-KPk" firstAttribute="centerX" secondItem="mhO-Ss-Xv1" secondAttribute="centerX" id="z5s-tP-kmT">
-                                <variation key="widthClass=compact" constant="25"/>
+                                <variation key="widthClass=compact" constant="58.5"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
@@ -790,7 +822,9 @@
                                 <exclude reference="ziU-Sm-KPk"/>
                                 <exclude reference="HfJ-61-hiT"/>
                                 <exclude reference="mhO-Ss-Xv1"/>
+                                <exclude reference="I3t-i8-wZR"/>
                                 <exclude reference="QCC-e1-2MK"/>
+                                <exclude reference="ZlK-3c-wKX"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Fnm-by-nOv"/>
@@ -799,6 +833,10 @@
                                 <exclude reference="CMn-Xt-jU2"/>
                                 <exclude reference="Smi-h6-qe0"/>
                                 <exclude reference="i9J-Pp-l7Y"/>
+                                <exclude reference="P02-j3-V8e"/>
+                                <exclude reference="aPx-Mg-m1p"/>
+                                <exclude reference="jQO-0x-HNg"/>
+                                <exclude reference="x1c-NU-0IQ"/>
                                 <exclude reference="O9S-Kl-TS9"/>
                                 <exclude reference="meb-rh-gvg"/>
                                 <exclude reference="wbu-rf-0Wk"/>
@@ -811,7 +849,9 @@
                                 <include reference="ziU-Sm-KPk"/>
                                 <include reference="HfJ-61-hiT"/>
                                 <include reference="mhO-Ss-Xv1"/>
+                                <include reference="I3t-i8-wZR"/>
                                 <include reference="QCC-e1-2MK"/>
+                                <include reference="ZlK-3c-wKX"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Fnm-by-nOv"/>
@@ -820,6 +860,10 @@
                                 <include reference="CMn-Xt-jU2"/>
                                 <include reference="Smi-h6-qe0"/>
                                 <include reference="i9J-Pp-l7Y"/>
+                                <include reference="P02-j3-V8e"/>
+                                <include reference="aPx-Mg-m1p"/>
+                                <include reference="jQO-0x-HNg"/>
+                                <include reference="x1c-NU-0IQ"/>
                                 <include reference="O9S-Kl-TS9"/>
                                 <include reference="meb-rh-gvg"/>
                                 <include reference="wbu-rf-0Wk"/>
@@ -831,8 +875,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ContainerView" destination="mhO-Ss-Xv1" id="bwA-WE-Uim"/>
+                        <outlet property="beerLabel" destination="ZlK-3c-wKX" id="Khb-Fe-cGj"/>
                         <outlet property="drinkLabel" destination="QCC-e1-2MK" id="lEV-oG-cKF"/>
                         <outlet property="myPicker" destination="ziU-Sm-KPk" id="RRN-gM-Lj3"/>
+                        <outlet property="quantityLabel" destination="I3t-i8-wZR" id="a1r-DC-F6R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZn-xJ-uqb" userLabel="First Responder" sceneMemberID="firstResponder"/>

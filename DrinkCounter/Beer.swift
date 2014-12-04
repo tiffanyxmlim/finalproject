@@ -18,9 +18,10 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var myPicker: UIPickerView!
 
     @IBOutlet weak var drinkLabel: UILabel!
-  //  @IBOutlet weak var containerlabel: UILabel!
     
-   // @IBOutlet weak var quantitylabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+    
+    @IBOutlet weak var beerLabel: UILabel!
     
     @IBOutlet weak var ContainerView: UIImageView!
     
@@ -34,8 +35,8 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         myPicker.dataSource = self
         
         drinkLabel.text = ""
-        //containerlabel.text = ""
-        //quantitylabel.text = ""
+        quantityLabel.text = ""
+        beerLabel.text = ""
     }
     
     var pickerchanged: Int = 0
@@ -93,9 +94,13 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         quantitytry = beerData[2][myPicker.selectedRowInComponent(2)]
         
         
-        drinkLabel.text = beerPicked
+        if (beerPicked != "TYPE" && quantityPicked != "#" && containerPicked != "SIZE")
+        {
+            drinkLabel.text = beerPicked
+            quantityLabel.text = "x     " + quantityPicked
+            beerLabel.text = "Beer"
+        }
         //containerlabel.text = containerPicked
-        //quantitylabel.text = quantityPicked
         
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * beerABV[myPicker.selectedRowInComponent(0)] / 14
         
