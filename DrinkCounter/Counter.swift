@@ -85,6 +85,7 @@ class Counter: UIViewController {
  
         
         // Calculates and displays BAC level to 4 decimal places in label
+        // the Widmark formula
         var BAClevel = ((0.806 * counter * 1.2) / (0.453592 * genderConst * weightFloat)) - (0.017 * hours)
         var BAClevel2 : NSString = NSString(format: "%.04f", BAClevel)
         labelBAC.text = "Your current BAC: \(BAClevel2)"
@@ -92,7 +93,6 @@ class Counter: UIViewController {
         labelDrinkCount.text = "\(Int(counter))"
         
     }
-    
 
     @IBOutlet weak var labelDrinkCount: UILabel!
     

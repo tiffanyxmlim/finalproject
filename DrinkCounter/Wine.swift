@@ -30,8 +30,9 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         drinkLabel.text = ""
         containerLabel.text = ""
         quantityLabel.text = ""
+
     }
-    
+    var containertry = ""
     var pickerchanged: Int = 0
     
     let wineData = [
@@ -76,6 +77,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     {
         let winePicked = wineData[0][myPicker.selectedRowInComponent(0)]
         let containerPicked = wineData[1][myPicker.selectedRowInComponent(1)]
+        containertry = wineData[1][myPicker.selectedRowInComponent(1)]
         let quantityPicked = wineData[2][myPicker.selectedRowInComponent(2)]
         drinkLabel.text = winePicked
         containerLabel.text = containerPicked
@@ -100,8 +102,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     @IBAction func submitButtonPressed(sender: AnyObject)
     {
         var wine: String = drinkLabel.text!
-        //var container: String = containerPicked!
-        var container: String = containerLabel.text!
+        var container: String = containertry
+        //ar container: String = containerLabel.text!
         var quantity: String = quantityLabel.text!
         var message = String()
         

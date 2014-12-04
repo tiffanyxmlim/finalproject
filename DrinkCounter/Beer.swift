@@ -44,10 +44,15 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     let beerData = [
         ["", "Light Beer", "Regular Beer", "IPA", "Ale", "Stout"],
         
-        ["", "Solo cup", "Can", "Bottle", "Stein",],
+        ["", "Solo cup", "Can", "Bottle", "Stein"],
         
         ["", "0.5", "1", "2", "3", "4", "5"]
     ]
+    
+    let containerVol: [Float] = [0, 16, 12, 12, 10]
+    let beerABV: [Float] = [0, 0.042, 0.06, 0.07, 0.05, 0.08]
+    let multipleFactor: [Float] = [0, 0.5, 1, 2, 3, 4, 5]
+    var alcoholConsumed: Float = 0
     
     var beerPick = NSString()
     var containerPick = NSString()
@@ -84,6 +89,8 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         drinklabel.text = beerPicked
         containerlabel.text = containerPicked
         quantitylabel.text = quantityPicked
+        
+        alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * beerABV[myPicker.selectedRowInComponent(0)] / 14
         
         switch containerPicked{
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.jpg")
@@ -133,6 +140,15 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             alertView.delegate = self
             alertView.addButtonWithTitle("OK")
             alertView.show()
+           
+            // Add alcoholConsumed (number of Standard Drinks) to counter, and synchronize with NSUserDefaults
+            var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+            var oldCounter = defaults.floatForKey("COUNTER")
+            var newCounter = oldCounter + alcoholConsumed
+            defaults.setObject(newCounter, forKey: "COUNTER")
+            var haha = defaults.floatForKey("COUNTER")
+            
+            
             // Pop to root view controller ("counter" screen)
             self.navigationController!.popToRootViewControllerAnimated(true)
         }
