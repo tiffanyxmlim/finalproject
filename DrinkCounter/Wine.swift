@@ -80,8 +80,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * wineABV[myPicker.selectedRowInComponent(0)] / 14
         
         switch containerPicked{
-        case "Solo cup": return ContainerView.image = UIImage(named: "solocup.jpg")
-        case "Wine glass": return ContainerView.image = UIImage(named: "wineglass.jpg")
+        case "Solo cup": return ContainerView.image = UIImage(named: "solocup.png")
+        case "Wine glass": return ContainerView.image = UIImage(named: "wineglass.png")
         default: return
         }
 

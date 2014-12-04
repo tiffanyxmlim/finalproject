@@ -16,14 +16,14 @@
 		4906FE001A2BFECF009E5BE8 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4906FDFF1A2BFECF009E5BE8 /* Counter.swift */; };
 		4938D1721A2F6475002A83DE /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4938D1711A2F6475002A83DE /* Wine.swift */; };
 		49A3EDE61A2ED23A002D6A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49A3EDE41A2ED23A002D6A66 /* Main.storyboard */; };
+		49AA64531A30FB0200DF549C /* beerbottle.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AA644C1A30FB0200DF549C /* beerbottle.png */; };
+		49AA64541A30FB0200DF549C /* beercan.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AA644D1A30FB0200DF549C /* beercan.png */; };
+		49AA64551A30FB0200DF549C /* martini.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AA644E1A30FB0200DF549C /* martini.png */; };
+		49AA64561A30FB0200DF549C /* shotglass.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AA644F1A30FB0200DF549C /* shotglass.png */; };
+		49AA64571A30FB0200DF549C /* solocup.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AA64501A30FB0200DF549C /* solocup.png */; };
+		49AA64581A30FB0200DF549C /* stein.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AA64511A30FB0200DF549C /* stein.png */; };
+		49AA64591A30FB0200DF549C /* wineglass.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AA64521A30FB0200DF549C /* wineglass.png */; };
 		49ED8D241A2ECE240071FCBF /* Alcohol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED8D231A2ECE240071FCBF /* Alcohol.swift */; };
-		69ECE1831A30229B004BBC73 /* beerbottle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69ECE1821A30229B004BBC73 /* beerbottle.jpg */; };
-		69ECE18A1A3022AE004BBC73 /* beercan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69ECE1841A3022AE004BBC73 /* beercan.jpg */; };
-		69ECE18B1A3022AE004BBC73 /* martini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69ECE1851A3022AE004BBC73 /* martini.jpg */; };
-		69ECE18C1A3022AE004BBC73 /* shotglass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69ECE1861A3022AE004BBC73 /* shotglass.jpg */; };
-		69ECE18D1A3022AE004BBC73 /* solocup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69ECE1871A3022AE004BBC73 /* solocup.jpg */; };
-		69ECE18E1A3022AE004BBC73 /* stein.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69ECE1881A3022AE004BBC73 /* stein.jpg */; };
-		69ECE18F1A3022AE004BBC73 /* wineglass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69ECE1891A3022AE004BBC73 /* wineglass.jpg */; };
 		69ECE1911A302442004BBC73 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ECE1901A302442004BBC73 /* Beer.swift */; };
 		69F6488E1A30E88D00BEC442 /* wineicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F6488D1A30E88D00BEC442 /* wineicon.png */; };
 		69F648901A30EA0E00BEC442 /* beericon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F6488F1A30EA0E00BEC442 /* beericon.png */; };
@@ -55,14 +55,14 @@
 		4906FDFF1A2BFECF009E5BE8 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		4938D1711A2F6475002A83DE /* Wine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
 		49A3EDE51A2ED23A002D6A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49AA644C1A30FB0200DF549C /* beerbottle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beerbottle.png; sourceTree = "<group>"; };
+		49AA644D1A30FB0200DF549C /* beercan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beercan.png; sourceTree = "<group>"; };
+		49AA644E1A30FB0200DF549C /* martini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = martini.png; sourceTree = "<group>"; };
+		49AA644F1A30FB0200DF549C /* shotglass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shotglass.png; sourceTree = "<group>"; };
+		49AA64501A30FB0200DF549C /* solocup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = solocup.png; sourceTree = "<group>"; };
+		49AA64511A30FB0200DF549C /* stein.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stein.png; sourceTree = "<group>"; };
+		49AA64521A30FB0200DF549C /* wineglass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wineglass.png; sourceTree = "<group>"; };
 		49ED8D231A2ECE240071FCBF /* Alcohol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alcohol.swift; sourceTree = "<group>"; };
-		69ECE1821A30229B004BBC73 /* beerbottle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beerbottle.jpg; sourceTree = "<group>"; };
-		69ECE1841A3022AE004BBC73 /* beercan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beercan.jpg; sourceTree = "<group>"; };
-		69ECE1851A3022AE004BBC73 /* martini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = martini.jpg; sourceTree = "<group>"; };
-		69ECE1861A3022AE004BBC73 /* shotglass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shotglass.jpg; sourceTree = "<group>"; };
-		69ECE1871A3022AE004BBC73 /* solocup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = solocup.jpg; sourceTree = "<group>"; };
-		69ECE1881A3022AE004BBC73 /* stein.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stein.jpg; sourceTree = "<group>"; };
-		69ECE1891A3022AE004BBC73 /* wineglass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wineglass.jpg; sourceTree = "<group>"; };
 		69ECE1901A302442004BBC73 /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		69F6488D1A30E88D00BEC442 /* wineicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wineicon.png; sourceTree = "<group>"; };
 		69F6488F1A30EA0E00BEC442 /* beericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beericon.png; sourceTree = "<group>"; };
@@ -132,13 +132,13 @@
 				69F6488F1A30EA0E00BEC442 /* beericon.png */,
 				69F6488D1A30E88D00BEC442 /* wineicon.png */,
 				69F648931A30F3C900BEC442 /* liquoricon.png */,
-				69ECE1841A3022AE004BBC73 /* beercan.jpg */,
-				69ECE1851A3022AE004BBC73 /* martini.jpg */,
-				69ECE1861A3022AE004BBC73 /* shotglass.jpg */,
-				69ECE1871A3022AE004BBC73 /* solocup.jpg */,
-				69ECE1881A3022AE004BBC73 /* stein.jpg */,
-				69ECE1891A3022AE004BBC73 /* wineglass.jpg */,
-				69ECE1821A30229B004BBC73 /* beerbottle.jpg */,
+				49AA644C1A30FB0200DF549C /* beerbottle.png */,
+				49AA644D1A30FB0200DF549C /* beercan.png */,
+				49AA644E1A30FB0200DF549C /* martini.png */,
+				49AA644F1A30FB0200DF549C /* shotglass.png */,
+				49AA64501A30FB0200DF549C /* solocup.png */,
+				49AA64511A30FB0200DF549C /* stein.png */,
+				49AA64521A30FB0200DF549C /* wineglass.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,19 +240,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69ECE18C1A3022AE004BBC73 /* shotglass.jpg in Resources */,
-				69ECE18E1A3022AE004BBC73 /* stein.jpg in Resources */,
+				49AA64561A30FB0200DF549C /* shotglass.png in Resources */,
 				69F648941A30F3C900BEC442 /* liquoricon.png in Resources */,
-				69ECE18B1A3022AE004BBC73 /* martini.jpg in Resources */,
-				69ECE18A1A3022AE004BBC73 /* beercan.jpg in Resources */,
 				49A3EDE61A2ED23A002D6A66 /* Main.storyboard in Resources */,
-				69ECE1831A30229B004BBC73 /* beerbottle.jpg in Resources */,
 				69F648901A30EA0E00BEC442 /* beericon.png in Resources */,
 				4906FDB41A2AD80E009E5BE8 /* LaunchScreen.xib in Resources */,
+				49AA64591A30FB0200DF549C /* wineglass.png in Resources */,
+				49AA64571A30FB0200DF549C /* solocup.png in Resources */,
 				4906FDB11A2AD80E009E5BE8 /* Images.xcassets in Resources */,
+				49AA64581A30FB0200DF549C /* stein.png in Resources */,
 				69F6488E1A30E88D00BEC442 /* wineicon.png in Resources */,
-				69ECE18D1A3022AE004BBC73 /* solocup.jpg in Resources */,
-				69ECE18F1A3022AE004BBC73 /* wineglass.jpg in Resources */,
+				49AA64551A30FB0200DF549C /* martini.png in Resources */,
+				49AA64541A30FB0200DF549C /* beercan.png in Resources */,
+				49AA64531A30FB0200DF549C /* beerbottle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -87,9 +87,9 @@ class Liquor:
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * liquorABV[myPicker.selectedRowInComponent(0)] / 14
         
         switch containerPicked{
-        case "Solo cup": return ContainerView.image = UIImage(named: "solocup.jpg")
-        case "Shotglass": return ContainerView.image = UIImage(named: "shotglass.jpg")
-        case "Martini": return ContainerView.image = UIImage(named: "martini.jpg")
+        case "Solocup": return ContainerView.image = UIImage(named: "solocup.png")
+        case "Shotglass": return ContainerView.image = UIImage(named: "shotglass.png")
+        case "Martini": return ContainerView.image = UIImage(named: "martini.png")
         default: return
         }
     }
