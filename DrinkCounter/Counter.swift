@@ -208,8 +208,6 @@ class Counter: UIViewController {
         if (!timer.valid) {
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
         }
-        let next = self.storyboard?.instantiateViewControllerWithIdentifier("alcohol") as Alcohol
-        self.navigationController?.pushViewController(next, animated: true)
     }
     
     
