@@ -91,59 +91,46 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         var wine: String = drinkLabel.text!
         var container: String = containerLabel.text!
         var quantity: String = quantityLabel.text!
+        var message = String()
+        
         
         if (pickerchanged == 0)
         {
-            // Alert if user did not select anything
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "You goofed"
-            alertView.message = "Please select a wine and container."
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            message = "Please select a wine and container."
         }
         else if (wine == "")
         {
-            // Alert if user did not select a type of wine
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "You goofed"
-            alertView.message = "Please select a wine."
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            message = "Please select a wine."
         }
         else if (container == "")
         {
-            // Alert if user did not select a container
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "You goofed"
-            alertView.message = "Please select a container."
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            message = "Please select a container."
         }
         else if (quantity == "")
         {
-            // Alert if user did not select a quantity
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "You goofed"
-            alertView.message = "Please select a quantity."
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            message = "Please select a quantity."
         }
         else
         {
-            // Alert user that they have submitted a drink
-            var success: UIAlertView = UIAlertView()
-            success.title = "Success!"
-            success.message = "You have entered a drink."
-            success.delegate = self
-            success.addButtonWithTitle("OK")
-            success.show()
-            
+            message = "You have entered a drink."
+            var alertView: UIAlertView = UIAlertView()
+            alertView.title = "Success!"
+            alertView.message = message
+            alertView.delegate = self
+            alertView.addButtonWithTitle("OK")
+            alertView.show()
             // Pop to root view controller ("counter" screen)
             self.navigationController!.popToRootViewControllerAnimated(true)
+        }
+        
+        if (message != "You have entered a drink.")
+        {
+            var alertView: UIAlertView = UIAlertView()
+            alertView.title = "Error"
+            alertView.message = message
+            alertView.delegate = self
+            alertView.addButtonWithTitle("OK")
+            alertView.show()
         }
 
     }
