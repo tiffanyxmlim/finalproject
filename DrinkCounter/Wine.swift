@@ -12,8 +12,13 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var myPicker: UIPickerView!
 
-    
     @IBOutlet weak var ContainerView: UIImageView!
+    
+    @IBOutlet weak var quantityLabel: UILabel!
+    
+    @IBOutlet weak var drinkLabel: UILabel!
+    
+    @IBOutlet weak var wineLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +27,11 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         myPicker.delegate = self
         myPicker.dataSource = self
         
-
+        drinkLabel.text = ""
+        quantityLabel.text = ""
+        wineLabel.text = ""
     }
+    
     var containertry = ""
     var pickerchanged: Int = 0
     var winetry = ""
@@ -78,6 +86,14 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         let quantityPicked = wineData[2][myPicker.selectedRowInComponent(2)]
         quantitytry = wineData[2][myPicker.selectedRowInComponent(2)]
 
+        if (winePicked != "TYPE" && quantityPicked != "#" && containerPicked != "SIZE")
+        {
+            drinkLabel.text = winePicked
+            quantityLabel.text = "x     " + quantityPicked
+            wineLabel.text = "Beer"
+        }
+
+        
         
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * wineABV[myPicker.selectedRowInComponent(0)] / 14
         
@@ -108,11 +124,11 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a wine and container."
         }
-        else if (wine == "Type")
+        else if (wine == "TYPE")
         {
             message = "Please select a wine."
         }
-        else if (container == "Container")
+        else if (container == "SIZE")
         {
             message = "Please select a container."
         }

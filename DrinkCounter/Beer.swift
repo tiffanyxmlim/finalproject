@@ -9,21 +9,20 @@
 import UIKit
 
 class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    enum PickerComponent:Int{
-        case beers = 0
-        case containers = 1
-    }
 
     @IBOutlet weak var myPicker: UIPickerView!
 
     @IBOutlet weak var drinkLabel: UILabel!
-  //  @IBOutlet weak var containerlabel: UILabel!
     
-   // @IBOutlet weak var quantitylabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+    
+    @IBOutlet weak var beerLabel: UILabel!
     
     @IBOutlet weak var ContainerView: UIImageView!
     
+    @IBAction func asdf(sender: AnyObject) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +33,8 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         myPicker.dataSource = self
         
         drinkLabel.text = ""
-        //containerlabel.text = ""
-        //quantitylabel.text = ""
+        quantityLabel.text = ""
+        beerLabel.text = ""
     }
     
     var pickerchanged: Int = 0
@@ -93,9 +92,12 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         quantitytry = beerData[2][myPicker.selectedRowInComponent(2)]
         
         
-        drinkLabel.text = beerPicked
-        //containerlabel.text = containerPicked
-        //quantitylabel.text = quantityPicked
+        if (beerPicked != "TYPE" && quantityPicked != "#" && containerPicked != "SIZE")
+        {
+            drinkLabel.text = beerPicked
+            quantityLabel.text = "x     " + quantityPicked
+            beerLabel.text = "Beer"
+        }
         
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * beerABV[myPicker.selectedRowInComponent(0)] / 14
         
@@ -131,11 +133,11 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a beer and container."
         }
-        else if (beer == "Type")
+        else if (beer == "TYPE")
         {
             message = "Please select a beer."
         }
-        else if (container == "Container")
+        else if (container == "SIZE")
         {
             message = "Please select a container."
         }
