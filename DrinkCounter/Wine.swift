@@ -11,12 +11,7 @@ import UIKit
 class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var myPicker: UIPickerView!
-    
-    @IBOutlet weak var drinkLabel: UILabel!
-    
-    @IBOutlet weak var containerLabel: UILabel!
-    
-    @IBOutlet weak var quantityLabel: UILabel!
+
     
     @IBOutlet weak var ContainerView: UIImageView!
     
@@ -27,18 +22,17 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         myPicker.delegate = self
         myPicker.dataSource = self
         
-        drinkLabel.text = ""
-        containerLabel.text = ""
-        quantityLabel.text = ""
 
     }
     var containertry = ""
     var pickerchanged: Int = 0
+    var winetry = ""
+    var quantitytry = ""
     
     let wineData = [
-        ["", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
-        ["", "Solo cup", "Wine glass"],
-        ["", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
+        ["Type", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
+        ["Container", "Solo cup", "Wine glass"],
+        ["#", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
     ]
     
     let wineABV: [Float] = [0, 0.12, 0.11, 0.115, 0.06, 0.14, 0.105, 0.2]
@@ -76,12 +70,12 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     func updateLabels()
     {
         let winePicked = wineData[0][myPicker.selectedRowInComponent(0)]
+        winetry = wineData[0][myPicker.selectedRowInComponent(0)]
         let containerPicked = wineData[1][myPicker.selectedRowInComponent(1)]
         containertry = wineData[1][myPicker.selectedRowInComponent(1)]
         let quantityPicked = wineData[2][myPicker.selectedRowInComponent(2)]
-        drinkLabel.text = winePicked
-        containerLabel.text = containerPicked
-        quantityLabel.text = quantityPicked
+        quantitytry = wineData[2][myPicker.selectedRowInComponent(2)]
+
         
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * wineABV[myPicker.selectedRowInComponent(0)] / 14
         
@@ -101,10 +95,10 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBAction func submitButtonPressed(sender: AnyObject)
     {
-        var wine: String = drinkLabel.text!
+
+        var wine: String = winetry
         var container: String = containertry
-        //ar container: String = containerLabel.text!
-        var quantity: String = quantityLabel.text!
+        var quantity: String = quantitytry
         var message = String()
         
         
@@ -112,15 +106,15 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a wine and container."
         }
-        else if (wine == "")
+        else if (wine == "Type")
         {
             message = "Please select a wine."
         }
-        else if (container == "")
+        else if (container == "Container")
         {
             message = "Please select a container."
         }
-        else if (quantity == "")
+        else if (quantity == "#")
         {
             message = "Please select a quantity."
         }

@@ -34,19 +34,22 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         myPicker.delegate = self
         myPicker.dataSource = self
         
-        drinklabel.text = ""
-        containerlabel.text = ""
-        quantitylabel.text = ""
+        //drinklabel.text = ""
+        //containerlabel.text = ""
+        //quantitylabel.text = ""
     }
     
     var pickerchanged: Int = 0
+    var containertry = ""
+    var beertry = ""
+    var quantitytry = ""
     
     let beerData = [
-        ["", "Light Beer", "Regular Beer", "IPA", "Ale", "Stout"],
+        ["Type", "Light Beer", "Regular Beer", "IPA", "Ale", "Stout"],
         
-        ["", "Solo cup", "Can", "Bottle", "Stein"],
+        ["Container", "Solo cup", "Can", "Bottle", "Stein"],
         
-        ["", "0.5", "1", "2", "3", "4", "5"]
+        ["#", "0.5", "1", "2", "3", "4", "5"]
     ]
     
     let containerVol: [Float] = [0, 16, 12, 12, 10]
@@ -84,11 +87,14 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     func updateLabels()
     {
         let beerPicked = beerData[0][myPicker.selectedRowInComponent(0)]
+        beertry = beerData[0][myPicker.selectedRowInComponent(0)]
         let containerPicked = beerData[1][myPicker.selectedRowInComponent(1)]
+        containertry = beerData[1][myPicker.selectedRowInComponent(1)]
         let quantityPicked = beerData[2][myPicker.selectedRowInComponent(2)]
-        drinklabel.text = beerPicked
-        containerlabel.text = containerPicked
-        quantitylabel.text = quantityPicked
+        quantitytry = beerData[2][myPicker.selectedRowInComponent(2)]
+        //drinklabel.text = beerPicked
+        //containerlabel.text = containerPicked
+        //quantitylabel.text = quantityPicked
         
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * beerABV[myPicker.selectedRowInComponent(0)] / 14
         
@@ -109,9 +115,14 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     @IBAction func beersubmit(sender: AnyObject) {
-        var beer: String = drinklabel.text!
-        var container: String = containerlabel.text!
-        var quantity: String = quantitylabel.text!
+        
+        var beer: String = beertry
+        var container: String = containertry
+        var quantity: String = quantitytry
+        //var beer: String = drinklabel.text!
+        
+        //var container: String = containerlabel.text!
+        //var quantity: String = quantitylabel.text!
         var message = String()
         
         
@@ -119,15 +130,15 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a wine and container."
         }
-        else if (beer == "")
+        else if (beer == "Type")
         {
             message = "Please select a wine."
         }
-        else if (container == "")
+        else if (container == "Container")
         {
             message = "Please select a container."
         }
-        else if (quantity == "")
+        else if (quantity == "#")
         {
             message = "Please select a quantity."
         }
@@ -146,7 +157,10 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             var oldCounter = defaults.floatForKey("COUNTER")
             var newCounter = oldCounter + alcoholConsumed
             defaults.setObject(newCounter, forKey: "COUNTER")
-            var haha = defaults.floatForKey("COUNTER")
+            var startTime = NSDate.timeIntervalSinceReferenceDate()
+            defaults.setObject(startTime, forKey: "STARTTIME")
+            defaults.synchronize()
+
             
             
             // Pop to root view controller ("counter" screen)

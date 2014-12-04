@@ -91,31 +91,11 @@ class Counter: UIViewController {
             
             // Calculates and displays BAC level to 4 decimal places in label
             var BAClevel = ((0.806 * counter * 1.2) / (0.453592 * genderConst * weightFloat)) - (0.017 * hours)
-            var BAClevel2 : NSString = NSString(format: "%.08f", BAClevel)
+            var BAClevel2 : NSString = NSString(format: "%.04f", BAClevel)
             labelBAC.text = "Your current BAC: \(BAClevel2)"
             
             labelDrinkCount.text = "\(Int(counter))"
         }
-        var weightFloat = weight.floatValue
-        var counter = defaults.floatForKey("COUNTER")
-        
-        
-        // Sets time label to duration of drinking session
-        var currentTime = NSDate.timeIntervalSinceReferenceDate()
-        var elapsedTime: NSTimeInterval = currentTime - startTime
-        let minutes = UInt8(elapsedTime / 60.0)
-        timeLabel.text = "\(String(minutes)) min"
-        let hours = Float(elapsedTime / 3600.0)
- 
-        
-        // Calculates and displays BAC level to 4 decimal places in label
-        // the Widmark formula
-        var BAClevel = ((0.806 * counter * 1.2) / (0.453592 * genderConst * weightFloat)) - (0.017 * hours)
-        var BAClevel2 : NSString = NSString(format: "%.04f", BAClevel)
-        labelBAC.text = "Your current BAC: \(BAClevel2)"
-        
-        labelDrinkCount.text = "\(Int(counter))"
-        
     }
 
     @IBOutlet weak var labelDrinkCount: UILabel!
