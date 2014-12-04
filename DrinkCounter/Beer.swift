@@ -49,12 +49,12 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         
         ["Container", "Solo cup", "Can", "Bottle", "Stein"],
         
-        ["#", "0.5", "1", "2", "3", "4", "5"]
+        ["#", "1", "0.5", "1", "2", "3", "4", "5"]
     ]
     
     let containerVol: [Float] = [0, 16, 12, 12, 10]
     let beerABV: [Float] = [0, 0.042, 0.06, 0.07, 0.05, 0.08]
-    let multipleFactor: [Float] = [0, 0.5, 1, 2, 3, 4, 5]
+    let multipleFactor: [Float] = [0, 1, 0.5, 1, 2, 3, 4, 5]
     var alcoholConsumed: Float = 0
     
     var beerPick = NSString()
@@ -128,11 +128,11 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         
         if (pickerchanged == 0)
         {
-            message = "Please select a wine and container."
+            message = "Please select a beer and container."
         }
         else if (beer == "Type")
         {
-            message = "Please select a wine."
+            message = "Please select a beer."
         }
         else if (container == "Container")
         {
