@@ -30,13 +30,37 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func buttonStartDrinking(sender: AnyObject) {
-    }
-    @IBAction func buttonRegisterPressed(sender: AnyObject)
+    
+    @IBAction func startButton(sender: AnyObject)
     {
-
+        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        if defaults.objectForKey("NAME") == nil
+        {
+            // Alert if user did not enter their name
+            var alertView: UIAlertView = UIAlertView()
+            alertView.title = "Oops! There's no existing user in our system."
+            alertView.message = "Please register before beginning to drink."
+            alertView.delegate = self
+            alertView.addButtonWithTitle("OK")
+            alertView.show()
+        }
+        else
+        {
+            // Segue to navigation controller-- counter screen
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("navControl") as UIViewController
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+        
     }
     
-    
+    @IBAction func registerPressed(sender: AnyObject)
+    {
+        // Segue to Registration Screen
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("register") as UIViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+
 }
 
