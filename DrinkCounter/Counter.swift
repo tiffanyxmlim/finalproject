@@ -16,6 +16,8 @@ class Counter: UIViewController {
         var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
         var drinkCount = defaults.floatForKey("COUNTER")
         labelDrinkCount.text = "\(Int(drinkCount))"
+        defaults.setFloat(0, forKey: "STARTTIME")
+        defaults.synchronize()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,16 +63,38 @@ class Counter: UIViewController {
         
         // Grabs weight, gender, and drink count from user defaults
         var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        var weight = defaults.objectForKey("WEIGHT") as NSString
-        var gender = defaults.objectForKey("GENDER") as NSString
-        var genderConst = Float()
-        if gender == "Female"
+        
+        if (defaults.floatForKey("STARTTIME") != 0)
         {
-            genderConst = 0.49
-        }
-        else
-        {
-            genderConst = 0.58
+            var weight = defaults.objectForKey("WEIGHT") as NSString
+            var gender = defaults.objectForKey("GENDER") as NSString
+            var genderConst = Float()
+            if gender == "Female"
+            {
+                genderConst = 0.49
+            }
+            else
+            {
+                genderConst = 0.58
+            }
+            var weightFloat = weight.floatValue
+            var counter = defaults.floatForKey("COUNTER")
+            
+            var startTime2 = defaults.objectForKey("STARTTIME") as NSTimeInterval
+            // Sets time label to duration of drinking session
+            var currentTime = NSDate.timeIntervalSinceReferenceDate()
+            var elapsedTime: NSTimeInterval = currentTime - startTime2
+            let minutes = UInt8(elapsedTime / 60.0)
+            timeLabel.text = "\(String(minutes)) min"
+            let hours = Float(elapsedTime / 3600.0)
+            
+            
+            // Calculates and displays BAC level to 4 decimal places in label
+            var BAClevel = ((0.806 * counter * 1.2) / (0.453592 * genderConst * weightFloat)) - (0.017 * hours)
+            var BAClevel2 : NSString = NSString(format: "%.08f", BAClevel)
+            labelBAC.text = "Your current BAC: \(BAClevel2)"
+            
+            labelDrinkCount.text = "\(Int(counter))"
         }
         var weightFloat = weight.floatValue
         var counter = defaults.floatForKey("COUNTER")
@@ -132,6 +156,14 @@ class Counter: UIViewController {
     
     
     
+    @IBAction func customButtonPressed(sender: AnyObject)
+    {
+        if (!timer.valid) {
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
+        }
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("alcohol") as Alcohol
+        self.navigationController?.pushViewController(next, animated: true)
+    }
     
     
     
