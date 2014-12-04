@@ -21,6 +21,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var containerLabel: UILabel!
     
+    @IBOutlet weak var quantityLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +35,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     let wineData = [
         ["", "Standard Wine", "Light White Wine", "Champagne", "High ABV Wine", "Dessert Wine"],
-        ["", "Solo cup", "Wine glass", "Shot glass", "Beer Bottle", "Martini glass", "Stein", "Dixie cup"]
+        ["", "Solo cup", "Wine glass", "Shot glass", "Beer Bottle", "Martini glass", "Stein", "Dixie cup"],
+        ["", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
     ]
     
     var winePick = NSString()
@@ -58,8 +61,10 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     {
         let winePicked = wineData[0][myPicker.selectedRowInComponent(0)]
         let containerPicked = wineData[1][myPicker.selectedRowInComponent(1)]
+        let quantityPicked = wineData[2][myPicker.selectedRowInComponent(2)]
         drinkLabel.text = "Drink: " + winePicked
         containerLabel.text = "Container: " + containerPicked
+        quantityLabel.text = "Quantity: " + quantityPicked
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
@@ -72,6 +77,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     {
         var wine: String = drinkLabel.text!
         var container: String = containerLabel.text!
+        var quantity: String = quantityLabel.text!
         
         if (pickerchanged == 0)
         {
@@ -103,6 +109,16 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             alertView.addButtonWithTitle("OK")
             alertView.show()
         }
+        else if (quantity == "Quantity: ")
+        {
+            // Alert if user did not select a quantity
+            var alertView: UIAlertView = UIAlertView()
+            alertView.title = "You goofed"
+            alertView.message = "Please select a quantity."
+            alertView.delegate = self
+            alertView.addButtonWithTitle("OK")
+            alertView.show()
+        }
         else
         {
             // Alert user that they have submitted a drink
@@ -113,10 +129,9 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             success.addButtonWithTitle("OK")
             success.show()
             
-            // Segue to Counter Screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("counter") as UIViewController
-            self.presentViewController(vc, animated: true, completion: nil)
+            // Pop to root view controller ("counter" screen)
+            self.navigationController!.popToRootViewControllerAnimated(true)
+            
         }
 
     }

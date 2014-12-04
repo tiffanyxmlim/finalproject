@@ -12,9 +12,10 @@ class Counter: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Set label for drink count when screen loads, as an integer
         var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        labelDrinkCount.text = NSString(format: "%.01f", defaults.floatForKey("COUNTER"))
+        var drinkCount = defaults.floatForKey("COUNTER")
+        labelDrinkCount.text = "\(Int(drinkCount))"
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,13 +58,7 @@ class Counter: UIViewController {
     
     // Continuously updates in background after "Add 1 Drink" is pressed for first time
     func update() {
-        
-        // Sets time label to duration of drinking session
-        var currentTime = NSDate.timeIntervalSinceReferenceDate()
-        var elapsedTime: NSTimeInterval = currentTime - startTime
-        let minutes = UInt8(elapsedTime / 60.0)
-        timeLabel.text = "\(String(minutes)) min"
-        let hours = Float(elapsedTime / 3600.0)
+
         
         // Grabs weight, gender, and drink count from user defaults
         var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -81,10 +76,20 @@ class Counter: UIViewController {
         var weightFloat = weight.floatValue
         var counter = defaults.floatForKey("COUNTER")
         
+        
+        // Sets time label to duration of drinking session
+        var currentTime = NSDate.timeIntervalSinceReferenceDate()
+        var elapsedTime: NSTimeInterval = currentTime - startTime
+        let minutes = UInt8(elapsedTime / 60.0)
+        timeLabel.text = "\(String(minutes)) min"
+        let hours = Float(elapsedTime / 3600.0)
+ 
+        
         // Calculates and displays BAC level to 4 decimal places in label
         var BAClevel = ((0.806 * counter * 1.2) / (0.453592 * genderConst * weightFloat)) - (0.017 * hours)
         var BAClevel2 : NSString = NSString(format: "%.04f", BAClevel)
         labelBAC.text = "Your current BAC: \(BAClevel2)"
+        
     }
     
 
@@ -106,19 +111,22 @@ class Counter: UIViewController {
             var oldCounter = defaults.floatForKey("COUNTER")
             var newCounter = oldCounter + 1
             defaults.setObject(newCounter, forKey: "COUNTER")
-            defaults.synchronize()
             
             // Display integer version of counter
             self.labelDrinkCount.text = "\(Int(newCounter))"
+            
+            // If timer is not running yet, start timer and update (see function above)
+            if (!self.timer.valid) {
+              //  let aSelector : Selector = "update"
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
+                self.startTime = NSDate.timeIntervalSinceReferenceDate()
+                defaults.setObject(self.startTime, forKey: "STARTTIME")
+            }
+            defaults.synchronize()
         }))
         self.presentViewController(alert, animated: true, completion: nil)
         
-        // If timer is running, update (see function above)
-        if (!timer.valid) {
-            let aSelector : Selector = "update"
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: aSelector, userInfo: nil, repeats: true)
-            startTime = NSDate.timeIntervalSinceReferenceDate()
-        }
+
 
     }
     
