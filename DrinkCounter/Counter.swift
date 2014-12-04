@@ -89,6 +89,8 @@ class Counter: UIViewController {
         var BAClevel2 : NSString = NSString(format: "%.04f", BAClevel)
         labelBAC.text = "Your current BAC: \(BAClevel2)"
         
+        labelDrinkCount.text = "\(Int(counter))"
+        
     }
     
 
