@@ -9,11 +9,6 @@
 import UIKit
 
 class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
-
-    enum PickerComponent:Int{
-        case wines = 0
-        case containers = 1
-    }
     
     @IBOutlet weak var myPicker: UIPickerView!
     
@@ -39,9 +34,14 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     let wineData = [
         ["", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
-        ["", "Solo cup", "Wine glass", "Shot glass", "Bottle", "Martini", "Stein", "Can"],
+        ["", "Solo cup", "Wine glass", "Shot glass", "Bottle", "Cocktail", "Stein", "Can"],
         ["", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
     ]
+    
+    let wineABV: [Float] = [0, 0.12, 0.11, 0.115, 0.06, 0.14, 0.105, 0.2]
+    let containerVol: [Float] = [0, 16, 9, 1.5, 12, 8.8, 10, 12]
+    let multipleFactor: [Float] = [0, 0.25, 0.5, 0.75, 1, 2, 3, 4, 5]
+    var alcoholConsumed: Float = 0
     
     var winePick = NSString()
     var containerPick = NSString()
@@ -78,6 +78,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         drinkLabel.text = winePicked
         containerLabel.text = containerPicked
         quantityLabel.text = quantityPicked
+        // 28.3495231 grams in an ounce
+        alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * wineABV[myPicker.selectedRowInComponent(0)] / 14
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
@@ -119,6 +121,14 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             alertView.delegate = self
             alertView.addButtonWithTitle("OK")
             alertView.show()
+            
+            // Add alcoholConsumed (number of Standard Drinks) to counter, and synchronize with NSUserDefaults
+            var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+            var oldCounter = defaults.floatForKey("COUNTER")
+            var newCounter = oldCounter + alcoholConsumed
+            defaults.setObject(newCounter, forKey: "COUNTER")
+            var haha = defaults.floatForKey("COUNTER")
+            
             // Pop to root view controller ("counter" screen)
             self.navigationController!.popToRootViewControllerAnimated(true)
         }
@@ -134,10 +144,6 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         }
 
     }
-    
-    
-    
-    
     
     
     override func didReceiveMemoryWarning() {
