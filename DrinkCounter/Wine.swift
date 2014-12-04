@@ -41,7 +41,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     ]
     
     let wineABV: [Float] = [0, 0.12, 0.11, 0.115, 0.06, 0.14, 0.105, 0.2]
-    let containerVol: [Float] = [0, 16, 9, 1.5, 12, 8.8, 10, 12]
+    let containerVol: [Float] = [0, 16, 9]
     let multipleFactor: [Float] = [0, 0.25, 0.5, 0.75, 1, 2, 3, 4, 5]
     var alcoholConsumed: Float = 0
     
@@ -81,11 +81,14 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         containerLabel.text = containerPicked
         quantityLabel.text = quantityPicked
         
+        alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * wineABV[myPicker.selectedRowInComponent(0)] / 14
+        
         switch containerPicked{
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.jpg")
         case "Wine glass": return ContainerView.image = UIImage(named: "wineglass.jpg")
         default: return
         }
+
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
