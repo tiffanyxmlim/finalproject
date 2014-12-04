@@ -34,8 +34,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     var pickerchanged: Int = 0
     
     let wineData = [
-        ["", "Standard Wine", "Light White Wine", "Champagne", "High ABV Wine", "Dessert Wine"],
-        ["", "Solo cup", "Wine glass", "Shot glass", "Beer Bottle", "Martini glass", "Stein", "Dixie cup"],
+        ["", "Standard", "Light White", "Champagne", "High ABV", "Dessert"],
+        ["", "Solo cup", "Wine glass", "Shot glass", "Beer Bottle", "Martini glass", "Stein", "Can"],
         ["", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
     ]
     
@@ -55,6 +55,15 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView!, titleForRow row:Int, forComponent component: Int) -> String!
     {
        return wineData[component][row]
+    }
+    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat
+    {
+        switch component{
+        case 0: return 140
+        case 1: return 140
+        case 2: return 60
+        default: return 22
+        }
     }
     
     func updateLabels()
@@ -131,7 +140,6 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             
             // Pop to root view controller ("counter" screen)
             self.navigationController!.popToRootViewControllerAnimated(true)
-            
         }
 
     }

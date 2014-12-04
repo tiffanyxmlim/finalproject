@@ -58,7 +58,6 @@ class Counter: UIViewController {
     
     // Continuously updates in background after "Add 1 Drink" is pressed for first time
     func update() {
-
         
         // Grabs weight, gender, and drink count from user defaults
         var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -117,7 +116,6 @@ class Counter: UIViewController {
             
             // If timer is not running yet, start timer and update (see function above)
             if (!self.timer.valid) {
-              //  let aSelector : Selector = "update"
                 self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
                 self.startTime = NSDate.timeIntervalSinceReferenceDate()
                 defaults.setObject(self.startTime, forKey: "STARTTIME")
