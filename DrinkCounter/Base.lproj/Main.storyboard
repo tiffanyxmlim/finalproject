@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2896.5" y="316"/>
+            <point key="canvasLocation" x="843" y="1058"/>
         </scene>
         <!--Counter-->
         <scene sceneID="wXA-VK-dyt">
@@ -436,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76D-Dq-w3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3586" y="1059"/>
+            <point key="canvasLocation" x="2344.5" y="327"/>
         </scene>
         <!--Alcohol-->
         <scene sceneID="EmZ-Cs-Nnz">
@@ -493,7 +493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axh-TD-qTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4207.5" y="689"/>
+            <point key="canvasLocation" x="3088.5" y="311"/>
         </scene>
         <!--Beer-->
         <scene sceneID="sjQ-vj-O1T">
@@ -603,7 +603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZn-xJ-uqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5307" y="162"/>
+            <point key="canvasLocation" x="2137.5" y="1058"/>
         </scene>
         <!--Wine-->
         <scene sceneID="IWD-xa-txm">
@@ -727,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvx-Ef-qk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4804.5" y="162"/>
+            <point key="canvasLocation" x="1501.5" y="1058"/>
         </scene>
         <!--register-->
         <scene sceneID="GIe-Hd-A8e">
@@ -876,7 +876,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IsC-3L-Wpl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="G5I-fQ-2vJ"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="1037"/>
+            <point key="canvasLocation" x="843" y="321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="07b-Ld-BU1">
@@ -894,7 +894,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IjG-16-uE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2836.5" y="1065"/>
+            <point key="canvasLocation" x="1549.5" y="327"/>
         </scene>
     </scenes>
 </document>
