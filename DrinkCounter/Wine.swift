@@ -29,13 +29,17 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         // Do any additional setup after loading the view.
         myPicker.delegate = self
         myPicker.dataSource = self
+        
+        drinkLabel.text = ""
+        containerLabel.text = ""
+        quantityLabel.text = ""
     }
     
     var pickerchanged: Int = 0
     
     let wineData = [
         ["", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
-        ["", "Solo cup", "Wine glass", "Shot glass", "Beer Bottle", "Martini", "Stein", "Can"],
+        ["", "Solo cup", "Wine glass", "Shot glass", "Bottle", "Martini", "Stein", "Can"],
         ["", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
     ]
     
@@ -59,8 +63,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat
     {
         switch component{
-        case 0: return 130
-        case 1: return 140
+        case 0: return 110
+        case 1: return 130
         case 2: return 60
         default: return 22
         }
@@ -71,9 +75,9 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         let winePicked = wineData[0][myPicker.selectedRowInComponent(0)]
         let containerPicked = wineData[1][myPicker.selectedRowInComponent(1)]
         let quantityPicked = wineData[2][myPicker.selectedRowInComponent(2)]
-        drinkLabel.text = "Drink: " + winePicked
-        containerLabel.text = "Container: " + containerPicked
-        quantityLabel.text = "Quantity: " + quantityPicked
+        drinkLabel.text = winePicked
+        containerLabel.text = containerPicked
+        quantityLabel.text = quantityPicked
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
@@ -98,7 +102,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             alertView.addButtonWithTitle("OK")
             alertView.show()
         }
-        else if (wine == "Drink: ")
+        else if (wine == "")
         {
             // Alert if user did not select a type of wine
             var alertView: UIAlertView = UIAlertView()
@@ -108,7 +112,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             alertView.addButtonWithTitle("OK")
             alertView.show()
         }
-        else if (container == "Container: ")
+        else if (container == "")
         {
             // Alert if user did not select a container
             var alertView: UIAlertView = UIAlertView()
@@ -118,7 +122,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             alertView.addButtonWithTitle("OK")
             alertView.show()
         }
-        else if (quantity == "Quantity: ")
+        else if (quantity == "")
         {
             // Alert if user did not select a quantity
             var alertView: UIAlertView = UIAlertView()
