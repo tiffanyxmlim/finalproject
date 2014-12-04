@@ -203,7 +203,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="hhb-JQ-OHD" kind="show" id="mrK-Ue-qhV"/>
+                                    <action selector="customButtonPressed:" destination="T9v-qN-VtX" eventType="touchUpInside" id="aHq-Yr-Gz3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current BAC: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfG-dE-9Re">
@@ -447,13 +447,13 @@
         <!--Beer-->
         <scene sceneID="sjQ-vj-O1T">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GZn-xJ-uqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Beer" id="eWK-U3-Hj3" customClass="Beer" customModule="DrinkCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="REy-er-ysq"/>
                         <viewControllerLayoutGuide type="bottom" id="x4C-sc-yaC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tmi-7a-C1g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ziU-Sm-KPk">
@@ -576,6 +576,7 @@
                         <outlet property="quantitylabel" destination="f5Q-Ss-4Nf" id="L1a-yZ-Ckg"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZn-xJ-uqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5307" y="162"/>
         </scene>
@@ -761,33 +762,33 @@
                                 <exclude reference="vyn-vj-v0v"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="1ay-rX-bio"/>
-                                <exclude reference="Ljf-n7-oxK"/>
-                                <exclude reference="0UP-PP-juQ"/>
-                                <exclude reference="1Mg-Y2-XFd"/>
-                                <exclude reference="gLB-uz-b3i"/>
+                                <exclude reference="gC5-pp-NHK"/>
+                                <exclude reference="voy-gD-EGz"/>
+                                <exclude reference="fVE-CX-FFP"/>
+                                <exclude reference="u2j-lO-VcS"/>
+                                <exclude reference="ziP-7b-LCK"/>
+                                <exclude reference="HmI-2h-MQi"/>
+                                <exclude reference="Mzx-zL-fxC"/>
+                                <exclude reference="QF7-bi-Rch"/>
+                                <exclude reference="l3Y-Vn-VFM"/>
                                 <exclude reference="1cc-fp-1db"/>
                                 <exclude reference="AuO-kZ-25v"/>
                                 <exclude reference="nZe-sa-IEO"/>
                                 <exclude reference="CX4-D0-Qui"/>
                                 <exclude reference="P3e-tK-tRE"/>
                                 <exclude reference="pko-wk-bfC"/>
-                                <exclude reference="HmI-2h-MQi"/>
-                                <exclude reference="Mzx-zL-fxC"/>
-                                <exclude reference="QF7-bi-Rch"/>
-                                <exclude reference="l3Y-Vn-VFM"/>
-                                <exclude reference="gC5-pp-NHK"/>
-                                <exclude reference="voy-gD-EGz"/>
-                                <exclude reference="fVE-CX-FFP"/>
-                                <exclude reference="u2j-lO-VcS"/>
-                                <exclude reference="ziP-7b-LCK"/>
+                                <exclude reference="80n-nB-lUJ"/>
+                                <exclude reference="1ay-rX-bio"/>
+                                <exclude reference="Ljf-n7-oxK"/>
+                                <exclude reference="0UP-PP-juQ"/>
+                                <exclude reference="1Mg-Y2-XFd"/>
+                                <exclude reference="gLB-uz-b3i"/>
+                                <exclude reference="8qr-PZ-vZv"/>
+                                <exclude reference="Ha7-kW-gTM"/>
                                 <exclude reference="4gn-Ih-mec"/>
                                 <exclude reference="B4P-Wr-elB"/>
                                 <exclude reference="PrG-lg-VNo"/>
                                 <exclude reference="j9e-w7-8gx"/>
-                                <exclude reference="8qr-PZ-vZv"/>
-                                <exclude reference="Ha7-kW-gTM"/>
-                                <exclude reference="80n-nB-lUJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -803,33 +804,33 @@
                                 <include reference="vyn-vj-v0v"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="1ay-rX-bio"/>
-                                <include reference="Ljf-n7-oxK"/>
-                                <include reference="0UP-PP-juQ"/>
-                                <include reference="1Mg-Y2-XFd"/>
-                                <include reference="gLB-uz-b3i"/>
+                                <include reference="gC5-pp-NHK"/>
+                                <include reference="voy-gD-EGz"/>
+                                <include reference="fVE-CX-FFP"/>
+                                <include reference="u2j-lO-VcS"/>
+                                <include reference="ziP-7b-LCK"/>
+                                <include reference="HmI-2h-MQi"/>
+                                <include reference="Mzx-zL-fxC"/>
+                                <include reference="QF7-bi-Rch"/>
+                                <include reference="l3Y-Vn-VFM"/>
                                 <include reference="1cc-fp-1db"/>
                                 <include reference="AuO-kZ-25v"/>
                                 <include reference="nZe-sa-IEO"/>
                                 <include reference="CX4-D0-Qui"/>
                                 <include reference="P3e-tK-tRE"/>
                                 <include reference="pko-wk-bfC"/>
-                                <include reference="HmI-2h-MQi"/>
-                                <include reference="Mzx-zL-fxC"/>
-                                <include reference="QF7-bi-Rch"/>
-                                <include reference="l3Y-Vn-VFM"/>
-                                <include reference="gC5-pp-NHK"/>
-                                <include reference="voy-gD-EGz"/>
-                                <include reference="fVE-CX-FFP"/>
-                                <include reference="u2j-lO-VcS"/>
-                                <include reference="ziP-7b-LCK"/>
+                                <include reference="80n-nB-lUJ"/>
+                                <include reference="1ay-rX-bio"/>
+                                <include reference="Ljf-n7-oxK"/>
+                                <include reference="0UP-PP-juQ"/>
+                                <include reference="1Mg-Y2-XFd"/>
+                                <include reference="gLB-uz-b3i"/>
+                                <include reference="8qr-PZ-vZv"/>
+                                <include reference="Ha7-kW-gTM"/>
                                 <include reference="4gn-Ih-mec"/>
                                 <include reference="B4P-Wr-elB"/>
                                 <include reference="PrG-lg-VNo"/>
                                 <include reference="j9e-w7-8gx"/>
-                                <include reference="8qr-PZ-vZv"/>
-                                <include reference="Ha7-kW-gTM"/>
-                                <include reference="80n-nB-lUJ"/>
                             </mask>
                         </variation>
                     </view>
