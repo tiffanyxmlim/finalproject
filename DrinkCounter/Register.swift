@@ -18,8 +18,6 @@ class Register: UIViewController, UIPickerViewDelegate {
     
     var gender = ["", "Female", "Male"]
     
-    var oldDefault: NSString = NSUserDefaults.standardUserDefaults().objectForKey("GENDER") as NSString
-    
     // Indicator variable that user changed picker value
     var pickerchanged: Int = 0
     
@@ -102,6 +100,7 @@ class Register: UIViewController, UIPickerViewDelegate {
             // Set NSUserDefaults for Name and Weight
             defaults.setObject(name, forKey: "NAME")
             defaults.setObject(weight, forKey: "WEIGHT")
+            defaults.setFloat(0, forKey: "COUNTER")
             defaults.synchronize()
             
             // Alert user that they have completed registration

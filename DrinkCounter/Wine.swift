@@ -34,8 +34,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     var pickerchanged: Int = 0
     
     let wineData = [
-        ["", "Standard", "Light White", "Champagne", "High ABV", "Dessert"],
-        ["", "Solo cup", "Wine glass", "Shot glass", "Beer Bottle", "Martini glass", "Stein", "Can"],
+        ["", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
+        ["", "Solo cup", "Wine glass", "Shot glass", "Beer Bottle", "Martini", "Stein", "Can"],
         ["", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
     ]
     
@@ -59,7 +59,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat
     {
         switch component{
-        case 0: return 140
+        case 0: return 130
         case 1: return 140
         case 2: return 60
         default: return 22
