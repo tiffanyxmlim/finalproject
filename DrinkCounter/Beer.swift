@@ -9,11 +9,6 @@
 import UIKit
 
 class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    enum PickerComponent:Int{
-        case beers = 0
-        case containers = 1
-    }
 
     @IBOutlet weak var myPicker: UIPickerView!
 
@@ -25,6 +20,9 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var ContainerView: UIImageView!
     
+    @IBAction func asdf(sender: AnyObject) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,7 +98,6 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             quantityLabel.text = "x     " + quantityPicked
             beerLabel.text = "Beer"
         }
-        //containerlabel.text = containerPicked
         
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * beerABV[myPicker.selectedRowInComponent(0)] / 14
         
@@ -136,11 +133,11 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a beer and container."
         }
-        else if (beer == "Type")
+        else if (beer == "TYPE")
         {
             message = "Please select a beer."
         }
-        else if (container == "Container")
+        else if (container == "SIZE")
         {
             message = "Please select a container."
         }

@@ -10,16 +10,15 @@ import UIKit
 
 class Liquor:
     UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
-
-    enum PickerComponent:Int{
-        case beers = 0
-        case containers = 1
-    }
-    
     
     @IBOutlet weak var myPicker: UIPickerView!
     
     @IBOutlet weak var ContainerView: UIImageView!
+    
+    @IBOutlet weak var drinkLabel: UILabel!
+
+    @IBOutlet weak var quantityLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +26,9 @@ class Liquor:
         // Do any additional setup after loading the view.
         myPicker.delegate = self
         myPicker.dataSource = self
+        
+        drinkLabel.text = ""
+        quantityLabel.text = ""
     }
     
     
@@ -84,6 +86,15 @@ class Liquor:
         let quantityPicked = liquorData[2][myPicker.selectedRowInComponent(2)]
         quantitytry = liquorData[2][myPicker.selectedRowInComponent(2)]
         
+        
+        if (liquorPicked != "TYPE" && quantityPicked != "#" && containerPicked != "SIZE")
+        {
+            drinkLabel.text = liquorPicked
+            quantityLabel.text = "x     " + quantityPicked
+        }
+
+        
+        
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * liquorABV[myPicker.selectedRowInComponent(0)] / 14
         
         switch containerPicked{
@@ -112,11 +123,11 @@ class Liquor:
         {
             message = "Please select a liquor and container."
         }
-        else if (liquor == "Type")
+        else if (liquor == "TYPE")
         {
             message = "Please select a liquor."
         }
-        else if (container == "Container")
+        else if (container == "SIZE")
         {
             message = "Please select a container."
         }
