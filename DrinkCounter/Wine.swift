@@ -133,9 +133,13 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             var oldCounter = defaults.floatForKey("COUNTER")
             var newCounter = oldCounter + alcoholConsumed
             defaults.setObject(newCounter, forKey: "COUNTER")
-            var startTime = NSDate.timeIntervalSinceReferenceDate()
-            defaults.setObject(startTime, forKey: "STARTTIME")
-            defaults.synchronize()
+            if (defaults.floatForKey("STARTTIME") == 0)
+            {
+               var startTime = NSDate.timeIntervalSinceReferenceDate()
+                defaults.setObject(startTime, forKey: "STARTTIME")
+                defaults.synchronize()
+            }
+            
             
             // Pop to root view controller ("counter" screen)
             self.navigationController!.popToRootViewControllerAnimated(true)

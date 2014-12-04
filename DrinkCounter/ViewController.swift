@@ -21,7 +21,8 @@ class ViewController: UIViewController {
         if (labelName.text != nil && defaults.objectForKey("NAME") != nil){
             labelName.text = defaults.objectForKey("NAME") as NSString
         }
-        
+        defaults.setFloat(0, forKey: "STARTTIME")
+        defaults.synchronize()
     }
     
     override func didReceiveMemoryWarning() {

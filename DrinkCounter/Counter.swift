@@ -16,8 +16,6 @@ class Counter: UIViewController {
         var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
         var drinkCount = defaults.floatForKey("COUNTER")
         labelDrinkCount.text = "\(Int(drinkCount))"
-        defaults.setFloat(0, forKey: "STARTTIME")
-        defaults.synchronize()
     }
 
     override func didReceiveMemoryWarning() {

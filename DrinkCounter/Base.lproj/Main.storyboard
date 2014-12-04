@@ -565,8 +565,7 @@
                                         <exclude reference="WTT-4O-P1E"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="56" y="199" width="209" height="326"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="WTT-4O-P1E"/>
                                     </mask>
@@ -590,13 +589,13 @@
                                 <exclude reference="vyn-vj-v0v"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="T4J-ES-sp8"/>
                                 <exclude reference="CfH-UZ-rLl"/>
                                 <exclude reference="X0X-XD-jRW"/>
                                 <exclude reference="Xh0-54-whM"/>
+                                <exclude reference="c4i-en-bLV"/>
                                 <exclude reference="6tW-Fa-0FO"/>
                                 <exclude reference="YAn-2t-6AY"/>
-                                <exclude reference="c4i-en-bLV"/>
-                                <exclude reference="T4J-ES-sp8"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -606,13 +605,13 @@
                                 <include reference="vyn-vj-v0v"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="T4J-ES-sp8"/>
                                 <include reference="CfH-UZ-rLl"/>
                                 <include reference="X0X-XD-jRW"/>
                                 <include reference="Xh0-54-whM"/>
+                                <include reference="c4i-en-bLV"/>
                                 <include reference="6tW-Fa-0FO"/>
                                 <include reference="YAn-2t-6AY"/>
-                                <include reference="c4i-en-bLV"/>
-                                <include reference="T4J-ES-sp8"/>
                             </mask>
                         </variation>
                     </view>
