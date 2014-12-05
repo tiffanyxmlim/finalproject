@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var labelName: UILabel! = nil
     
+    @IBOutlet weak var Start: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,6 +31,11 @@ class ViewController: UIViewController {
         registerButton.layer.cornerRadius = 5
         registerButton.layer.borderWidth = 1
         registerButton.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        Start.backgroundColor = UIColor.clearColor()
+        Start.layer.cornerRadius = 5
+        Start.layer.borderWidth = 1
+        Start.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     override func didReceiveMemoryWarning() {
