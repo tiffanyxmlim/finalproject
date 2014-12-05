@@ -84,11 +84,27 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwl-Cd-3g0">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Bwl-Cd-3g0" secondAttribute="height" multiplier="243:52" id="Q20-is-i5m"/>
+                                    <constraint firstAttribute="width" secondItem="Bwl-Cd-3g0" secondAttribute="height" multiplier="37:8" id="SYu-ji-cXQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="30"/>
-                                <state key="normal" title="Start Drinking!">
+                                <state key="normal" title=" Start Drinking! ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Q20-is-i5m"/>
+                                        <exclude reference="SYu-ji-cXQ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Q20-is-i5m"/>
+                                        <include reference="SYu-ji-cXQ"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="startButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xiJ-Ih-fep"/>
                                 </connections>
@@ -99,16 +115,24 @@
                             <constraint firstItem="aT8-59-AZA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="73" id="6XF-1r-5R6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Xea-L3-529" secondAttribute="trailing" constant="31" id="89E-kt-45R"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Xea-L3-529" secondAttribute="bottom" constant="235" id="AaW-aO-vpj"/>
-                            <constraint firstItem="Bwl-Cd-3g0" firstAttribute="centerX" secondItem="nlX-I9-1Am" secondAttribute="centerX" id="ELk-oz-3V7"/>
-                            <constraint firstItem="Bwl-Cd-3g0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="45" id="J8B-Sc-klX"/>
+                            <constraint firstItem="Bwl-Cd-3g0" firstAttribute="centerX" secondItem="nlX-I9-1Am" secondAttribute="centerX" id="ELk-oz-3V7">
+                                <variation key="widthClass=compact" constant="-7.5"/>
+                            </constraint>
+                            <constraint firstItem="Bwl-Cd-3g0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="45" id="J8B-Sc-klX">
+                                <variation key="widthClass=compact" constant="22"/>
+                            </constraint>
                             <constraint firstItem="nlX-I9-1Am" firstAttribute="centerX" secondItem="aT8-59-AZA" secondAttribute="centerX" id="KsB-Vk-WYz"/>
                             <constraint firstItem="nlX-I9-1Am" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="56" id="Nw4-9r-srF"/>
                             <constraint firstItem="Xea-L3-529" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="30" id="ZgE-Jz-myy"/>
                             <constraint firstItem="nlX-I9-1Am" firstAttribute="top" secondItem="aT8-59-AZA" secondAttribute="bottom" constant="14" id="gfJ-JZ-b5I"/>
-                            <constraint firstItem="Xea-L3-529" firstAttribute="top" secondItem="Bwl-Cd-3g0" secondAttribute="bottom" constant="28" id="hr7-rg-zso"/>
+                            <constraint firstItem="Xea-L3-529" firstAttribute="top" secondItem="Bwl-Cd-3g0" secondAttribute="bottom" constant="28" id="hr7-rg-zso">
+                                <variation key="widthClass=compact" constant="25.5"/>
+                            </constraint>
                             <constraint firstItem="Bwl-Cd-3g0" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="hxR-tI-40z"/>
                             <constraint firstItem="aT8-59-AZA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="98" id="opy-Xu-fL6"/>
-                            <constraint firstItem="Bwl-Cd-3g0" firstAttribute="top" secondItem="nlX-I9-1Am" secondAttribute="bottom" constant="26" id="ypC-Bo-IIX"/>
+                            <constraint firstItem="Bwl-Cd-3g0" firstAttribute="top" secondItem="nlX-I9-1Am" secondAttribute="bottom" constant="26" id="ypC-Bo-IIX">
+                                <variation key="widthClass=compact" constant="24"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -169,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="334"/>
+            <point key="canvasLocation" x="255" y="336.75"/>
         </scene>
         <!--Counter-->
         <scene sceneID="wXA-VK-dyt">
