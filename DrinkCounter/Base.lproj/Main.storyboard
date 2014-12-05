@@ -158,6 +158,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="5mc-yr-Aas"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="labelName" destination="nlX-I9-1Am" id="bgB-zf-TzV"/>
@@ -506,6 +507,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Pbt-JX-473"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="add1Button" destination="m1C-CV-db5" id="v7V-Rv-Sfg"/>
                         <outlet property="addCustomButton" destination="Qpy-sk-D4k" id="MOS-p5-ess"/>
@@ -546,7 +548,8 @@
                                         <exclude reference="utx-pQ-rNf"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="43" y="109" width="65" height="30"/>
                                     <mask key="constraints">
                                         <include reference="utx-pQ-rNf"/>
                                     </mask>
@@ -570,7 +573,8 @@
                                         <exclude reference="DQc-Vd-15d"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="204" y="102" width="57" height="37"/>
                                     <mask key="constraints">
                                         <include reference="DQc-Vd-15d"/>
                                     </mask>
@@ -584,6 +588,9 @@
                                 <state key="normal" image="wineicon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="14" y="155" width="123" height="125"/>
+                                </variation>
                                 <connections>
                                     <segue destination="UTn-vb-2m9" kind="show" id="EX0-v3-CLp"/>
                                 </connections>
@@ -593,6 +600,9 @@
                                 <state key="normal" image="beericon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="161" y="147" width="135" height="133"/>
+                                </variation>
                                 <connections>
                                     <segue destination="eWK-U3-Hj3" kind="show" id="5tj-Rw-Max"/>
                                 </connections>
@@ -821,6 +831,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axh-TD-qTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -925,9 +936,6 @@
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUz-M3-Xd6">
                                 <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="162"/>
-                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="aGM-Dr-t3a" id="BZL-fe-HmE"/>
                                 </connections>
@@ -1001,6 +1009,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ContainerView" destination="964-0R-vMD" id="vyk-E2-0eQ"/>
@@ -1370,6 +1379,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="Submit" destination="QWB-QN-KWQ" id="Lrq-vl-zYa"/>
@@ -1467,8 +1477,7 @@
                                         <exclude reference="53n-9O-aOT"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="195" y="308" width="115" height="58"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="2Cx-oN-lPG"/>
                                         <include reference="53n-9O-aOT"/>
@@ -1490,8 +1499,7 @@
                                         <exclude reference="cze-Yd-QYb"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="108" y="514" width="104" height="34"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="cze-Yd-QYb"/>
                                     </mask>
@@ -1510,8 +1518,7 @@
                                         <exclude reference="C8w-9a-qJM"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="-3" y="64" width="323" height="158"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="C8w-9a-qJM"/>
                                     </mask>
@@ -1559,11 +1566,6 @@
                                 <exclude reference="ziU-Sm-KPk"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="E7d-Iq-c1g"/>
-                                <exclude reference="QXu-yU-5Yx"/>
-                                <exclude reference="hct-yn-LI8"/>
-                                <exclude reference="YOY-6E-N1l"/>
-                                <exclude reference="ZYc-Er-l8U"/>
                                 <exclude reference="76l-AC-IMe"/>
                                 <exclude reference="Szd-F8-OYN"/>
                                 <exclude reference="Xan-BD-C3G"/>
@@ -1573,9 +1575,14 @@
                                 <exclude reference="XOW-bu-2UL"/>
                                 <exclude reference="t0G-nF-tnS"/>
                                 <exclude reference="upB-zY-zub"/>
+                                <exclude reference="E7d-Iq-c1g"/>
+                                <exclude reference="QXu-yU-5Yx"/>
+                                <exclude reference="hct-yn-LI8"/>
                                 <exclude reference="eun-cp-lfO"/>
                                 <exclude reference="kMN-9R-8Gd"/>
                                 <exclude reference="zIi-KR-rtM"/>
+                                <exclude reference="YOY-6E-N1l"/>
+                                <exclude reference="ZYc-Er-l8U"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1588,11 +1595,6 @@
                                 <include reference="ziU-Sm-KPk"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="E7d-Iq-c1g"/>
-                                <include reference="QXu-yU-5Yx"/>
-                                <include reference="hct-yn-LI8"/>
-                                <include reference="YOY-6E-N1l"/>
-                                <include reference="ZYc-Er-l8U"/>
                                 <include reference="76l-AC-IMe"/>
                                 <include reference="Szd-F8-OYN"/>
                                 <include reference="Xan-BD-C3G"/>
@@ -1602,12 +1604,18 @@
                                 <include reference="XOW-bu-2UL"/>
                                 <include reference="t0G-nF-tnS"/>
                                 <include reference="upB-zY-zub"/>
+                                <include reference="E7d-Iq-c1g"/>
+                                <include reference="QXu-yU-5Yx"/>
+                                <include reference="hct-yn-LI8"/>
                                 <include reference="eun-cp-lfO"/>
                                 <include reference="kMN-9R-8Gd"/>
                                 <include reference="zIi-KR-rtM"/>
+                                <include reference="YOY-6E-N1l"/>
+                                <include reference="ZYc-Er-l8U"/>
                             </mask>
                         </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ContainerView" destination="mhO-Ss-Xv1" id="bwA-WE-Uim"/>
@@ -1822,6 +1830,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ContainerView" destination="vyn-vj-v0v" id="CZn-Jq-Zu9"/>
@@ -1980,6 +1989,7 @@
                     <navigationItem key="navigationItem" title="Register" id="HR0-QR-mP3">
                         <barButtonItem key="backBarButtonItem" title="sdfg" id="Vhc-p2-G9o"/>
                     </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="Submit" destination="asa-Q5-UtR" id="Sw0-56-xdu"/>
@@ -1997,6 +2007,7 @@
             <objects>
                 <navigationController storyboardIdentifier="navControl" automaticallyAdjustsScrollViewInsets="NO" id="TNZ-u1-Q3K" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VOL-IX-538">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
