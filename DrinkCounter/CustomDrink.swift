@@ -10,6 +10,7 @@ import UIKit
 
 class CustomDrink: UIViewController {
     
+    @IBOutlet weak var Submit: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,12 @@ class CustomDrink: UIViewController {
         sliderVolume.value = 0.0
         labelABV.text = "0 %"
         labelVolume.text = "0"
+        
+        
+        Submit.backgroundColor = UIColor.clearColor()
+        Submit.layer.cornerRadius = 5
+        Submit.layer.borderWidth = 1
+        Submit.layer.borderColor = UIColor.whiteColor().CGColor
     }
     var sliderVolumeround = Float()
     var sliderABVround = Float()
@@ -30,10 +37,14 @@ class CustomDrink: UIViewController {
     @IBOutlet weak var labelVolume: UILabel!
     
     @IBAction func changeABV(sender: AnyObject)
+        
+    
     {
         sliderABVround = round(10 * sliderABV.value) / 10
         labelABV.text = "\(sliderABVround) %"
     }
+
+
     
     @IBAction func changeVolume(sender: AnyObject)
     {
