@@ -83,6 +83,12 @@ class Liquor:
         }
     }
     
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let titleData = liquorData[component][row]
+        var myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Heiti TC", size: 15.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()])
+        return myTitle
+    }
+    
     func updateLabels()
     {
         let liquorPicked = liquorData[0][myPicker.selectedRowInComponent(0)]
