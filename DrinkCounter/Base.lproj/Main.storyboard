@@ -207,6 +207,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="warningMessage" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZSD-SB-p6Z">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.63529411764705879" green="0.66274509803921566" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="9PF-DV-0nt"/>
+                                    <constraint firstAttribute="height" constant="47" id="RBV-aU-hjK">
+                                        <variation key="widthClass=compact" constant="31"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" secondItem="ZSD-SB-p6Z" secondAttribute="height" multiplier="288:173" id="c0H-HL-GzN"/>
+                                    <constraint firstAttribute="height" constant="33" id="fCd-Ua-Duz"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9PF-DV-0nt"/>
+                                        <exclude reference="RBV-aU-hjK"/>
+                                        <exclude reference="c0H-HL-GzN"/>
+                                        <exclude reference="fCd-Ua-Duz"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="9PF-DV-0nt"/>
+                                        <exclude reference="RBV-aU-hjK"/>
+                                        <include reference="c0H-HL-GzN"/>
+                                        <exclude reference="fCd-Ua-Duz"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-UG-f1J">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
@@ -233,6 +264,7 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.82597393963861898" green="0.88215343260793699" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="m1C-CV-db5" secondAttribute="height" multiplier="139:80" id="HcZ-pX-MEv"/>
                                     <constraint firstAttribute="width" constant="139" id="LJY-r8-Wb9"/>
                                     <constraint firstAttribute="height" constant="80" id="zrc-HW-ZTA"/>
                                 </constraints>
@@ -242,12 +274,14 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="HcZ-pX-MEv"/>
                                         <exclude reference="LJY-r8-Wb9"/>
                                         <exclude reference="zrc-HW-ZTA"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
+                                        <include reference="HcZ-pX-MEv"/>
                                         <include reference="LJY-r8-Wb9"/>
                                         <include reference="zrc-HW-ZTA"/>
                                     </mask>
@@ -294,19 +328,6 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpy-sk-D4k">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.82597393959999998" green="0.88215343260000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="15"/>
-                                <state key="normal" title="Add Custom Drink">
-                                    <color key="titleColor" red="0.172923177585941" green="0.49737767440643288" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="customButtonPressed:" destination="T9v-qN-VtX" eventType="touchUpInside" id="aHq-Yr-Gz3"/>
-                                    <segue destination="hhb-JQ-OHD" kind="show" id="wWZ-Bk-R2q"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jB2-mV-tNm">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="51"/>
@@ -325,37 +346,32 @@
                                     <action selector="endSessionPushed:" destination="T9v-qN-VtX" eventType="touchUpInside" id="G90-di-k3w"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="warningMessage" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZSD-SB-p6Z">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.63529411764705879" green="0.66274509803921566" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpy-sk-D4k">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.82597393959999998" green="0.88215343260000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="9PF-DV-0nt"/>
-                                    <constraint firstAttribute="height" constant="47" id="RBV-aU-hjK">
-                                        <variation key="widthClass=compact" constant="31"/>
-                                    </constraint>
-                                    <constraint firstAttribute="width" secondItem="ZSD-SB-p6Z" secondAttribute="height" multiplier="288:173" id="c0H-HL-GzN"/>
-                                    <constraint firstAttribute="height" constant="33" id="fCd-Ua-Duz"/>
+                                    <constraint firstAttribute="width" secondItem="Qpy-sk-D4k" secondAttribute="height" multiplier="139:80" id="b54-aN-0ak"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="15"/>
+                                <state key="normal" title="Add Custom Drink">
+                                    <color key="titleColor" red="0.172923177585941" green="0.49737767440643288" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="9PF-DV-0nt"/>
-                                        <exclude reference="RBV-aU-hjK"/>
-                                        <exclude reference="c0H-HL-GzN"/>
-                                        <exclude reference="fCd-Ua-Duz"/>
+                                        <exclude reference="b54-aN-0ak"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <exclude reference="9PF-DV-0nt"/>
-                                        <exclude reference="RBV-aU-hjK"/>
-                                        <include reference="c0H-HL-GzN"/>
-                                        <exclude reference="fCd-Ua-Duz"/>
+                                        <include reference="b54-aN-0ak"/>
                                     </mask>
                                 </variation>
-                            </textView>
+                                <connections>
+                                    <action selector="customButtonPressed:" destination="T9v-qN-VtX" eventType="touchUpInside" id="aHq-Yr-Gz3"/>
+                                    <segue destination="hhb-JQ-OHD" kind="show" id="wWZ-Bk-R2q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.63529411764705879" green="0.66274509803921566" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -412,13 +428,13 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="ZSD-SB-p6Z"/>
                                 <exclude reference="F8U-UG-f1J"/>
                                 <exclude reference="m1C-CV-db5"/>
                                 <exclude reference="J9c-86-pYq"/>
                                 <exclude reference="WfG-dE-9Re"/>
-                                <exclude reference="Qpy-sk-D4k"/>
                                 <exclude reference="8F1-ax-vaf"/>
-                                <exclude reference="ZSD-SB-p6Z"/>
+                                <exclude reference="Qpy-sk-D4k"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="DAv-AO-bLY"/>
@@ -458,13 +474,13 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="ZSD-SB-p6Z"/>
                                 <include reference="F8U-UG-f1J"/>
                                 <include reference="m1C-CV-db5"/>
                                 <include reference="J9c-86-pYq"/>
                                 <include reference="WfG-dE-9Re"/>
-                                <include reference="Qpy-sk-D4k"/>
                                 <include reference="8F1-ax-vaf"/>
-                                <include reference="ZSD-SB-p6Z"/>
+                                <include reference="Qpy-sk-D4k"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="DAv-AO-bLY"/>
