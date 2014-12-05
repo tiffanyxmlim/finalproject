@@ -24,6 +24,7 @@ class Register: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var weightTextField: UITextField!
+
     
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int
