@@ -10,10 +10,16 @@ import UIKit
 
 class Register: UIViewController, UIPickerViewDelegate {
     
+    @IBOutlet weak var Submit: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        Submit.backgroundColor = UIColor.clearColor()
+        Submit.layer.cornerRadius = 5
+        Submit.layer.borderWidth = 1
+        Submit.layer.borderColor = UIColor.blueColor().CGColor
     }
     
     var gender = ["", "Female", "Male"]
