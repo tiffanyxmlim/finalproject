@@ -17,7 +17,18 @@ class Counter: UIViewController {
         var drinkCount = defaults.floatForKey("COUNTER")
         labelDrinkCount.text = "\(Int(drinkCount))"
         warningMessage.text = ""
+        
+        add1Button.layer.cornerRadius = 5
+        add1Button.layer.borderWidth = 1
+        add1Button.layer.borderColor = UIColor.blueColor().CGColor
+        addCustomButton.layer.cornerRadius = 5
+        addCustomButton.layer.borderWidth = 1
+        addCustomButton.layer.borderColor = UIColor.blueColor().CGColor
     }
+    
+    @IBOutlet weak var add1Button: UIButton!
+    
+    @IBOutlet weak var addCustomButton: UIButton!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -117,7 +128,7 @@ class Counter: UIViewController {
             }
             else if BAClevel < 0.1
             {
-                warningMessage.text = "DO NOT DRIVE! Slight impairment of balance, speech, vision, reaction time, and hearing. Euphoria. Judgment and self-control are reduced, and caution, reason and memory are impaired."
+                warningMessage.text = "Slight impairment of balance, speech, vision, reaction time, and hearing. Euphoria. Judgment and self-control are reduced, and caution, reason and memory are impaired."
                 // light yellow-green
                 warningMessage.backgroundColor = UIColor(red: 215/255, green: 255/255, blue: 154/255, alpha: 1.0)
                 self.view.backgroundColor = UIColor(red: 215/255, green: 255/255, blue: 154/255, alpha: 1.0)
@@ -158,28 +169,28 @@ class Counter: UIViewController {
             }
             else if BAClevel < 0.3
             {
-                warningMessage.text = "DO NOT DRIVE! All mental, physical and sensory functions are severely impaired. Increased risk of asphyxiation from choking on vomit and of seriously injuring yourself by falls or other accidents."
+                warningMessage.text = "DO NOT DRIVE! All mental, physical and sensory functions are severely impaired. Increased risk of asphyxiation from choking on vomit and of seriously injuring yourself by falls or other accidents. WE RECOMMEND SEEKING MEDICAL ATTENTION."
                 warningMessage.backgroundColor = UIColor(red: 255/255, green: 131/255, blue: 117/255, alpha: 1.0)
                 self.view.backgroundColor = UIColor(red: 255/255, green: 131/255, blue: 117/255, alpha: 1.0)
 
             }
             else if BAClevel < 0.35
             {
-                warningMessage.text = "STUPOR. DO NOT DRIVE! You have little comprehension of where you are. You may pass out suddenly and be difficult to awaken."
+                warningMessage.text = "STUPOR. DO NOT DRIVE! You have little comprehension of where you are. You may pass out suddenly and be difficult to awaken. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
                 warningMessage.backgroundColor = UIColor(red: 249/255, green: 87/255, blue: 69/255, alpha: 1.0)
                 self.view.backgroundColor = UIColor(red: 249/255, green: 87/255, blue: 69/255, alpha: 1.0)
 
             }
             else if BAClevel < 0.4
             {
-                warningMessage.text = "DO NOT DRIVE! Coma is possible. This is the level of surgical anesthesia."
+                warningMessage.text = "DO NOT DRIVE! Coma is possible. This is the level of surgical anesthesia. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
                 warningMessage.backgroundColor = UIColor(red: 249/255, green: 56/255, blue: 35/255, alpha: 1.0)
                 self.view.backgroundColor = UIColor(red: 249/255, green: 56/255, blue: 35/255, alpha: 1.0)
 
             }
             else
             {
-                warningMessage.text = "DO NOT DRIVE! Onset of coma, and possible death due to respiratory arrest."
+                warningMessage.text = "DO NOT DRIVE! Onset of coma, and possible death due to respiratory arrest. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
                 warningMessage.backgroundColor = UIColor(red: 242/255, green: 38/255, blue: 19/255, alpha: 1.0)
                 self.view.backgroundColor = UIColor(red: 242/255, green: 38/255, blue: 19/255, alpha: 1.0)
 

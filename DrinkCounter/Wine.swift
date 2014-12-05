@@ -38,9 +38,9 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     var quantitytry = ""
     
     let wineData = [
-        ["TYPE", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
-        ["SIZE", "Solo cup", "Wine glass"],
-        ["#", "1", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
+        ["[TYPE]", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
+        ["[SIZE]", "Solo cup", "Wine glass"],
+        ["[#]", "1", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
     ]
     
     let wineABV: [Float] = [0, 0.12, 0.11, 0.115, 0.06, 0.14, 0.105, 0.2]
@@ -86,14 +86,9 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         let quantityPicked = wineData[2][myPicker.selectedRowInComponent(2)]
         quantitytry = wineData[2][myPicker.selectedRowInComponent(2)]
 
-        if (winePicked != "TYPE" && quantityPicked != "#" && containerPicked != "SIZE")
-        {
-            drinkLabel.text = winePicked
-            quantityLabel.text = "x     " + quantityPicked
-            wineLabel.text = "Wine"
-        }
-
-        
+        drinkLabel.text = winePicked
+        quantityLabel.text = "x     " + quantityPicked
+        wineLabel.text = "Wine"
         
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * wineABV[myPicker.selectedRowInComponent(0)] / 14
         
@@ -124,15 +119,15 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a wine and container."
         }
-        else if (wine == "TYPE")
+        else if (wine == "[TYPE]")
         {
             message = "Please select a wine."
         }
-        else if (container == "SIZE")
+        else if (container == "[SIZE]")
         {
             message = "Please select a container."
         }
-        else if (quantity == "#")
+        else if (quantity == "[#]")
         {
             message = "Please select a quantity."
         }

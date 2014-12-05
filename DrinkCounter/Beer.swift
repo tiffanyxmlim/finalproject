@@ -43,11 +43,11 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     var quantitytry = ""
     
     let beerData = [
-        ["TYPE", "Light", "Regular", "IPA", "Ale", "Stout"],
+        ["[TYPE]", "Light", "Regular", "IPA", "Ale", "Stout"],
         
-        ["SIZE", "Solo cup", "Can", "Bottle", "Stein"],
+        ["[SIZE]", "Solo cup", "Can", "Bottle", "Stein"],
         
-        ["#", "1", "0.5", "1", "2", "3", "4", "5"]
+        ["[#]", "1", "0.5", "1", "2", "3", "4", "5"]
     ]
     
     let containerVol: [Float] = [0, 16, 12, 12, 10]
@@ -92,12 +92,9 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         quantitytry = beerData[2][myPicker.selectedRowInComponent(2)]
         
         
-        if (beerPicked != "TYPE" && quantityPicked != "#" && containerPicked != "SIZE")
-        {
-            drinkLabel.text = beerPicked
-            quantityLabel.text = "x     " + quantityPicked
-            beerLabel.text = "Beer"
-        }
+        drinkLabel.text = beerPicked
+        quantityLabel.text = "x     " + quantityPicked
+        beerLabel.text = "Beer"
         
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * beerABV[myPicker.selectedRowInComponent(0)] / 14
         
@@ -133,15 +130,15 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a beer and container."
         }
-        else if (beer == "TYPE")
+        else if (beer == "[TYPE]")
         {
             message = "Please select a beer."
         }
-        else if (container == "SIZE")
+        else if (container == "[SIZE]")
         {
             message = "Please select a container."
         }
-        else if (quantity == "#")
+        else if (quantity == "[#]")
         {
             message = "Please select a quantity."
         }

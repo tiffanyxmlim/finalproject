@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var labelWelcome: UILabel! = nil
     
+    @IBOutlet weak var registerButton: UIButton!
+    
     @IBOutlet weak var labelName: UILabel! = nil
     
     override func viewDidLoad() {
@@ -23,6 +25,10 @@ class ViewController: UIViewController {
         }
         defaults.setFloat(0, forKey: "STARTTIME")
         defaults.synchronize()
+        registerButton.backgroundColor = UIColor.clearColor()
+        registerButton.layer.cornerRadius = 5
+        registerButton.layer.borderWidth = 1
+        registerButton.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     override func didReceiveMemoryWarning() {
