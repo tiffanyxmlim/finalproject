@@ -210,22 +210,6 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8F1-ax-vaf">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="End Session">
-                                            <attributes>
-                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="endSessionPushed:" destination="T9v-qN-VtX" eventType="touchUpInside" id="G90-di-k3w"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-UG-f1J">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
@@ -331,6 +315,19 @@
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="51"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8F1-ax-vaf">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="End Session">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                </variation>
+                                <connections>
+                                    <action selector="endSessionPushed:" destination="T9v-qN-VtX" eventType="touchUpInside" id="G90-di-k3w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.63529411764705879" green="0.66274509803921566" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -340,13 +337,19 @@
                             <constraint firstItem="J9c-86-pYq" firstAttribute="centerX" secondItem="jB2-mV-tNm" secondAttribute="centerX" id="76d-tU-tZk"/>
                             <constraint firstItem="ZSD-SB-p6Z" firstAttribute="top" secondItem="Qpy-sk-D4k" secondAttribute="bottom" constant="45" id="Ah4-oH-Xcn"/>
                             <constraint firstItem="Qpy-sk-D4k" firstAttribute="leading" secondItem="m1C-CV-db5" secondAttribute="trailing" constant="10" id="CBZ-9N-PpV"/>
-                            <constraint firstItem="F8U-UG-f1J" firstAttribute="leading" secondItem="8F1-ax-vaf" secondAttribute="trailing" constant="58" id="DAv-AO-bLY"/>
-                            <constraint firstItem="J9c-86-pYq" firstAttribute="top" secondItem="8F1-ax-vaf" secondAttribute="bottom" constant="21" id="F73-3L-Bab"/>
+                            <constraint firstItem="F8U-UG-f1J" firstAttribute="leading" secondItem="8F1-ax-vaf" secondAttribute="trailing" constant="58" id="DAv-AO-bLY">
+                                <variation key="widthClass=compact" constant="62"/>
+                            </constraint>
+                            <constraint firstItem="J9c-86-pYq" firstAttribute="top" secondItem="8F1-ax-vaf" secondAttribute="bottom" constant="21" id="F73-3L-Bab">
+                                <variation key="widthClass=compact" constant="34"/>
+                            </constraint>
                             <constraint firstItem="jB2-mV-tNm" firstAttribute="leading" secondItem="Fh6-bo-gP0" secondAttribute="leadingMargin" constant="99" id="Fda-aQ-9ey"/>
                             <constraint firstItem="UsQ-A6-jZG" firstAttribute="top" secondItem="ZSD-SB-p6Z" secondAttribute="bottom" constant="69" id="JeX-re-xN9"/>
                             <constraint firstItem="UsQ-A6-jZG" firstAttribute="top" secondItem="ZSD-SB-p6Z" secondAttribute="bottom" constant="19" id="KFk-Mx-Czc"/>
                             <constraint firstItem="ZSD-SB-p6Z" firstAttribute="centerX" secondItem="jB2-mV-tNm" secondAttribute="centerX" id="N4O-fu-fQF"/>
-                            <constraint firstItem="8F1-ax-vaf" firstAttribute="top" secondItem="yyo-wB-cZN" secondAttribute="bottom" constant="8" symbolic="YES" id="NNk-25-O96"/>
+                            <constraint firstItem="8F1-ax-vaf" firstAttribute="top" secondItem="yyo-wB-cZN" secondAttribute="bottom" constant="8" symbolic="YES" id="NNk-25-O96">
+                                <variation key="widthClass=compact" constant="9"/>
+                            </constraint>
                             <constraint firstItem="J9c-86-pYq" firstAttribute="leading" secondItem="Fh6-bo-gP0" secondAttribute="leadingMargin" constant="72" id="NWQ-2z-S3A"/>
                             <constraint firstItem="J9c-86-pYq" firstAttribute="leading" secondItem="Fh6-bo-gP0" secondAttribute="leadingMargin" constant="72" id="OM6-mb-DZA"/>
                             <constraint firstItem="UsQ-A6-jZG" firstAttribute="top" secondItem="ZSD-SB-p6Z" secondAttribute="bottom" constant="100" id="OsE-g2-O7a"/>
@@ -354,7 +357,9 @@
                             <constraint firstItem="m1C-CV-db5" firstAttribute="baseline" secondItem="Qpy-sk-D4k" secondAttribute="firstBaseline" id="Sam-LS-3uj"/>
                             <constraint firstItem="ZSD-SB-p6Z" firstAttribute="leading" secondItem="m1C-CV-db5" secondAttribute="leading" id="UQ2-Rh-sbg"/>
                             <constraint firstItem="m1C-CV-db5" firstAttribute="leading" secondItem="Fh6-bo-gP0" secondAttribute="leadingMargin" id="VOa-v3-p16"/>
-                            <constraint firstItem="8F1-ax-vaf" firstAttribute="leading" secondItem="Fh6-bo-gP0" secondAttribute="leading" id="WFd-9F-rYm"/>
+                            <constraint firstItem="8F1-ax-vaf" firstAttribute="leading" secondItem="Fh6-bo-gP0" secondAttribute="leading" id="WFd-9F-rYm">
+                                <variation key="widthClass=compact" constant="16"/>
+                            </constraint>
                             <constraint firstItem="jB2-mV-tNm" firstAttribute="top" secondItem="J9c-86-pYq" secondAttribute="bottom" id="bTA-Bg-Mu1"/>
                             <constraint firstItem="Qpy-sk-D4k" firstAttribute="baseline" secondItem="m1C-CV-db5" secondAttribute="firstBaseline" id="fGG-rl-7O4"/>
                             <constraint firstItem="ZSD-SB-p6Z" firstAttribute="trailing" secondItem="Fh6-bo-gP0" secondAttribute="trailingMargin" id="fsd-Et-BGI"/>
@@ -369,17 +374,19 @@
                             <constraint firstItem="WfG-dE-9Re" firstAttribute="leading" secondItem="Fh6-bo-gP0" secondAttribute="leadingMargin" constant="33" id="sf7-Sz-Xyw"/>
                             <constraint firstItem="Qpy-sk-D4k" firstAttribute="top" secondItem="m1C-CV-db5" secondAttribute="top" id="vIf-po-rbm"/>
                             <constraint firstItem="UsQ-A6-jZG" firstAttribute="top" secondItem="WfG-dE-9Re" secondAttribute="bottom" constant="190" id="vsI-pu-eCE"/>
-                            <constraint firstAttribute="trailing" secondItem="F8U-UG-f1J" secondAttribute="trailing" id="yhj-jZ-IPg"/>
+                            <constraint firstAttribute="trailing" secondItem="F8U-UG-f1J" secondAttribute="trailing" id="yhj-jZ-IPg">
+                                <variation key="widthClass=compact" constant="-9"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ZSD-SB-p6Z"/>
-                                <exclude reference="8F1-ax-vaf"/>
                                 <exclude reference="F8U-UG-f1J"/>
                                 <exclude reference="m1C-CV-db5"/>
                                 <exclude reference="J9c-86-pYq"/>
                                 <exclude reference="WfG-dE-9Re"/>
                                 <exclude reference="Qpy-sk-D4k"/>
+                                <exclude reference="8F1-ax-vaf"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="DAv-AO-bLY"/>
@@ -420,12 +427,12 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ZSD-SB-p6Z"/>
-                                <include reference="8F1-ax-vaf"/>
                                 <include reference="F8U-UG-f1J"/>
                                 <include reference="m1C-CV-db5"/>
                                 <include reference="J9c-86-pYq"/>
                                 <include reference="WfG-dE-9Re"/>
                                 <include reference="Qpy-sk-D4k"/>
+                                <include reference="8F1-ax-vaf"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="DAv-AO-bLY"/>
@@ -470,6 +477,7 @@
                     <connections>
                         <outlet property="add1Button" destination="m1C-CV-db5" id="v7V-Rv-Sfg"/>
                         <outlet property="addCustomButton" destination="Qpy-sk-D4k" id="MOS-p5-ess"/>
+                        <outlet property="endButton" destination="8F1-ax-vaf" id="dpN-u3-ASo"/>
                         <outlet property="labelBAC" destination="WfG-dE-9Re" id="788-Vu-wQ6"/>
                         <outlet property="labelDrinkCount" destination="jB2-mV-tNm" id="GJ9-07-Qfc"/>
                         <outlet property="timeLabel" destination="F8U-UG-f1J" id="sQe-9P-LL4"/>

@@ -24,11 +24,17 @@ class Counter: UIViewController {
         addCustomButton.layer.cornerRadius = 5
         addCustomButton.layer.borderWidth = 1
         addCustomButton.layer.borderColor = UIColor.blueColor().CGColor
+        endButton.backgroundColor = UIColor.clearColor()
+        endButton.layer.cornerRadius = 5
+        endButton.layer.borderWidth = 1
+        endButton.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     @IBOutlet weak var add1Button: UIButton!
     
     @IBOutlet weak var addCustomButton: UIButton!
+    
+    @IBOutlet weak var endButton: UIButton!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
