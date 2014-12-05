@@ -90,7 +90,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             drinkLabel.text = winePicked
             quantityLabel.text = "x     " + quantityPicked
-            wineLabel.text = "Beer"
+            wineLabel.text = "Wine"
         }
 
         

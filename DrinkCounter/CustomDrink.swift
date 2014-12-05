@@ -20,17 +20,27 @@ class CustomDrink: UIViewController {
     @IBOutlet weak var ABV: UITextField!
     
     @IBOutlet weak var Volume: UITextField!
-
     
     @IBAction func CustomDrinkPress(sender: AnyObject) {
-        var custom: String = ABV.text
-        var container: String = Volume.text
+        //var custom: String = ABV.text
+        //var container: String = Volume.text
+        
         var customABV: Float = (ABV.text as NSString).floatValue
         var containerVol: Float = (Volume.text as NSString).floatValue
-        //var customABV = custom.toInt()
-        //var containerVol = container.toInt()
+        /*var doubleABV: Double = Double(customABV)
+        var cgabv = CGFloat(customABV)
+        var cgcontainer = CGFloat(containerVol)
+        var m = CGFloat(0)
+        var n = CGFloat(100)*/
+
+        
+        //var customABV1 = custom.toInt()
+        //var containerVol1 = container.toInt()
         var alcoholConsumed: Float = 0.0
         var success = String()
+        //var containerint: Int = Int(containerVol)
+        //var ABVint: Int = Int(customABV)
+        
         //let hundred: Float = 100.0
         
         //retract keyboard
@@ -58,7 +68,7 @@ class CustomDrink: UIViewController {
             alertview.show()
         }
             
-        else if (containerVol == nil || 0 > containerVol || containerVol > 100)
+        else if (0 >= containerVol || containerVol > 100)
         {
             //Alert if user input an invalid Volume
             var alertview: UIAlertView = UIAlertView()
@@ -67,9 +77,8 @@ class CustomDrink: UIViewController {
             alertview.delegate = self
             alertview.addButtonWithTitle("OK")
             alertview.show()
-
         }
-        else if (customABV == nil || 0 > customABV || customABV > 100)
+        else if (0 >= customABV || customABV > 100)
         {
             //Alert if user input an invalid ABV
             var alertview: UIAlertView = UIAlertView()
@@ -83,7 +92,7 @@ class CustomDrink: UIViewController {
         
         else
         {
-            alcoholConsumed = containerVol * 28.3495231 * customABV/14
+            alcoholConsumed = containerVol * 28.3495231 * customABV/1400
             
             success = "You have entered a drink."
             var alertView: UIAlertView = UIAlertView()
