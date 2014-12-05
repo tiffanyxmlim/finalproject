@@ -30,7 +30,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         myPicker.dataSource = self
         
         drinkLabel.text = ""
-        quantityLabel.text = ""
+        quantityLabel.text = "0"
         wineLabel.text = ""
         
         Submit.backgroundColor = UIColor.clearColor()
@@ -39,20 +39,25 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         Submit.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
+    @IBOutlet weak var slider: UISlider!
+    
+    @IBAction func sliderChanged(sender: AnyObject)
+    {
+        quantityLabel.text = "\(round(10*slider.value)/10)"
+    }
+    
     var containertry = ""
     var pickerchanged: Int = 0
     var winetry = ""
-    var quantitytry = ""
     
     let wineData = [
         ["[TYPE]", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
-        ["[SIZE]", "Solo cup", "Wine glass"],
-        ["[#]", "1", "0.25", "0.5", "0.75", "1", "2", "3", "4", "5"]
+        ["[SIZE]", "Solo cup", "Wine glass"]
     ]
     
     let wineABV: [Float] = [0, 0.12, 0.11, 0.115, 0.06, 0.14, 0.105, 0.2]
     let containerVol: [Float] = [0, 16, 9]
-    let multipleFactor: [Float] = [0, 1, 0.25, 0.5, 0.75, 1, 2, 3, 4, 5]
+    
     var alcoholConsumed: Float = 0
     
     var winePick = NSString()
@@ -77,9 +82,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat
     {
         switch component{
-        case 0: return 110
-        case 1: return 130
-        case 2: return 60
+        case 0: return 150
+        case 1: return 160
         default: return 22
         }
     }
@@ -96,16 +100,16 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     {
         let winePicked = wineData[0][myPicker.selectedRowInComponent(0)]
         winetry = wineData[0][myPicker.selectedRowInComponent(0)]
+        
         let containerPicked = wineData[1][myPicker.selectedRowInComponent(1)]
         containertry = wineData[1][myPicker.selectedRowInComponent(1)]
-        let quantityPicked = wineData[2][myPicker.selectedRowInComponent(2)]
-        quantitytry = wineData[2][myPicker.selectedRowInComponent(2)]
+        
+        var quantityPicked = round(10*slider.value)/10
 
         drinkLabel.text = winePicked
-        quantityLabel.text = "x     " + quantityPicked
         wineLabel.text = "Wine"
         
-        alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * wineABV[myPicker.selectedRowInComponent(0)] / 14
+        alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * quantityPicked * wineABV[myPicker.selectedRowInComponent(0)] / 14
         
         switch containerPicked{
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.png")
@@ -126,7 +130,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
 
         var wine: String = winetry
         var container: String = containertry
-        var quantity: String = quantitytry
+        
         var message = String()
         
         
@@ -141,10 +145,6 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         else if (container == "[SIZE]")
         {
             message = "Please select a container."
-        }
-        else if (quantity == "[#]")
-        {
-            message = "Please select a quantity."
         }
         else
         {

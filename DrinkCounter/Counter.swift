@@ -212,13 +212,6 @@ class Counter: UIViewController {
     // When "Add 1 Drink" is pressed...
     @IBAction func EZButtonPressed(sender: AnyObject)
     {
-        // Alert popup to confirm
-        /*var alert = UIAlertController(title: "Confirm", message: "Add 1 drink?", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))*/
-        
-        // If confirmed...
-        /*alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (alertAction) -> Void in*/
-            
             // Add 1 drink to counter, and synchronize with NSUserDefaults
             var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
             var oldCounter = defaults.floatForKey("COUNTER")
@@ -226,19 +219,15 @@ class Counter: UIViewController {
             defaults.setObject(newCounter, forKey: "COUNTER")
             
             // Display integer version of counter
-            self.labelDrinkCount.text = "\(Int(newCounter))"
+            labelDrinkCount.text = "\(Int(newCounter))"
             
             // If timer is not running yet, start timer and update (see function above)
-            if (!self.timer.valid) {
-                self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
-                self.startTime = NSDate.timeIntervalSinceReferenceDate()
+            if (!timer.valid) {
+                timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
+                startTime = NSDate.timeIntervalSinceReferenceDate()
                 defaults.setObject(self.startTime, forKey: "STARTTIME")
             }
             defaults.synchronize()
-        //}))
-        //self.presentViewController(alert, animated: true, completion: nil)
-        
-
 
     }
     
