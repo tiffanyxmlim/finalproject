@@ -20,10 +20,10 @@ class Counter: UIViewController {
         
         add1Button.layer.cornerRadius = 5
         add1Button.layer.borderWidth = 1
-        add1Button.layer.borderColor = UIColor.blueColor().CGColor
+        add1Button.layer.borderColor = UIColor.whiteColor().CGColor
         addCustomButton.layer.cornerRadius = 5
         addCustomButton.layer.borderWidth = 1
-        addCustomButton.layer.borderColor = UIColor.blueColor().CGColor
+        addCustomButton.layer.borderColor = UIColor.whiteColor().CGColor
         endButton.backgroundColor = UIColor.clearColor()
         endButton.layer.cornerRadius = 5
         endButton.layer.borderWidth = 1
