@@ -25,7 +25,13 @@ class Register: UIViewController, UIPickerViewDelegate {
     
     @IBOutlet weak var weightTextField: UITextField!
 
+    @IBAction func nameReturn(sender: AnyObject) {
+        nameTextField.resignFirstResponder()
+    }
     
+    @IBAction func weightReturn(sender: AnyObject) {
+        weightTextField.resignFirstResponder()
+    }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int
     {
