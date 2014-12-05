@@ -209,7 +209,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="warningMessage" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZSD-SB-p6Z">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.63529411764705879" green="0.66274509803921566" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="9PF-DV-0nt"/>
                                     <constraint firstAttribute="height" constant="47" id="RBV-aU-hjK">
@@ -373,7 +373,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.63529411764705879" green="0.66274509803921566" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="J9c-86-pYq" firstAttribute="top" secondItem="F8U-UG-f1J" secondAttribute="bottom" constant="34" id="2PL-O7-err"/>
                             <constraint firstItem="Qpy-sk-D4k" firstAttribute="top" secondItem="jB2-mV-tNm" secondAttribute="bottom" constant="2" id="3MV-nI-aob"/>
@@ -563,8 +563,7 @@
                                         <exclude reference="utx-pQ-rNf"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="43" y="109" width="65.5" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="utx-pQ-rNf"/>
                                     </mask>
@@ -588,8 +587,7 @@
                                         <exclude reference="DQc-Vd-15d"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="204.5" y="102" width="57" height="37"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="DQc-Vd-15d"/>
                                     </mask>
@@ -603,9 +601,6 @@
                                 <state key="normal" image="wineicon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="14" y="155" width="123.5" height="125"/>
-                                </variation>
                                 <connections>
                                     <segue destination="UTn-vb-2m9" kind="show" id="EX0-v3-CLp"/>
                                 </connections>
@@ -615,9 +610,6 @@
                                 <state key="normal" image="beericon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="161.5" y="147" width="134.5" height="133"/>
-                                </variation>
                                 <connections>
                                     <segue destination="eWK-U3-Hj3" kind="show" id="5tj-Rw-Max"/>
                                 </connections>
@@ -891,7 +883,7 @@
                                     <constraint firstAttribute="width" constant="110" id="vtN-zh-PfR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -912,7 +904,7 @@
                                     <constraint firstAttribute="height" constant="40" id="2F4-so-g52"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1056,7 +1048,7 @@
                                     <constraint firstAttribute="height" constant="24" id="dIo-3n-Tzp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1075,7 +1067,7 @@
                                     <constraint firstAttribute="height" constant="26" id="RT5-7g-5OO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1134,7 +1126,7 @@
                                     <constraint firstAttribute="width" constant="93" id="JSl-X9-Kio"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1153,7 +1145,7 @@
                                     <constraint firstAttribute="width" constant="102" id="dTx-jc-Pn6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1172,7 +1164,7 @@
                                     <constraint firstAttribute="height" constant="21" id="DZb-Vy-zVV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1191,7 +1183,7 @@
                                     <constraint firstAttribute="height" constant="21" id="2Yx-BX-eou"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1210,7 +1202,7 @@
                                     <constraint firstAttribute="height" constant="25" id="T7k-pd-lxt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1229,7 +1221,7 @@
                                     <constraint firstAttribute="height" constant="22" id="hjW-kD-hpW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1445,7 +1437,7 @@
                                     <constraint firstAttribute="height" constant="40" id="ZLM-VS-9CC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1464,7 +1456,7 @@
                                     <constraint firstAttribute="width" constant="137" id="IuB-SS-CSI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1484,7 +1476,7 @@
                                     <constraint firstAttribute="height" constant="58" id="53n-9O-aOT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1682,7 +1674,7 @@
                                     <constraint firstAttribute="height" constant="32" id="y3K-2p-zLd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1701,7 +1693,7 @@
                                     <constraint firstAttribute="width" constant="125" id="KNa-9A-l7k"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
