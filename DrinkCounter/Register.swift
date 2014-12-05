@@ -66,6 +66,12 @@ class Register: UIViewController, UIPickerViewDelegate {
         defaults.synchronize()
     }
     
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let titleData = gender[row]
+        var myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Heiti TC", size: 15.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()])
+        return myTitle
+    }
+    
     
     @IBAction func buttonRegisterPress(sender: AnyObject) {
         var name: NSString = nameTextField.text as NSString
