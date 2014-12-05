@@ -132,16 +132,17 @@ class Counter: UIViewController {
             {
                 warningMessage.text = "Slight impairment of balance, speech, vision, reaction time, and hearing. Euphoria. Judgment and self-control are reduced, and caution, reason and memory are impaired."
                 // light yellow-green
-                warningMessage.backgroundColor = UIColor(red: 215/255, green: 255/255, blue: 154/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 215/255, green: 255/255, blue: 154/255, alpha: 1.0)
+                warningMessage.backgroundColor = UIColor(red: 211/255, green: 227/255, blue: 59/255, alpha: 1.0)
+                self.view.backgroundColor = UIColor(red: 211/255, green: 227/255, blue: 59/255, alpha: 1.0)
 
             }
             else if BAClevel < 0.13
             {
                 warningMessage.text = "DO NOT DRIVE! Significant impairment of motor coordination and loss of good judgment. Speech may be slurred; balance, vision, reaction time and hearing will be impaired. Euphoria."
                 // yellow
-                warningMessage.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 154/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 154/255, alpha: 1.0)
+                warningMessage.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0)
+                //rgb(241, 196, 15)
+                self.view.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0)
 
                 
             }
@@ -149,45 +150,49 @@ class Counter: UIViewController {
             {
                 warningMessage.text = "DO NOT DRIVE! Gross motor impairment and lack of physical control. Blurred vision and major loss of balance. Euphoria is reduced and dysphoria (anxiety, restlessness) is beginning to appear."
                 // orange
-                warningMessage.backgroundColor = UIColor(red: 255/255, green: 215/255, blue: 154/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 255/255, green: 215/255, blue: 154/255, alpha: 1.0)
+                warningMessage.backgroundColor = UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1.0)
+                //rgb(230, 126, 34)
+                self.view.backgroundColor = UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1.0)
 
                 
             }
             else if BAClevel < 0.2
             {
                 warningMessage.text = "DO NOT DRIVE! Dysphoria predominates, nausea may appear. The drinker has the appearance of a \"sloppy drunk.\""
-                // red-orange
-                warningMessage.backgroundColor = UIColor(red: 255/255, green: 184/255, blue: 154/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 255/255, green: 184/255, blue: 154/255, alpha: 1.0)
+                // red-o
+                warningMessage.backgroundColor = UIColor(red: 211/255, green: 84/255, blue: 0/255, alpha: 1.0)
+                //rgb(211, 84, 0)
+                self.view.backgroundColor = UIColor(red: 211/255, green: 84/255, blue: 0/255, alpha: 1.0)
 
             }
             else if BAClevel < 0.25
             {
                 warningMessage.text = "DO NOT DRIVE! Feeling dazed/confused or otherwise disoriented. May need help to stand/walk. If you injure yourself you may not feel the pain. The gag reflex is impaired and you can choke if you do vomit. Blackouts are likely at this level."
-                warningMessage.backgroundColor = UIColor(red: 255/255, green: 164/255, blue: 154/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 255/255, green: 164/255, blue: 154/255, alpha: 1.0)
+                warningMessage.backgroundColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0)
+               // rgb(231, 76, 60)
+                self.view.backgroundColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0)
 
             }
             else if BAClevel < 0.3
             {
                 warningMessage.text = "DO NOT DRIVE! All mental, physical and sensory functions are severely impaired. Increased risk of asphyxiation from choking on vomit and of seriously injuring yourself by falls or other accidents. WE RECOMMEND SEEKING MEDICAL ATTENTION."
-                warningMessage.backgroundColor = UIColor(red: 255/255, green: 131/255, blue: 117/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 255/255, green: 131/255, blue: 117/255, alpha: 1.0)
+                warningMessage.backgroundColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1.0)
+                //rgb(192, 57, 43)
+                self.view.backgroundColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1.0)
 
             }
             else if BAClevel < 0.35
             {
                 warningMessage.text = "STUPOR. DO NOT DRIVE! You have little comprehension of where you are. You may pass out suddenly and be difficult to awaken. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
-                warningMessage.backgroundColor = UIColor(red: 249/255, green: 87/255, blue: 69/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 249/255, green: 87/255, blue: 69/255, alpha: 1.0)
+                warningMessage.backgroundColor = UIColor(red: 140/255, green: 0/255, blue: 0/255, alpha: 1.0)
+                self.view.backgroundColor = UIColor(red: 140/255, green: 0/255, blue: 0/255, alpha: 1.0)
 
             }
             else if BAClevel < 0.4
             {
                 warningMessage.text = "DO NOT DRIVE! Coma is possible. This is the level of surgical anesthesia. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
-                warningMessage.backgroundColor = UIColor(red: 249/255, green: 56/255, blue: 35/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 249/255, green: 56/255, blue: 35/255, alpha: 1.0)
+                warningMessage.backgroundColor = UIColor(red: 120/255, green: 0/255, blue: 0/255, alpha: 1.0)
+                self.view.backgroundColor = UIColor(red: 120/255, green: 0/255, blue: 0/255, alpha: 1.0)
 
             }
             else
