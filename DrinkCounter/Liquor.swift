@@ -38,11 +38,11 @@ class Liquor:
     var quantitytry = ""
     
     let liquorData = [
-        ["TYPE", "Rum", "Vodka", "Tequila", "Fireball", "Gin", "Bailey's", "Whiskey"],
+        ["[TYPE]", "Rum", "Vodka", "Tequila", "Fireball", "Gin", "Bailey's", "Whiskey"],
         
-        ["SIZE", "Shotglass", "Solocup", "Martini"],
+        ["[SIZE]", "Shotglass", "Solocup", "Martini"],
         
-        ["#", "1", "0.25", "0.5", "0.75", "1", "2", "3"]
+        ["[#]", "1", "0.25", "0.5", "0.75", "1", "2", "3"]
     ]
     
     let containerVol: [Float] = [0, 1.5, 16, 8.8]
@@ -86,14 +86,10 @@ class Liquor:
         let quantityPicked = liquorData[2][myPicker.selectedRowInComponent(2)]
         quantitytry = liquorData[2][myPicker.selectedRowInComponent(2)]
         
-        
-        if (liquorPicked != "TYPE" && quantityPicked != "#" && containerPicked != "SIZE")
-        {
-            drinkLabel.text = liquorPicked
-            quantityLabel.text = "x     " + quantityPicked
-        }
 
-        
+        drinkLabel.text = liquorPicked
+        quantityLabel.text = "x     " + quantityPicked
+
         
         alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * liquorABV[myPicker.selectedRowInComponent(0)] / 14
         
@@ -123,15 +119,15 @@ class Liquor:
         {
             message = "Please select a liquor and container."
         }
-        else if (liquor == "TYPE")
+        else if (liquor == "[TYPE]")
         {
             message = "Please select a liquor."
         }
-        else if (container == "SIZE")
+        else if (container == "[SIZE]")
         {
             message = "Please select a container."
         }
-        else if (quantity == "#")
+        else if (quantity == "[#]")
         {
             message = "Please select a quantity."
         }
