@@ -19,7 +19,7 @@ class Register: UIViewController, UIPickerViewDelegate {
         Submit.backgroundColor = UIColor.clearColor()
         Submit.layer.cornerRadius = 5
         Submit.layer.borderWidth = 1
-        Submit.layer.borderColor = UIColor.blueColor().CGColor
+        Submit.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     var gender = ["", "Female", "Male"]

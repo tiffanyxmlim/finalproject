@@ -213,11 +213,11 @@ class Counter: UIViewController {
     @IBAction func EZButtonPressed(sender: AnyObject)
     {
         // Alert popup to confirm
-        var alert = UIAlertController(title: "Confirm", message: "Add 1 drink?", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        /*var alert = UIAlertController(title: "Confirm", message: "Add 1 drink?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))*/
         
         // If confirmed...
-        alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (alertAction) -> Void in
+        /*alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (alertAction) -> Void in*/
             
             // Add 1 drink to counter, and synchronize with NSUserDefaults
             var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -235,8 +235,8 @@ class Counter: UIViewController {
                 defaults.setObject(self.startTime, forKey: "STARTTIME")
             }
             defaults.synchronize()
-        }))
-        self.presentViewController(alert, animated: true, completion: nil)
+        //}))
+        //self.presentViewController(alert, animated: true, completion: nil)
         
 
 
