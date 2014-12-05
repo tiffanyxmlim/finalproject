@@ -20,6 +20,8 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var wineLabel: UILabel!
     
+    @IBOutlet weak var Submit: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +32,11 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         drinkLabel.text = ""
         quantityLabel.text = ""
         wineLabel.text = ""
+        
+        Submit.backgroundColor = UIColor.clearColor()
+        Submit.layer.cornerRadius = 5
+        Submit.layer.borderWidth = 1
+        Submit.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     var containertry = ""

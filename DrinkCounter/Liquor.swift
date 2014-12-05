@@ -19,6 +19,7 @@ class Liquor:
 
     @IBOutlet weak var quantityLabel: UILabel!
     
+    @IBOutlet weak var Submit: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,11 @@ class Liquor:
         
         drinkLabel.text = ""
         quantityLabel.text = ""
+        
+        Submit.backgroundColor = UIColor.clearColor()
+        Submit.layer.cornerRadius = 5
+        Submit.layer.borderWidth = 1
+        Submit.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     

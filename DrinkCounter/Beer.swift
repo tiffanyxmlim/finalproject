@@ -20,9 +20,8 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var ContainerView: UIImageView!
     
-    @IBAction func asdf(sender: AnyObject) {
-        
-    }
+    @IBOutlet weak var Submit: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +34,11 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         drinkLabel.text = ""
         quantityLabel.text = ""
         beerLabel.text = ""
+        
+        Submit.backgroundColor = UIColor.clearColor()
+        Submit.layer.cornerRadius = 5
+        Submit.layer.borderWidth = 1
+        Submit.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     var pickerchanged: Int = 0

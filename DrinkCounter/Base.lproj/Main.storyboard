@@ -521,7 +521,8 @@
                                         <exclude reference="utx-pQ-rNf"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="43" y="109" width="65.5" height="30"/>
                                     <mask key="constraints">
                                         <include reference="utx-pQ-rNf"/>
                                     </mask>
@@ -545,7 +546,8 @@
                                         <exclude reference="DQc-Vd-15d"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="204.5" y="102" width="57" height="37"/>
                                     <mask key="constraints">
                                         <include reference="DQc-Vd-15d"/>
                                     </mask>
@@ -559,6 +561,9 @@
                                 <state key="normal" image="wineicon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="14" y="155" width="123.5" height="125"/>
+                                </variation>
                                 <connections>
                                     <segue destination="UTn-vb-2m9" kind="show" id="EX0-v3-CLp"/>
                                 </connections>
@@ -568,6 +573,9 @@
                                 <state key="normal" image="beericon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="161.5" y="147" width="134.5" height="133"/>
+                                </variation>
                                 <connections>
                                     <segue destination="eWK-U3-Hj3" kind="show" id="5tj-Rw-Max"/>
                                 </connections>
@@ -977,6 +985,7 @@
                     <connections>
                         <outlet property="ContainerView" destination="964-0R-vMD" id="vyk-E2-0eQ"/>
                         <outlet property="MyPicker" destination="EUz-M3-Xd6" id="GV8-A9-Nk3"/>
+                        <outlet property="Submit" destination="jaR-kc-3du" id="zQg-md-pd0"/>
                         <outlet property="drinkLabel" destination="zOr-lo-2Le" id="R0O-ft-bUS"/>
                         <outlet property="quantityLabel" destination="yew-oh-vay" id="Wd3-3U-ryq"/>
                     </connections>
@@ -1558,6 +1567,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ContainerView" destination="mhO-Ss-Xv1" id="bwA-WE-Uim"/>
+                        <outlet property="Submit" destination="HfJ-61-hiT" id="qTC-6a-o2d"/>
                         <outlet property="beerLabel" destination="ZlK-3c-wKX" id="Khb-Fe-cGj"/>
                         <outlet property="drinkLabel" destination="QCC-e1-2MK" id="lEV-oG-cKF"/>
                         <outlet property="myPicker" destination="ziU-Sm-KPk" id="RRN-gM-Lj3"/>
@@ -1771,6 +1781,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ContainerView" destination="vyn-vj-v0v" id="CZn-Jq-Zu9"/>
+                        <outlet property="Submit" destination="vP0-93-qXw" id="Xdk-tl-b7A"/>
                         <outlet property="drinkLabel" destination="PRz-D2-Ay3" id="gDn-kA-Dfo"/>
                         <outlet property="myPicker" destination="uXM-k7-Xci" id="XVF-Co-yNT"/>
                         <outlet property="quantityLabel" destination="zMU-CU-QTg" id="dXL-6N-t6s"/>

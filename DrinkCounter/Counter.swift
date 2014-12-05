@@ -130,10 +130,10 @@ class Counter: UIViewController {
             }
             else if BAClevel < 0.1
             {
-                warningMessage.text = "Slight impairment of balance, speech, vision, reaction time, and hearing. Euphoria. Judgment and self-control are reduced, and caution, reason and memory are impaired."
+                warningMessage.text = "DO NOT DRIVE! Slight impairment of balance, speech, vision, reaction time, and hearing. Euphoria. Judgment and self-control are reduced, and caution, reason and memory are impaired."
                 // light yellow-green
-                warningMessage.backgroundColor = UIColor(red: 39/255, green: 174/255, blue: 96/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 39/255, green: 174/255, blue: 96/255, alpha: 1.0)
+                warningMessage.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0)
+                self.view.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0)
 
             }
             else if BAClevel < 0.13
