@@ -104,15 +104,17 @@ class Counter: UIViewController {
             else if BAClevel < 0.04
             {
                 warningMessage.text = "No loss of coordination, slight euphoria and loss of shyness. Mildly relaxed and maybe a little lightheaded."
-                warningMessage.backgroundColor = UIColor(red: 153/255, green: 255/255, blue: 153/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 153/255, green: 255/255, blue: 153/255, alpha: 1.0)
+                warningMessage.backgroundColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
+                //rgb(46, 204, 113)
+                self.view.backgroundColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
 
             }
             else if BAClevel < 0.07
             {
                 warningMessage.text = "Feeling of well-being, relaxation, lower inhibitions, sensation of warmth. Euphoria. Your behavior may become exaggerated and emotions intensified."
-                warningMessage.backgroundColor = UIColor(red: 195/255, green: 255/255, blue: 154/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 195/255, green: 255/255, blue: 154/255, alpha: 1.0)
+                warningMessage.backgroundColor = UIColor(red: 39/255, green: 174/255, blue: 96/255, alpha: 1.0)
+                //rgb(39, 174, 96)
+                self.view.backgroundColor = UIColor(red: 39/255, green: 174/255, blue: 96/255, alpha: 1.0)
 
             }
             else if BAClevel < 0.1
