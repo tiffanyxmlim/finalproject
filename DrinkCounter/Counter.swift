@@ -110,8 +110,15 @@ class Counter: UIViewController {
             // Calculates and displays BAC level to 4 decimal places in label
             var BAClevel = ((0.806 * counter * 1.2) / (0.453592 * genderConst * weightFloat)) - (0.017 * hours)
             var BAClevel2 : NSString = NSString(format: "%.04f", BAClevel)
-            labelBAC.text = "Expected BAC: \(BAClevel2)"
             
+            if BAClevel > 0
+            {
+                labelBAC.text = "Expected BAC: \(BAClevel2)"
+            }
+            else
+            {
+                labelBAC.text = "Expected BAC: 0"
+            }
             labelDrinkCount.text = "\(Int(counter))"
             
             
