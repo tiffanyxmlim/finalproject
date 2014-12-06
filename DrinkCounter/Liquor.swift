@@ -62,7 +62,7 @@ class Liquor:
     
     let containerVol: [Float] = [0, 1.5, 16, 8.8]
     let liquorABV: [Float] = [0, 0.4, 0.4, 0.4, 0.33, 0.45, 0.17, 0.43]
-    //var alcoholConsumed: Float = 0
+    var alcoholConsumed: Float = 0
     
     var liquorPick = NSString()
     var containerPick = NSString()
@@ -105,11 +105,11 @@ class Liquor:
         let containerPicked = liquorData[1][myPicker.selectedRowInComponent(1)]
         containertry = liquorData[1][myPicker.selectedRowInComponent(1)]
         
-        let quantityPicked = sliderround
+        //let quantityPicked = sliderround
 
         drinkLabel.text = liquorPicked
         
-        var alcoholConsumed: Float = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * quantityPicked * liquorABV[myPicker.selectedRowInComponent(0)] / 14
+        //alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * liquorABV[myPicker.selectedRowInComponent(0)] / 14
         
         switch containerPicked{
         case "Solocup": return ContainerView.image = UIImage(named: "solocup.png")
@@ -155,6 +155,7 @@ class Liquor:
             alertView.show()
             
             // Add alcoholConsumed (number of Standard Drinks) to counter, and synchronize with NSUserDefaults
+            alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * liquorABV[myPicker.selectedRowInComponent(0)] / 14
             
             var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
             var oldCounter = defaults.floatForKey("COUNTER")
