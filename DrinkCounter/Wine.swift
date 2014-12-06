@@ -108,14 +108,19 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         let containerPicked = wineData[1][myPicker.selectedRowInComponent(1)]
         containertry = wineData[1][myPicker.selectedRowInComponent(1)]
         
-        //var quantityPicked = round(10*slider.value)/10
-
-        drinkLabel.text = winePicked
-        wineLabel.text = "Wine"
-        
-        //alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * wineABV[myPicker.selectedRowInComponent(0)] / 14
+        if winePicked != "TYPE"
+        {
+            drinkLabel.text = winePicked
+            wineLabel.text = "Wine"
+        }
+        else
+        {
+            drinkLabel.text = ""
+            wineLabel.text = ""
+        }
         
         switch containerPicked{
+        case "SIZE": return ContainerView.image = nil
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.png")
         case "Wine glass": return ContainerView.image = UIImage(named: "wineglass.png")
         default: return
@@ -149,6 +154,10 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         else if (container == "SIZE")
         {
             message = "Please select a container."
+        }
+        else if (slider.value < 0.1)
+        {
+            message = "Please select a quantity."
         }
         else
         {
@@ -187,7 +196,6 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             alertView.addButtonWithTitle("OK")
             alertView.show()
         }
-
     }
     
     

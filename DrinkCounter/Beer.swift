@@ -107,17 +107,19 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         let containerPicked = beerData[1][myPicker.selectedRowInComponent(1)]
         containertry = beerData[1][myPicker.selectedRowInComponent(1)]
         
-        //let quantityPicked = beerData[2][myPicker.selectedRowInComponent(2)]
-        //var quantityPicked = round(10*slider.value)/10
-        
-        
-        drinkLabel.text = beerPicked
-        //quantityLabel.text = "x     " + quantityPicked
-        beerLabel.text = "Beer"
-        
-        //alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * beerABV[myPicker.selectedRowInComponent(0)] / 14
+        if beerPicked != "TYPE"
+        {
+            drinkLabel.text = beerPicked
+            beerLabel.text = "Beer"
+        }
+        else
+        {
+            drinkLabel.text = ""
+            beerLabel.text = ""
+        }
         
         switch containerPicked{
+        case "SIZE": return ContainerView.image = nil
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.png")
         case "Can": return ContainerView.image = UIImage(named: "beercan.png")
         case "Bottle": return ContainerView.image = UIImage(named: "beerbottle.png")
@@ -137,13 +139,8 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         
         var beer: String = beertry
         var container: String = containertry
-        //var quantity: String = quantitytry
-        //var beer: String = drinklabel.text!
-        
-        //var container: String = containerlabel.text!
-        //var quantity: String = quantitylabel.text!
+
         var message = String()
-        
         
         if (pickerchanged == 0)
         {
@@ -157,10 +154,10 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a container."
         }
-        /*else if (quantity == "[#]")
+        else if (slider.value < 0.1)
         {
             message = "Please select a quantity."
-        }*/
+        }
         else
         {
             message = "You have entered a drink."

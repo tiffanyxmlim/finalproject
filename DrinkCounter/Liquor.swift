@@ -52,7 +52,6 @@ class Liquor:
     var pickerchanged: Int = 0
     var containertry = ""
     var liquortry = ""
-    //var quantitytry = ""
     
     let liquorData = [
         ["TYPE", "Rum", "Vodka", "Tequila", "Fireball", "Gin", "Bailey's", "Whiskey"],
@@ -104,14 +103,18 @@ class Liquor:
         
         let containerPicked = liquorData[1][myPicker.selectedRowInComponent(1)]
         containertry = liquorData[1][myPicker.selectedRowInComponent(1)]
-        
-        //let quantityPicked = sliderround
 
-        drinkLabel.text = liquorPicked
-        
-        //alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * liquorABV[myPicker.selectedRowInComponent(0)] / 14
+        if liquorPicked != "TYPE"
+        {
+            drinkLabel.text = liquorPicked
+        }
+        else
+        {
+            drinkLabel.text = ""
+        }
         
         switch containerPicked{
+        case "SIZE": return ContainerView.image = nil
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.png")
         case "Shot glass": return ContainerView.image = UIImage(named: "shotglass.png")
         case "Martini": return ContainerView.image = UIImage(named: "martini.png")
@@ -143,6 +146,10 @@ class Liquor:
         else if (container == "SIZE")
         {
             message = "Please select a container."
+        }
+        else if (slider.value < 0.1)
+        {
+            message = "Please select a quantity."
         }
         else
         {
