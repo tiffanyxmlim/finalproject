@@ -1,5 +1,5 @@
 //
-//  homepage.swift
+//  Counter.swift
 //  DrinkCounter
 //
 //  Created by Tiffany Lim on 11/30/14.
@@ -119,8 +119,7 @@ class Counter: UIViewController {
             if BAClevel < 0.02
             {
                 warningMessage.text = "No significant effect on your body."
-                warningMessage.backgroundColor = UIColor(red: 153/255, green: 255/255, blue: 153/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 153/255, green: 255/255, blue: 153/255, alpha: 1.0);
+                colorMe(warningMessage, myRGB: 0x99FF99)
             }
             else if BAClevel < 0.04
             {
@@ -135,17 +134,17 @@ class Counter: UIViewController {
             }
             else if BAClevel < 0.1
             {
-                warningMessage.text = "DO NOT DRIVE! Slight impairment of balance, speech, vision, reaction time, and hearing. Euphoria. Judgment and self-control are reduced, and caution, reason and memory are impaired."
+                warningMessage.text = "DO NOT DRIVE! Euphoria. Judgment and self-control are reduced, and caution, reason and memory are impaired."
                 colorMe(warningMessage, myRGB: 0xF1C40F)
             }
             else if BAClevel < 0.13
             {
-                warningMessage.text = "DO NOT DRIVE! Significant impairment of motor coordination and loss of good judgment. Speech may be slurred; balance, vision, reaction time and hearing will be impaired. Euphoria."
+                warningMessage.text = "DO NOT DRIVE! Speech may be slurred; balance, vision, reaction time and hearing will be impaired. Euphoria."
                 colorMe(warningMessage, myRGB: 0xF1C40F)
             }
             else if BAClevel < 0.16
             {
-                warningMessage.text = "DO NOT DRIVE! Gross motor impairment and lack of physical control. Blurred vision and major loss of balance. Euphoria is reduced and dysphoria (anxiety, restlessness) is beginning to appear."
+                warningMessage.text = "DO NOT DRIVE! Blurred vision and major loss of balance. Euphoria is reduced and dysphoria (anxiety, restlessness) begins to appear."
                 colorMe(warningMessage, myRGB: 0xE67E22)
             }
             else if BAClevel < 0.2
@@ -155,27 +154,27 @@ class Counter: UIViewController {
             }
             else if BAClevel < 0.25
             {
-                warningMessage.text = "DO NOT DRIVE! Feeling dazed/confused or otherwise disoriented. May need help to stand/walk. If you injure yourself you may not feel the pain. The gag reflex is impaired and you can choke if you do vomit. Blackouts are likely at this level."
+                warningMessage.text = "DO NOT DRIVE! Feeling dazed/confused or otherwise disoriented. The gag reflex is impaired and you can choke if you do vomit. Blackouts are likely at this level."
                 colorMe(warningMessage, myRGB: 0xE74C3C)
             }
             else if BAClevel < 0.3
             {
-                warningMessage.text = "DO NOT DRIVE! All mental, physical and sensory functions are severely impaired. Increased risk of asphyxiation from choking on vomit and of seriously injuring yourself by falls or other accidents. WE RECOMMEND SEEKING MEDICAL ATTENTION."
+                warningMessage.text = "DO NOT DRIVE! Increased risk of asphyxiation from choking on vomit and of seriously injuring yourself by falls or other accidents."
                 colorMe(warningMessage, myRGB: 0xC0392B)
             }
             else if BAClevel < 0.35
             {
-                warningMessage.text = "STUPOR. DO NOT DRIVE! You have little comprehension of where you are. You may pass out suddenly and be difficult to awaken. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
+                warningMessage.text = "STUPOR. DO NOT DRIVE! You have little comprehension of where you are. You may pass out suddenly and be difficult to awaken."
                 colorMe(warningMessage, myRGB: 0x8C0000)
             }
             else if BAClevel < 0.4
             {
-                warningMessage.text = "DO NOT DRIVE! Coma is possible. This is the level of surgical anesthesia. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
+                warningMessage.text = "DO NOT DRIVE! Coma is possible. This is the level of surgical anesthesia."
                 colorMe(warningMessage, myRGB: 0x780000)
             }
             else
             {
-                warningMessage.text = "DO NOT DRIVE! Onset of coma, and possible death due to respiratory arrest. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
+                warningMessage.text = "DO NOT DRIVE! Onset of coma, and possible death due to respiratory arrest."
                 colorMe(warningMessage, myRGB: 000000)
             }
         }
