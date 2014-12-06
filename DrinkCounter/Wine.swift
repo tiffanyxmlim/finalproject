@@ -24,14 +24,14 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        slider.value = 0.0
+        slider.value = 1.0
 
         // Do any additional setup after loading the view.
         myPicker.delegate = self
         myPicker.dataSource = self
         
         drinkLabel.text = ""
-        quantityLabel.text = ""
+        quantityLabel.text = "1"
         wineLabel.text = ""
         
         Submit.backgroundColor = UIColor.clearColor()

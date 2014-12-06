@@ -23,15 +23,14 @@ class Liquor:
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        slider.value = 0.0
-        
+        slider.value = 1.0
 
         // Do any additional setup after loading the view.
         myPicker.delegate = self
         myPicker.dataSource = self
         
         drinkLabel.text = ""
-        quantityLabel.text = ""
+        quantityLabel.text = "1"
         
         Submit.backgroundColor = UIColor.clearColor()
         Submit.layer.cornerRadius = 5
@@ -57,7 +56,7 @@ class Liquor:
     let liquorData = [
         ["TYPE", "Rum", "Vodka", "Tequila", "Fireball", "Gin", "Bailey's", "Whiskey"],
         
-        ["SIZE", "Shotglass", "Solocup", "Martini"]
+        ["SIZE", "Shot glass", "Solo cup", "Martini"]
     ]
     
     let containerVol: [Float] = [0, 1.5, 16, 8.8]
@@ -112,8 +111,8 @@ class Liquor:
         //alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * liquorABV[myPicker.selectedRowInComponent(0)] / 14
         
         switch containerPicked{
-        case "Solocup": return ContainerView.image = UIImage(named: "solocup.png")
-        case "Shotglass": return ContainerView.image = UIImage(named: "shotglass.png")
+        case "Solo cup": return ContainerView.image = UIImage(named: "solocup.png")
+        case "Shot glass": return ContainerView.image = UIImage(named: "shotglass.png")
         case "Martini": return ContainerView.image = UIImage(named: "martini.png")
         default: return
         }

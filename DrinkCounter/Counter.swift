@@ -228,7 +228,7 @@ class Counter: UIViewController {
             labelDrinkCount.text = "\(Int(newCounter))"
             
             // If timer is not running yet, start timer and update (see function above)
-            if (!timer.valid) {
+            if (!timer.valid || defaults.floatForKey("STARTTIME") == 0) {
                 timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
                 startTime = NSDate.timeIntervalSinceReferenceDate()
                 defaults.setObject(self.startTime, forKey: "STARTTIME")
