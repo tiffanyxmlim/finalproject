@@ -24,13 +24,14 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        slider.value = 0.0
 
         // Do any additional setup after loading the view.
         myPicker.delegate = self
         myPicker.dataSource = self
         
         drinkLabel.text = ""
-        quantityLabel.text = "0"
+        quantityLabel.text = ""
         wineLabel.text = ""
         
         Submit.backgroundColor = UIColor.clearColor()
@@ -38,12 +39,14 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         Submit.layer.borderWidth = 1
         Submit.layer.borderColor = UIColor.whiteColor().CGColor
     }
+    var sliderround = Float()
     
     @IBOutlet weak var slider: UISlider!
     
     @IBAction func sliderChanged(sender: AnyObject)
     {
-        quantityLabel.text = "\(round(10*slider.value)/10)"
+        sliderround = round(10*slider.value)/10
+        quantityLabel.text = "\(sliderround)"
     }
     
     var containertry = ""
@@ -56,7 +59,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     ]
     
     let wineABV: [Float] = [0, 0.11, 0.115, 0.06, 0.14, 0.105, 0.2]
-    let containerVol: [Float] = [0, 16, 9]
+    let containerVol: [Float] = [0, 16, 6]
     
     var alcoholConsumed: Float = 0
     
@@ -104,12 +107,12 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         let containerPicked = wineData[1][myPicker.selectedRowInComponent(1)]
         containertry = wineData[1][myPicker.selectedRowInComponent(1)]
         
-        var quantityPicked = round(10*slider.value)/10
+        //var quantityPicked = round(10*slider.value)/10
 
         drinkLabel.text = winePicked
         wineLabel.text = "Wine"
         
-        alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * quantityPicked * wineABV[myPicker.selectedRowInComponent(0)] / 14
+        //alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * wineABV[myPicker.selectedRowInComponent(0)] / 14
         
         switch containerPicked{
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.png")
@@ -157,6 +160,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             alertView.show()
             
             // Add alcoholConsumed (number of Standard Drinks) to counter, and synchronize with NSUserDefaults
+            alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * wineABV[myPicker.selectedRowInComponent(0)] / 14
             var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
             var oldCounter = defaults.floatForKey("COUNTER")
             var newCounter = oldCounter + alcoholConsumed
