@@ -51,11 +51,11 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     var winetry = ""
     
     let wineData = [
-        ["[TYPE]", "Standard", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
-        ["[SIZE]", "Solo cup", "Wine glass"]
+        ["TYPE", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
+        ["SIZE", "Solo cup", "Wine glass"]
     ]
     
-    let wineABV: [Float] = [0, 0.12, 0.11, 0.115, 0.06, 0.14, 0.105, 0.2]
+    let wineABV: [Float] = [0, 0.11, 0.115, 0.06, 0.14, 0.105, 0.2]
     let containerVol: [Float] = [0, 16, 9]
     
     var alcoholConsumed: Float = 0
@@ -138,11 +138,11 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a wine and container."
         }
-        else if (wine == "[TYPE]")
+        else if (wine == "TYPE")
         {
             message = "Please select a wine."
         }
-        else if (container == "[SIZE]")
+        else if (container == "SIZE")
         {
             message = "Please select a container."
         }
