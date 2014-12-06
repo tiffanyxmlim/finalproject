@@ -26,6 +26,7 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         slider.value = 1.0
+        sliderround = 1.0
 
         // Do any additional setup after loading the view.
         myPicker.delegate = self
