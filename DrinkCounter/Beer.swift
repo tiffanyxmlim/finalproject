@@ -32,7 +32,7 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         myPicker.dataSource = self
         
         drinkLabel.text = ""
-        quantityLabel.text = ""
+        quantityLabel.text = "0"
         beerLabel.text = ""
         
         Submit.backgroundColor = UIColor.clearColor()
@@ -41,22 +41,27 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         Submit.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
+    
+    @IBOutlet weak var slider: UISlider!
+    
+    @IBAction func sliderChanged(sender: AnyObject)
+    {
+        quantityLabel.text = "\(round(10*slider.value)/10)"
+    }
+    
     var pickerchanged: Int = 0
     var containertry = ""
     var beertry = ""
-    var quantitytry = ""
     
     let beerData = [
-        ["[TYPE]", "Light", "Regular", "IPA", "Ale", "Stout"],
+        ["TYPE", "Light", "Regular", "IPA", "Ale", "Stout"],
         
-        ["[SIZE]", "Solo cup", "Can", "Bottle", "Stein"],
-        
-        ["[#]", "1", "0.5", "1", "2", "3", "4", "5"]
+        ["SIZE", "Solo cup", "Can", "Bottle", "Stein"]
     ]
     
     let containerVol: [Float] = [0, 16, 12, 12, 10]
     let beerABV: [Float] = [0, 0.042, 0.06, 0.07, 0.05, 0.08]
-    let multipleFactor: [Float] = [0, 1, 0.5, 1, 2, 3, 4, 5]
+    //let multipleFactor: [Float] = [0, 1, 0.5, 1, 2, 3, 4, 5]
     var alcoholConsumed: Float = 0
     
     var beerPick = NSString()
@@ -96,17 +101,19 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     {
         let beerPicked = beerData[0][myPicker.selectedRowInComponent(0)]
         beertry = beerData[0][myPicker.selectedRowInComponent(0)]
+        
         let containerPicked = beerData[1][myPicker.selectedRowInComponent(1)]
         containertry = beerData[1][myPicker.selectedRowInComponent(1)]
-        let quantityPicked = beerData[2][myPicker.selectedRowInComponent(2)]
-        quantitytry = beerData[2][myPicker.selectedRowInComponent(2)]
+        
+        //let quantityPicked = beerData[2][myPicker.selectedRowInComponent(2)]
+        var quantityPicked = round(10*slider.value)/10
         
         
         drinkLabel.text = beerPicked
-        quantityLabel.text = "x     " + quantityPicked
+        //quantityLabel.text = "x     " + quantityPicked
         beerLabel.text = "Beer"
         
-        alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * beerABV[myPicker.selectedRowInComponent(0)] / 14
+        alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * quantityPicked * beerABV[myPicker.selectedRowInComponent(0)] / 14
         
         switch containerPicked{
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.png")
@@ -128,7 +135,7 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         
         var beer: String = beertry
         var container: String = containertry
-        var quantity: String = quantitytry
+        //var quantity: String = quantitytry
         //var beer: String = drinklabel.text!
         
         //var container: String = containerlabel.text!
@@ -140,18 +147,18 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "Please select a beer and container."
         }
-        else if (beer == "[TYPE]")
+        else if (beer == "TYPE")
         {
             message = "Please select a beer."
         }
-        else if (container == "[SIZE]")
+        else if (container == "SIZE")
         {
             message = "Please select a container."
         }
-        else if (quantity == "[#]")
+        /*else if (quantity == "[#]")
         {
             message = "Please select a quantity."
-        }
+        }*/
         else
         {
             message = "You have entered a drink."

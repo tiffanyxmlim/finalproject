@@ -23,6 +23,8 @@ class Liquor:
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        slider.value = 0.0
+        
 
         // Do any additional setup after loading the view.
         myPicker.delegate = self
@@ -37,24 +39,30 @@ class Liquor:
         Submit.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
+    var sliderround = Float()
+    
+    @IBOutlet weak var slider: UISlider!
+    
+    @IBAction func sliderChanged(sender: AnyObject)
+    {
+        sliderround = round(10*slider.value)/10
+        quantityLabel.text = "\(sliderround)"
+    }
     
     var pickerchanged: Int = 0
     var containertry = ""
     var liquortry = ""
-    var quantitytry = ""
+    //var quantitytry = ""
     
     let liquorData = [
-        ["[TYPE]", "Rum", "Vodka", "Tequila", "Fireball", "Gin", "Bailey's", "Whiskey"],
+        ["TYPE", "Rum", "Vodka", "Tequila", "Fireball", "Gin", "Bailey's", "Whiskey"],
         
-        ["[SIZE]", "Shotglass", "Solocup", "Martini"],
-        
-        ["[#]", "1", "0.25", "0.5", "0.75", "1", "2", "3"]
+        ["SIZE", "Shotglass", "Solocup", "Martini"]
     ]
     
     let containerVol: [Float] = [0, 1.5, 16, 8.8]
     let liquorABV: [Float] = [0, 0.4, 0.4, 0.4, 0.33, 0.45, 0.17, 0.43]
-    let multipleFactor: [Float] = [0, 1, 0.25, 0.5, 0.75, 1, 2, 3]
-    var alcoholConsumed: Float = 0
+    //var alcoholConsumed: Float = 0
     
     var liquorPick = NSString()
     var containerPick = NSString()
@@ -93,17 +101,15 @@ class Liquor:
     {
         let liquorPicked = liquorData[0][myPicker.selectedRowInComponent(0)]
         liquortry = liquorData[0][myPicker.selectedRowInComponent(0)]
+        
         let containerPicked = liquorData[1][myPicker.selectedRowInComponent(1)]
         containertry = liquorData[1][myPicker.selectedRowInComponent(1)]
-        let quantityPicked = liquorData[2][myPicker.selectedRowInComponent(2)]
-        quantitytry = liquorData[2][myPicker.selectedRowInComponent(2)]
         
+        let quantityPicked = sliderround
 
         drinkLabel.text = liquorPicked
-        quantityLabel.text = "x     " + quantityPicked
-
         
-        alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * multipleFactor[myPicker.selectedRowInComponent(2)] * liquorABV[myPicker.selectedRowInComponent(0)] / 14
+        var alcoholConsumed: Float = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * quantityPicked * liquorABV[myPicker.selectedRowInComponent(0)] / 14
         
         switch containerPicked{
         case "Solocup": return ContainerView.image = UIImage(named: "solocup.png")
@@ -122,7 +128,6 @@ class Liquor:
     @IBAction func liquorsubmit(sender: AnyObject) {
         var liquor: String = liquortry
         var container: String = containertry
-        var quantity: String = quantitytry
         
         var message = String()
         
@@ -131,17 +136,13 @@ class Liquor:
         {
             message = "Please select a liquor and container."
         }
-        else if (liquor == "[TYPE]")
+        else if (liquor == "TYPE")
         {
             message = "Please select a liquor."
         }
-        else if (container == "[SIZE]")
+        else if (container == "SIZE")
         {
             message = "Please select a container."
-        }
-        else if (quantity == "[#]")
-        {
-            message = "Please select a quantity."
         }
         else
         {
@@ -154,6 +155,7 @@ class Liquor:
             alertView.show()
             
             // Add alcoholConsumed (number of Standard Drinks) to counter, and synchronize with NSUserDefaults
+            
             var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
             var oldCounter = defaults.floatForKey("COUNTER")
             var newCounter = oldCounter + alcoholConsumed
