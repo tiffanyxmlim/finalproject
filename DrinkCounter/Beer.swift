@@ -36,10 +36,7 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         quantityLabel.text = "1"
         beerLabel.text = ""
         
-        Submit.backgroundColor = UIColor.clearColor()
-        Submit.layer.cornerRadius = 5
-        Submit.layer.borderWidth = 1
-        Submit.layer.borderColor = UIColor.whiteColor().CGColor
+        borderMe(Submit)
     }
     
     var sliderround = Float()
@@ -53,8 +50,6 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     var pickerchanged: Int = 0
-    var containertry = ""
-    var beertry = ""
     
     let beerData = [
         ["TYPE", "Light", "Regular", "IPA", "Ale", "Stout"],
@@ -65,9 +60,6 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     let containerVol: [Float] = [0, 16, 12, 12, 10]
     let beerABV: [Float] = [0, 0.042, 0.06, 0.07, 0.05, 0.08]
     var alcoholConsumed: Float = 0
-    
-    var beerPick = NSString()
-    var containerPick = NSString()
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
@@ -99,17 +91,17 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         return myTitle
     }
     
+    var containertry = ""
+    var beertry = ""
+    
     func updateLabels()
     {
-        let beerPicked = beerData[0][myPicker.selectedRowInComponent(0)]
         beertry = beerData[0][myPicker.selectedRowInComponent(0)]
-        
-        let containerPicked = beerData[1][myPicker.selectedRowInComponent(1)]
         containertry = beerData[1][myPicker.selectedRowInComponent(1)]
         
-        if beerPicked != "TYPE"
+        if beertry != "TYPE"
         {
-            drinkLabel.text = beerPicked
+            drinkLabel.text = beertry
             beerLabel.text = "Beer"
         }
         else
@@ -118,7 +110,7 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
             beerLabel.text = ""
         }
         
-        switch containerPicked{
+        switch containertry{
         case "SIZE": return ContainerView.image = nil
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.png")
         case "Can": return ContainerView.image = UIImage(named: "beercan.png")
@@ -136,21 +128,17 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     @IBAction func beersubmit(sender: AnyObject) {
-        
-        var beer: String = beertry
-        var container: String = containertry
-
         var message = String()
         
         if (pickerchanged == 0)
         {
             message = "Please select a beer and container."
         }
-        else if (beer == "TYPE")
+        else if (beertry == "TYPE")
         {
             message = "Please select a beer."
         }
-        else if (container == "SIZE")
+        else if (containertry == "SIZE")
         {
             message = "Please select a container."
         }
@@ -161,26 +149,11 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         else
         {
             message = "You have entered a drink."
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "Success!"
-            alertView.message = message
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
-           
-            // Add alcoholConsumed (number of Standard Drinks) to counter, and synchronize with NSUserDefaults
+            alertMe("Success!", message)
+            
             alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * beerABV[myPicker.selectedRowInComponent(0)] / 14
             
-            var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            var oldCounter = defaults.floatForKey("COUNTER")
-            var newCounter = oldCounter + alcoholConsumed
-            defaults.setObject(newCounter, forKey: "COUNTER")
-            if (defaults.floatForKey("STARTTIME") == 0)
-            {
-                var startTime = NSDate.timeIntervalSinceReferenceDate()
-                defaults.setObject(startTime, forKey: "STARTTIME")
-                defaults.synchronize()
-            }
+            updateCount(alcoholConsumed)
             
             // Pop to root view controller ("counter" screen)
             self.navigationController!.popToRootViewControllerAnimated(true)
@@ -188,12 +161,7 @@ class Beer: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         
         if (message != "You have entered a drink.")
         {
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "Error"
-            alertView.message = message
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            alertMe("Error", message)
         }
 
     }

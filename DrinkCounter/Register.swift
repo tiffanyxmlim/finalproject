@@ -16,10 +16,8 @@ class Register: UIViewController, UIPickerViewDelegate {
         super.viewDidLoad()
         // Do view setup here.
         var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        Submit.backgroundColor = UIColor.clearColor()
-        Submit.layer.cornerRadius = 5
-        Submit.layer.borderWidth = 1
-        Submit.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        borderMe(Submit)
     }
     
     var gender = ["", "Female", "Male"]
@@ -61,7 +59,6 @@ class Register: UIViewController, UIPickerViewDelegate {
         
         // Set NSUserDefault for Gender
         var genderPick = gender[row]
-        var defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(genderPick, forKey: "GENDER")
         defaults.synchronize()
     }
@@ -76,7 +73,6 @@ class Register: UIViewController, UIPickerViewDelegate {
     @IBAction func buttonRegisterPress(sender: AnyObject) {
         var name: NSString = nameTextField.text as NSString
         var weight: String = weightTextField.text
-        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
         var gender = defaults.objectForKey("GENDER") as NSString
         var num = weight.toInt()
         
@@ -86,33 +82,15 @@ class Register: UIViewController, UIPickerViewDelegate {
         
         if (nameTextField.text == "")
         {
-            // Alert if user did not enter their name
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "Register Failed!"
-            alertView.message = "Please enter your name."
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            alertMe("Register Failed!", "Please enter your name.")
         }
         else if (weightTextField.text == "" || num == nil || num < 50 || num > 800)
         {
-            // Alert if user did not enter a positive integer for a weight
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "Register Failed!"
-            alertView.message = "Please enter a valid weight."
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            alertMe("Register Failed!", "Please enter a valid weight.")
         }
         else if (pickerchanged == 0 || gender == "")
         {
-            // Alert if user did not select a gender
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "Register Failed!"
-            alertView.message = "Please select a gender."
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            alertMe("Register Failed!", "Please select a gender.")
         }
         else
         {
@@ -122,13 +100,7 @@ class Register: UIViewController, UIPickerViewDelegate {
             defaults.setFloat(0, forKey: "COUNTER")
             defaults.synchronize()
             
-            // Alert user that they have completed registration
-            var success: UIAlertView = UIAlertView()
-            success.title = "Success!"
-            success.message = "You have update your settings."
-            success.delegate = self
-            success.addButtonWithTitle("OK")
-            success.show()
+            alertMe("Success!", "You have updated your settings.")
             
             // Segue to Log In Screen
             let storyboard = UIStoryboard(name: "Main", bundle: nil)

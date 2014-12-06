@@ -10,40 +10,29 @@ import UIKit
 
 class Counter: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Set label for drink count when screen loads, as an integer
-        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
         var drinkCount = defaults.floatForKey("COUNTER")
         labelDrinkCount.text = "\(Int(drinkCount))"
         warningMessage.text = ""
+        warningMessage.textColor = UIColor.whiteColor()
         
-        add1Button.layer.cornerRadius = 5
-        add1Button.layer.borderWidth = 1
-        add1Button.layer.borderColor = UIColor.whiteColor().CGColor
-        addCustomButton.layer.cornerRadius = 5
-        addCustomButton.layer.borderWidth = 1
-        addCustomButton.layer.borderColor = UIColor.whiteColor().CGColor
-        endButton.backgroundColor = UIColor.clearColor()
-        endButton.layer.cornerRadius = 5
-        endButton.layer.borderWidth = 1
-        endButton.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        add1Button.layer.shadowColor = UIColor.blackColor().CGColor
-        add1Button.layer.shadowOffset = CGSizeMake(3, 3)
-        add1Button.layer.shadowRadius = 5
-        add1Button.layer.shadowOpacity = 0.75
-        
-        addCustomButton.layer.shadowColor = UIColor.blackColor().CGColor
-        addCustomButton.layer.shadowOffset = CGSizeMake(3, 3)
-        addCustomButton.layer.shadowRadius = 5
-        addCustomButton.layer.shadowOpacity = 0.75
+        borderMe(add1Button)
+        borderMe(addCustomButton)
+        borderMe(endButton)
 
-        self.navigationController?.navigationBar.translucent = true
-        
-       self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
-        
-
+        shadowMe(add1Button)
+        shadowMe(addCustomButton)
+    }
+    
+    func colorMe(warningMessage: UITextView, myRGB: Int)
+    {
+        warningMessage.backgroundColor = UIColor(netHex: myRGB)
+        self.view.backgroundColor = UIColor(netHex: myRGB)
     }
     
     @IBOutlet weak var add1Button: UIButton!
@@ -52,16 +41,15 @@ class Counter: UIViewController {
     
     @IBOutlet weak var endButton: UIButton!
     
+    @IBOutlet weak var warningMessage: UITextView!
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    var startTime = NSTimeInterval()
-    
     var timer = NSTimer()
-    
-    var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet weak var labelBAC: UILabel!
     
@@ -73,7 +61,6 @@ class Counter: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (alertAction) -> Void in
             
             // reset counter to 0
-            var defaults = NSUserDefaults.standardUserDefaults()
             defaults.setObject(0, forKey: "COUNTER")
             defaults.synchronize()
             
@@ -90,12 +77,10 @@ class Counter: UIViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
     
-    // Continuously updates in background after "Add 1 Drink" is pressed for first time
+    // Continuously updates in background
     func update() {
         
         // Grabs weight, gender, and drink count from user defaults
-        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        
         if (defaults.floatForKey("STARTTIME") != 0)
         {
             var weight = defaults.objectForKey("WEIGHT") as NSString
@@ -113,6 +98,7 @@ class Counter: UIViewController {
             var counter = defaults.floatForKey("COUNTER")
             
             var startTime2 = defaults.objectForKey("STARTTIME") as NSTimeInterval
+            
             // Sets time label to duration of drinking session
             var currentTime = NSDate.timeIntervalSinceReferenceDate()
             var elapsedTime: NSTimeInterval = currentTime - startTime2
@@ -128,6 +114,8 @@ class Counter: UIViewController {
             
             labelDrinkCount.text = "\(Int(counter))"
             
+            
+            
             if BAClevel < 0.02
             {
                 warningMessage.text = "No significant effect on your body."
@@ -137,120 +125,71 @@ class Counter: UIViewController {
             else if BAClevel < 0.04
             {
                 warningMessage.text = "No loss of coordination, slight euphoria and loss of shyness. Mildly relaxed and maybe a little lightheaded."
-                warningMessage.backgroundColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
-                //rgb(46, 204, 113)
-                self.view.backgroundColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
+                colorMe(warningMessage, myRGB: 0x2ECC71)
 
             }
             else if BAClevel < 0.07
             {
                 warningMessage.text = "Feeling of well-being, relaxation, lower inhibitions, sensation of warmth. Euphoria. Your behavior may become exaggerated and emotions intensified."
-                warningMessage.backgroundColor = UIColor(red: 39/255, green: 174/255, blue: 96/255, alpha: 1.0)
-                //rgb(39, 174, 96)
-                self.view.backgroundColor = UIColor(red: 39/255, green: 174/255, blue: 96/255, alpha: 1.0)
-
+                colorMe(warningMessage, myRGB: 0x27AE60)
             }
             else if BAClevel < 0.1
             {
                 warningMessage.text = "DO NOT DRIVE! Slight impairment of balance, speech, vision, reaction time, and hearing. Euphoria. Judgment and self-control are reduced, and caution, reason and memory are impaired."
-                // light yellow-green
-                warningMessage.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0)
-
+                colorMe(warningMessage, myRGB: 0xF1C40F)
             }
             else if BAClevel < 0.13
             {
                 warningMessage.text = "DO NOT DRIVE! Significant impairment of motor coordination and loss of good judgment. Speech may be slurred; balance, vision, reaction time and hearing will be impaired. Euphoria."
-                // yellow
-                warningMessage.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0)
-                //rgb(241, 196, 15)
-                self.view.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1.0)
-
-                
+                colorMe(warningMessage, myRGB: 0xF1C40F)
             }
             else if BAClevel < 0.16
             {
                 warningMessage.text = "DO NOT DRIVE! Gross motor impairment and lack of physical control. Blurred vision and major loss of balance. Euphoria is reduced and dysphoria (anxiety, restlessness) is beginning to appear."
-                // orange
-                warningMessage.backgroundColor = UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1.0)
-                //rgb(230, 126, 34)
-                self.view.backgroundColor = UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1.0)
-
-                
+                colorMe(warningMessage, myRGB: 0xE67E22)
             }
             else if BAClevel < 0.2
             {
                 warningMessage.text = "DO NOT DRIVE! Dysphoria predominates, nausea may appear. The drinker has the appearance of a \"sloppy drunk.\""
-                // red-o
-                warningMessage.backgroundColor = UIColor(red: 211/255, green: 84/255, blue: 0/255, alpha: 1.0)
-                //rgb(211, 84, 0)
-                self.view.backgroundColor = UIColor(red: 211/255, green: 84/255, blue: 0/255, alpha: 1.0)
-
+                colorMe(warningMessage, myRGB: 0xD35400)
             }
             else if BAClevel < 0.25
             {
                 warningMessage.text = "DO NOT DRIVE! Feeling dazed/confused or otherwise disoriented. May need help to stand/walk. If you injure yourself you may not feel the pain. The gag reflex is impaired and you can choke if you do vomit. Blackouts are likely at this level."
-                warningMessage.backgroundColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0)
-               // rgb(231, 76, 60)
-                self.view.backgroundColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0)
-
+                colorMe(warningMessage, myRGB: 0xE74C3C)
             }
             else if BAClevel < 0.3
             {
                 warningMessage.text = "DO NOT DRIVE! All mental, physical and sensory functions are severely impaired. Increased risk of asphyxiation from choking on vomit and of seriously injuring yourself by falls or other accidents. WE RECOMMEND SEEKING MEDICAL ATTENTION."
-                warningMessage.backgroundColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1.0)
-                //rgb(192, 57, 43)
-                self.view.backgroundColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1.0)
-
+                colorMe(warningMessage, myRGB: 0xC0392B)
             }
             else if BAClevel < 0.35
             {
                 warningMessage.text = "STUPOR. DO NOT DRIVE! You have little comprehension of where you are. You may pass out suddenly and be difficult to awaken. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
-                warningMessage.backgroundColor = UIColor(red: 140/255, green: 0/255, blue: 0/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 140/255, green: 0/255, blue: 0/255, alpha: 1.0)
-
+                colorMe(warningMessage, myRGB: 0x8C0000)
             }
             else if BAClevel < 0.4
             {
                 warningMessage.text = "DO NOT DRIVE! Coma is possible. This is the level of surgical anesthesia. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
-                warningMessage.backgroundColor = UIColor(red: 120/255, green: 0/255, blue: 0/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 120/255, green: 0/255, blue: 0/255, alpha: 1.0)
-
+                colorMe(warningMessage, myRGB: 0x780000)
             }
             else
             {
                 warningMessage.text = "DO NOT DRIVE! Onset of coma, and possible death due to respiratory arrest. WE RECOMMEND SEEKING MEDICAL ATTENTION. PLEASE CALL 617-495-1212 FOR ASSISTANCE."
-                warningMessage.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
-                self.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
-
+                colorMe(warningMessage, myRGB: 000000)
             }
         }
     }
 
     @IBOutlet weak var labelDrinkCount: UILabel!
     
-    @IBOutlet weak var warningMessage: UITextView!
-    
-    // When "Add 1 Drink" is pressed...
     @IBAction func EZButtonPressed(sender: AnyObject)
     {
-            // Add 1 drink to counter, and synchronize with NSUserDefaults
-            var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            var oldCounter = defaults.floatForKey("COUNTER")
-            var newCounter = oldCounter + 1
-            defaults.setObject(newCounter, forKey: "COUNTER")
-            
-            // Display integer version of counter
-            labelDrinkCount.text = "\(Int(newCounter))"
-            
-            // If timer is not running yet, start timer and update (see function above)
-            if (!timer.valid || defaults.floatForKey("STARTTIME") == 0) {
-                timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
-                startTime = NSDate.timeIntervalSinceReferenceDate()
-                defaults.setObject(self.startTime, forKey: "STARTTIME")
-            }
-            defaults.synchronize()
-
+        if (!timer.valid)
+        {
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
+        }
+        updateCount(1.0)
     }
     
     

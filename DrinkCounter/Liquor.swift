@@ -33,10 +33,7 @@ class Liquor:
         drinkLabel.text = ""
         quantityLabel.text = "1"
         
-        Submit.backgroundColor = UIColor.clearColor()
-        Submit.layer.cornerRadius = 5
-        Submit.layer.borderWidth = 1
-        Submit.layer.borderColor = UIColor.whiteColor().CGColor
+        borderMe(Submit)
     }
     
     var sliderround = Float()
@@ -50,8 +47,7 @@ class Liquor:
     }
     
     var pickerchanged: Int = 0
-    var containertry = ""
-    var liquortry = ""
+    
     
     let liquorData = [
         ["TYPE", "Rum", "Vodka", "Tequila", "Fireball", "Gin", "Bailey's", "Whiskey"],
@@ -62,9 +58,6 @@ class Liquor:
     let containerVol: [Float] = [0, 1.5, 16, 8.8]
     let liquorABV: [Float] = [0, 0.4, 0.4, 0.4, 0.33, 0.45, 0.17, 0.43]
     var alcoholConsumed: Float = 0
-    
-    var liquorPick = NSString()
-    var containerPick = NSString()
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
@@ -96,24 +89,24 @@ class Liquor:
         return myTitle
     }
     
+    var containertry = ""
+    var liquortry = ""
+    
     func updateLabels()
     {
-        let liquorPicked = liquorData[0][myPicker.selectedRowInComponent(0)]
         liquortry = liquorData[0][myPicker.selectedRowInComponent(0)]
-        
-        let containerPicked = liquorData[1][myPicker.selectedRowInComponent(1)]
         containertry = liquorData[1][myPicker.selectedRowInComponent(1)]
 
-        if liquorPicked != "TYPE"
+        if liquortry != "TYPE"
         {
-            drinkLabel.text = liquorPicked
+            drinkLabel.text = liquortry
         }
         else
         {
             drinkLabel.text = ""
         }
         
-        switch containerPicked{
+        switch containertry{
         case "SIZE": return ContainerView.image = nil
         case "Solo cup": return ContainerView.image = UIImage(named: "solocup.png")
         case "Shot glass": return ContainerView.image = UIImage(named: "shotglass.png")
@@ -129,21 +122,17 @@ class Liquor:
     }
     
     @IBAction func liquorsubmit(sender: AnyObject) {
-        var liquor: String = liquortry
-        var container: String = containertry
-        
         var message = String()
-        
         
         if (pickerchanged == 0)
         {
             message = "Please select a liquor and container."
         }
-        else if (liquor == "TYPE")
+        else if (liquortry == "TYPE")
         {
             message = "Please select a liquor."
         }
-        else if (container == "SIZE")
+        else if (containertry == "SIZE")
         {
             message = "Please select a container."
         }
@@ -154,26 +143,11 @@ class Liquor:
         else
         {
             message = "You have entered a drink."
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "Success!"
-            alertView.message = message
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            alertMe("Success!", message)
             
-            // Add alcoholConsumed (number of Standard Drinks) to counter, and synchronize with NSUserDefaults
             alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * liquorABV[myPicker.selectedRowInComponent(0)] / 14
             
-            var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            var oldCounter = defaults.floatForKey("COUNTER")
-            var newCounter = oldCounter + alcoholConsumed
-            defaults.setObject(newCounter, forKey: "COUNTER")
-            if (defaults.floatForKey("STARTTIME") == 0)
-            {
-                var startTime = NSDate.timeIntervalSinceReferenceDate()
-                defaults.setObject(startTime, forKey: "STARTTIME")
-                defaults.synchronize()
-            }
+            updateCount(alcoholConsumed)
             
             // Pop to root view controller ("counter" screen)
             self.navigationController!.popToRootViewControllerAnimated(true)
@@ -181,12 +155,7 @@ class Liquor:
         
         if (message != "You have entered a drink.")
         {
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "Error"
-            alertView.message = message
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            alertMe("Error", message)
         }
 
     }

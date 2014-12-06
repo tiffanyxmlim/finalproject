@@ -22,20 +22,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        if (labelName.text != nil && defaults.objectForKey("NAME") != nil){
+        if (labelName.text != nil && defaults.objectForKey("NAME") != nil)
+        {
             labelName.text = defaults.objectForKey("NAME") as NSString
         }
         defaults.setFloat(0, forKey: "STARTTIME")
         defaults.synchronize()
-        registerButton.backgroundColor = UIColor.clearColor()
-        registerButton.layer.cornerRadius = 5
-        registerButton.layer.borderWidth = 1
-        registerButton.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        Start.backgroundColor = UIColor.clearColor()
-        Start.layer.cornerRadius = 5
-        Start.layer.borderWidth = 1
-        Start.layer.borderColor = UIColor.whiteColor().CGColor
+        borderMe(registerButton)
+        borderMe(Start)
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,12 +44,7 @@ class ViewController: UIViewController {
         if defaults.objectForKey("NAME") == nil
         {
             // Alert if user did not enter their name
-            var alertView: UIAlertView = UIAlertView()
-            alertView.title = "Oops! There's no existing user in our system."
-            alertView.message = "Please register before beginning to drink."
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            alertMe("Oops! There's no existing user in our system.","Please register before beginning to drink.")
         }
         else
         {

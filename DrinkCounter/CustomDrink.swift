@@ -19,12 +19,9 @@ class CustomDrink: UIViewController {
         labelABV.text = "0 %"
         labelVolume.text = "0"
         
-        
-        Submit.backgroundColor = UIColor.clearColor()
-        Submit.layer.cornerRadius = 5
-        Submit.layer.borderWidth = 1
-        Submit.layer.borderColor = UIColor.whiteColor().CGColor
+        borderMe(Submit)
     }
+    
     var sliderVolumeround = Float()
     var sliderABVround = Float()
     
@@ -37,8 +34,6 @@ class CustomDrink: UIViewController {
     @IBOutlet weak var labelVolume: UILabel!
     
     @IBAction func changeABV(sender: AnyObject)
-        
-    
     {
         sliderABVround = round(10 * sliderABV.value) / 10
         labelABV.text = "\(sliderABVround) %"
@@ -54,30 +49,22 @@ class CustomDrink: UIViewController {
     
     @IBAction func CustomDrinkPress(sender: AnyObject)
     {
-        var alcoholConsumed: Float = sliderVolumeround * 28.3495231 * sliderABVround / 1400
-        
-        var alertView: UIAlertView = UIAlertView()
-        alertView.title = "Success!"
-        alertView.message = "You have entered \(sliderVolumeround) ounces of a drink with \(sliderABVround)% ABV."
-        alertView.delegate = self
-        alertView.addButtonWithTitle("OK")
-        alertView.show()
-        
-        // Add alcoholConsumed (number of Standard Drinks) to counter, and synchronize with NSUserDefaults
-        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        var oldCounter = defaults.floatForKey("COUNTER")
-        var newCounter = oldCounter + alcoholConsumed
-        defaults.setObject(newCounter, forKey: "COUNTER")
-        if (defaults.floatForKey("STARTTIME") == 0)
+        if (sliderVolumeround > 0 || sliderABVround > 0)
         {
-            var startTime = NSDate.timeIntervalSinceReferenceDate()
-            defaults.setObject(startTime, forKey: "STARTTIME")
-            defaults.synchronize()
+            var alcoholConsumed: Float = sliderVolumeround * 28.3495231 * sliderABVround / 1400
+        
+            var message = "You have entered \(sliderVolumeround) ounces of a drink with \(sliderABVround)% ABV."
+            alertMe("Success!", message)
+        
+            updateCount(alcoholConsumed)
+        
+            // Pop to root view controller ("counter" screen)
+            self.navigationController!.popToRootViewControllerAnimated(true)
         }
-        
-        
-        // Pop to root view controller ("counter" screen)
-        self.navigationController!.popToRootViewControllerAnimated(true)
+        else
+        {
+            alertMe("Error", "Volume and ABV must be set to positive values")
+        }
     }
     
     override func didReceiveMemoryWarning() {
