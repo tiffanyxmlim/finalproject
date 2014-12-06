@@ -28,6 +28,16 @@ class Counter: UIViewController {
         endButton.layer.cornerRadius = 5
         endButton.layer.borderWidth = 1
         endButton.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        add1Button.layer.shadowColor = UIColor.blackColor().CGColor
+        add1Button.layer.shadowOffset = CGSizeMake(3, 3)
+        add1Button.layer.shadowRadius = 5
+        add1Button.layer.shadowOpacity = 0.75
+        
+        addCustomButton.layer.shadowColor = UIColor.blackColor().CGColor
+        addCustomButton.layer.shadowOffset = CGSizeMake(3, 3)
+        addCustomButton.layer.shadowRadius = 5
+        addCustomButton.layer.shadowOpacity = 0.75
     }
     
     @IBOutlet weak var add1Button: UIButton!
