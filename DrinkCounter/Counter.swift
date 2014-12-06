@@ -18,6 +18,9 @@ class Counter: UIViewController {
         labelDrinkCount.text = "\(Int(drinkCount))"
         warningMessage.text = ""
         
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 52/255, green: 152/255, blue: 219/255, alpha: 1.0)
+        
         add1Button.layer.cornerRadius = 5
         add1Button.layer.borderWidth = 1
         add1Button.layer.borderColor = UIColor.whiteColor().CGColor
