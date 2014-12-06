@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -50,33 +50,6 @@
                                     <action selector="startButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xiJ-Ih-fep"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-L3-529">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5gQ-kA-K06"/>
-                                    <constraint firstAttribute="height" constant="30" id="eq4-Ld-kek"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="15"/>
-                                <state key="normal" title="  Not you? Update settings here  ">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="5gQ-kA-K06"/>
-                                        <exclude reference="eq4-Ld-kek"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="5gQ-kA-K06"/>
-                                        <exclude reference="eq4-Ld-kek"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="registerPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2fL-v1-nq4"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome," textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aT8-59-AZA">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
@@ -96,20 +69,51 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-L3-529">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5gQ-kA-K06"/>
+                                    <constraint firstAttribute="height" constant="30" id="eq4-Ld-kek"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="15"/>
+                                <state key="normal" title="  Not you? Update settings here.   ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5gQ-kA-K06"/>
+                                        <exclude reference="eq4-Ld-kek"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="5gQ-kA-K06"/>
+                                        <exclude reference="eq4-Ld-kek"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="registerPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2fL-v1-nq4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Xea-L3-529" firstAttribute="top" secondItem="Bwl-Cd-3g0" secondAttribute="bottom" constant="27" id="8xM-z3-MFc"/>
                             <constraint firstItem="aT8-59-AZA" firstAttribute="centerX" secondItem="nlX-I9-1Am" secondAttribute="centerX" id="98X-w8-wLY"/>
                             <constraint firstItem="Bwl-Cd-3g0" firstAttribute="centerX" secondItem="Xea-L3-529" secondAttribute="centerX" id="C3W-n5-JCc"/>
-                            <constraint firstItem="Xea-L3-529" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="DYp-Kx-gi0"/>
+                            <constraint firstItem="Xea-L3-529" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="DYp-Kx-gi0">
+                                <variation key="widthClass=compact" constant="7"/>
+                            </constraint>
                             <constraint firstItem="nlX-I9-1Am" firstAttribute="top" secondItem="aT8-59-AZA" secondAttribute="bottom" constant="8" symbolic="YES" id="KuP-dm-9tv"/>
                             <constraint firstItem="aT8-59-AZA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="103" id="Uar-qW-fMd"/>
                             <constraint firstItem="Bwl-Cd-3g0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="22" id="W7y-Ga-aCr"/>
                             <constraint firstItem="Bwl-Cd-3g0" firstAttribute="centerX" secondItem="nlX-I9-1Am" secondAttribute="centerX" id="XPF-DL-GNS"/>
                             <constraint firstItem="Bwl-Cd-3g0" firstAttribute="top" secondItem="nlX-I9-1Am" secondAttribute="bottom" constant="39" id="aYt-Xz-6Vx"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Xea-L3-529" secondAttribute="bottom" constant="219" id="iVO-gJ-Whr"/>
-                            <constraint firstItem="Xea-L3-529" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="31" id="nrf-42-7UH"/>
+                            <constraint firstItem="Xea-L3-529" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="31" id="nrf-42-7UH">
+                                <variation key="widthClass=compact" constant="26"/>
+                            </constraint>
                             <constraint firstItem="aT8-59-AZA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="66" id="qrB-W9-cLv"/>
                             <constraint firstItem="nlX-I9-1Am" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="49" id="xyh-Uj-rU0"/>
                         </constraints>
@@ -117,8 +121,8 @@
                             <mask key="subviews">
                                 <exclude reference="nlX-I9-1Am"/>
                                 <exclude reference="Bwl-Cd-3g0"/>
-                                <exclude reference="Xea-L3-529"/>
                                 <exclude reference="aT8-59-AZA"/>
+                                <exclude reference="Xea-L3-529"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="iVO-gJ-Whr"/>
@@ -140,8 +144,8 @@
                             <mask key="subviews">
                                 <include reference="nlX-I9-1Am"/>
                                 <include reference="Bwl-Cd-3g0"/>
-                                <include reference="Xea-L3-529"/>
                                 <include reference="aT8-59-AZA"/>
+                                <include reference="Xea-L3-529"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="iVO-gJ-Whr"/>
@@ -172,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="336.75"/>
+            <point key="canvasLocation" x="255" y="336"/>
         </scene>
         <!--How Drunk Are You?-->
         <scene sceneID="wXA-VK-dyt">
@@ -1006,9 +1010,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="58" y="390" width="205" height="30"/>
-                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1059,16 +1060,16 @@
                                 <exclude reference="DDz-9a-zcD"/>
                                 <exclude reference="Egg-ju-BJV"/>
                                 <exclude reference="oHa-2m-ajl"/>
+                                <exclude reference="ffi-nk-wnq"/>
+                                <exclude reference="ZAe-DC-lJf"/>
+                                <exclude reference="5t7-gS-jCd"/>
+                                <exclude reference="Umz-5l-JkR"/>
+                                <exclude reference="jTN-Ik-xEE"/>
                                 <exclude reference="3OE-tV-Apt"/>
                                 <exclude reference="CkV-BI-Vl5"/>
                                 <exclude reference="QZf-s3-pux"/>
                                 <exclude reference="PhR-ux-ckx"/>
                                 <exclude reference="ieg-BS-0zq"/>
-                                <exclude reference="ZAe-DC-lJf"/>
-                                <exclude reference="5t7-gS-jCd"/>
-                                <exclude reference="Umz-5l-JkR"/>
-                                <exclude reference="jTN-Ik-xEE"/>
-                                <exclude reference="ffi-nk-wnq"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1084,16 +1085,16 @@
                                 <include reference="DDz-9a-zcD"/>
                                 <include reference="Egg-ju-BJV"/>
                                 <include reference="oHa-2m-ajl"/>
+                                <include reference="ffi-nk-wnq"/>
+                                <include reference="ZAe-DC-lJf"/>
+                                <include reference="5t7-gS-jCd"/>
+                                <include reference="Umz-5l-JkR"/>
+                                <include reference="jTN-Ik-xEE"/>
                                 <include reference="3OE-tV-Apt"/>
                                 <include reference="CkV-BI-Vl5"/>
                                 <include reference="QZf-s3-pux"/>
                                 <include reference="PhR-ux-ckx"/>
                                 <include reference="ieg-BS-0zq"/>
-                                <include reference="ZAe-DC-lJf"/>
-                                <include reference="5t7-gS-jCd"/>
-                                <include reference="Umz-5l-JkR"/>
-                                <include reference="jTN-Ik-xEE"/>
-                                <include reference="ffi-nk-wnq"/>
                             </mask>
                         </variation>
                     </view>
