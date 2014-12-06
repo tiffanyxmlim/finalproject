@@ -23,6 +23,7 @@
 		49AA64551A30FB0200DF549C /* martini.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AA644E1A30FB0200DF549C /* martini.png */; };
 		49AA64581A30FB0200DF549C /* stein.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AA64511A30FB0200DF549C /* stein.png */; };
 		49AA64591A30FB0200DF549C /* wineglass.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AA64521A30FB0200DF549C /* wineglass.png */; };
+		49AB2A9B1A33AE5B000E4B63 /* fireworks.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB2A9A1A33AE5B000E4B63 /* fireworks.png */; };
 		49D8709B1A32C9AF00CD312F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8709A1A32C9AF00CD312F /* NavigationController.swift */; };
 		49D8709D1A32E4E200CD312F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8709C1A32E4E200CD312F /* Functions.swift */; };
 		49ED8D241A2ECE240071FCBF /* Alcohol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED8D231A2ECE240071FCBF /* Alcohol.swift */; };
@@ -66,6 +67,7 @@
 		49AA644E1A30FB0200DF549C /* martini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = martini.png; sourceTree = "<group>"; };
 		49AA64511A30FB0200DF549C /* stein.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stein.png; sourceTree = "<group>"; };
 		49AA64521A30FB0200DF549C /* wineglass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wineglass.png; sourceTree = "<group>"; };
+		49AB2A9A1A33AE5B000E4B63 /* fireworks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireworks.png; sourceTree = "<group>"; };
 		49D8709A1A32C9AF00CD312F /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		49D8709C1A32E4E200CD312F /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		49ED8D231A2ECE240071FCBF /* Alcohol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alcohol.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				4906FDA81A2AD80E009E5BE8 /* Info.plist */,
 				69D847E61A31057C00C03442 /* caticon.png */,
 				69F6488F1A30EA0E00BEC442 /* beericon.png */,
+				49AB2A9A1A33AE5B000E4B63 /* fireworks.png */,
 				69F6488D1A30E88D00BEC442 /* wineicon.png */,
 				69F648931A30F3C900BEC442 /* liquoricon.png */,
 				49AA644D1A30FB0200DF549C /* beercan.png */,
@@ -265,6 +268,7 @@
 				49AA64581A30FB0200DF549C /* stein.png in Resources */,
 				69F6488E1A30E88D00BEC442 /* wineicon.png in Resources */,
 				49AA64551A30FB0200DF549C /* martini.png in Resources */,
+				49AB2A9B1A33AE5B000E4B63 /* fireworks.png in Resources */,
 				69D847E71A31057C00C03442 /* caticon.png in Resources */,
 				49AA64541A30FB0200DF549C /* beercan.png in Resources */,
 			);

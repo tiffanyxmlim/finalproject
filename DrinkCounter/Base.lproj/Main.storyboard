@@ -39,17 +39,6 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwl-Cd-3g0">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="30"/>
-                                <state key="normal" title=" Start Drinking! ">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xiJ-Ih-fep"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-L3-529">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
@@ -96,6 +85,17 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwl-Cd-3g0">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="36"/>
+                                <state key="normal" title=" Start Drinking! ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xiJ-Ih-fep"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -105,7 +105,9 @@
                             <constraint firstItem="Xea-L3-529" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="DYp-Kx-gi0"/>
                             <constraint firstItem="nlX-I9-1Am" firstAttribute="top" secondItem="aT8-59-AZA" secondAttribute="bottom" constant="8" symbolic="YES" id="KuP-dm-9tv"/>
                             <constraint firstItem="aT8-59-AZA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="103" id="Uar-qW-fMd"/>
-                            <constraint firstItem="Bwl-Cd-3g0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="22" id="W7y-Ga-aCr"/>
+                            <constraint firstItem="Bwl-Cd-3g0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="22" id="W7y-Ga-aCr">
+                                <variation key="widthClass=compact" constant="11"/>
+                            </constraint>
                             <constraint firstItem="Bwl-Cd-3g0" firstAttribute="centerX" secondItem="nlX-I9-1Am" secondAttribute="centerX" id="XPF-DL-GNS"/>
                             <constraint firstItem="Bwl-Cd-3g0" firstAttribute="top" secondItem="nlX-I9-1Am" secondAttribute="bottom" constant="39" id="aYt-Xz-6Vx"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Xea-L3-529" secondAttribute="bottom" constant="219" id="iVO-gJ-Whr"/>
@@ -116,9 +118,9 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="nlX-I9-1Am"/>
-                                <exclude reference="Bwl-Cd-3g0"/>
                                 <exclude reference="Xea-L3-529"/>
                                 <exclude reference="aT8-59-AZA"/>
+                                <exclude reference="Bwl-Cd-3g0"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="iVO-gJ-Whr"/>
@@ -139,9 +141,9 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="nlX-I9-1Am"/>
-                                <include reference="Bwl-Cd-3g0"/>
                                 <include reference="Xea-L3-529"/>
                                 <include reference="aT8-59-AZA"/>
+                                <include reference="Bwl-Cd-3g0"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="iVO-gJ-Whr"/>
@@ -172,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="336.75"/>
+            <point key="canvasLocation" x="255" y="336"/>
         </scene>
         <!--How Drunk Are You?-->
         <scene sceneID="wXA-VK-dyt">

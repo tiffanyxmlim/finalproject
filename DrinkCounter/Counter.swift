@@ -126,7 +126,7 @@ class Counter: UIViewController {
             if BAClevel < 0.02
             {
                 warningMessage.text = "No significant effect on your body."
-                colorMe(warningMessage, myRGB: 0x99FF99)
+                colorMe(warningMessage, myRGB: 0x2ECC71)
             }
             else if BAClevel < 0.04
             {

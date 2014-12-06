@@ -29,7 +29,6 @@ class ViewController: UIViewController {
         defaults.setFloat(0, forKey: "STARTTIME")
         defaults.synchronize()
         borderMe(registerButton)
-        borderMe(Start)
     }
     
     override func didReceiveMemoryWarning() {
