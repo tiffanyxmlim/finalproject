@@ -17,7 +17,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelName: UILabel! = nil
     
     @IBOutlet weak var Start: UIButton!
-    // initializes buttons and borders for welcome screen
+    
+    /*
+    **  Initializes buttons and borders for welcome screen
+    */
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -35,13 +38,9 @@ class ViewController: UIViewController {
         borderMe(registerButton)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     /*
-    **  When "Start Drinking" button is pressed, check for existing user then redirect user to counter screen
+    *  When "Start Drinking" button is pressed, check for existing user then redirect user to counter screen
     */
     @IBAction func startButton(sender: AnyObject)
     {
@@ -59,7 +58,7 @@ class ViewController: UIViewController {
     }
     
     /*
-    **  When register button is pressed, redirect user to registration screen
+    *  When register button is pressed, redirect user to registration screen
     */
     @IBAction func registerPressed(sender: AnyObject)
     {
@@ -67,6 +66,12 @@ class ViewController: UIViewController {
         let vc = myStoryboard.instantiateViewControllerWithIdentifier("register") as UIViewController
         self.presentViewController(vc, animated: true, completion: nil)
     }
-
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 }
 
