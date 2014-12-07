@@ -14,13 +14,14 @@ class Register: UIViewController, UIPickerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
-        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
         
         borderMe(Submit)
     }
     
+    // Define array of genders
     var gender = ["", "Female", "Male"]
+    
+    var genderPick = String()
     
     // Indicator variable that user changed picker value
     var pickerchanged: Int = 0
@@ -29,40 +30,59 @@ class Register: UIViewController, UIPickerViewDelegate {
     
     @IBOutlet weak var weightTextField: UITextField!
 
+    /*
+    *  Resigns keyboard when return button pressed
+    */
     @IBAction func nameReturn(sender: AnyObject) {
         nameTextField.resignFirstResponder()
     }
     
+    /*
+    *  Resigns keyboard when return button pressed
+    */
     @IBAction func weightReturn(sender: AnyObject) {
         weightTextField.resignFirstResponder()
     }
     
+    /*
+    *  Sets one component (gender) for pickerview
+    */
     func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int
     {
         return 1
     }
     
+    /*
+    *  Sets number of rows (3) for pickerview
+    */
     func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component:Int) -> Int
     {
         return gender.count
     }
     
+    /*
+    *  Sets titles for each row (gender) in pickerview
+    */
     func pickerView(pickerView: UIPickerView!, titleForRow row:Int, forComponent component: Int) -> String!
     {
         return gender[row]
     }
     
+    /*
+    *  When user selects row in pickerview, update genderpick
+    */
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         // Indicate that user changed picker value
         pickerchanged = 1
         
         // Set NSUserDefault for Gender
-        var genderPick = gender[row]
-        defaults.setObject(genderPick, forKey: "GENDER")
-        defaults.synchronize()
+        genderPick = gender[row]
     }
     
+    /*
+    *  Changes font in pickerview
+    */
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = gender[row]
         var myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Heiti TC", size: 15.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()])
@@ -71,46 +91,41 @@ class Register: UIViewController, UIPickerViewDelegate {
     
     
     @IBAction func buttonRegisterPress(sender: AnyObject) {
-        var name: NSString = nameTextField.text as NSString
-        var weight: String = weightTextField.text
-        var gender = defaults.objectForKey("GENDER") as NSString
+        var name = nameTextField.text
+        var weight = weightTextField.text
         var num = weight.toInt()
         
-        // Retract the keyboard
-        nameTextField.resignFirstResponder()
-        weightTextField.resignFirstResponder()
-        
-        if (nameTextField.text == "")
+        if (name == "")
         {
             alertMe("Register Failed!", "Please enter your name.")
         }
-        else if (weightTextField.text == "" || num == nil || num < 50 || num > 800)
+        else if (weight == "" || num == nil || num < 50 || num > 800)
         {
             alertMe("Register Failed!", "Please enter a valid weight.")
         }
-        else if (pickerchanged == 0 || gender == "")
+        else if (pickerchanged == 0 || genderPick == "")
         {
             alertMe("Register Failed!", "Please select a gender.")
         }
         else
         {
-            // Set NSUserDefaults for Name and Weight
+            // Set NSUserDefaults for Name, Weight, and Gender
             defaults.setObject(name, forKey: "NAME")
             defaults.setObject(weight, forKey: "WEIGHT")
+            defaults.setObject(genderPick, forKey: "GENDER")
+            
+            // Reset drink counter
             defaults.setFloat(0, forKey: "COUNTER")
+            
             defaults.synchronize()
             
             alertMe("Success!", "You have updated your settings.")
             
             // Segue to Log In Screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
+            let vc = myStoryboard.instantiateViewControllerWithIdentifier("login") as UIViewController
             self.presentViewController(vc, animated: true, completion: nil)
         }
     }
-
-    
-    
     
 }
 

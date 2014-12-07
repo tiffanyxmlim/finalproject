@@ -12,7 +12,8 @@ class NavigationController: UINavigationController, UIViewControllerTransitionin
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Gives the navigation bar white text in different font
         var attributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor(),
             NSFontAttributeName: UIFont(name: "Heiti TC", size: 24)!

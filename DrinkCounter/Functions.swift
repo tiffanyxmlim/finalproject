@@ -9,8 +9,13 @@
 import Foundation
 import UIKit
 
+// Sets global variables for Defaults and our Main Storyboard
 var defaults = NSUserDefaults.standardUserDefaults()
+var myStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
+/*
+*  Adds a border to button
+*/
 func borderMe(buttonToBorder: UIButton)
 {
     buttonToBorder.backgroundColor = UIColor.clearColor()
@@ -19,7 +24,9 @@ func borderMe(buttonToBorder: UIButton)
     buttonToBorder.layer.borderColor = UIColor.whiteColor().CGColor
 }
 
-
+/*
+*  Adds a shadow to button
+*/
 func shadowMe(buttonToShadow: UIButton)
 {
     buttonToShadow.layer.shadowColor = UIColor.blackColor().CGColor
@@ -28,7 +35,9 @@ func shadowMe(buttonToShadow: UIButton)
     buttonToShadow.layer.shadowOpacity = 0.75
 }
 
-
+/*
+*  Updates the default drink count with a float
+*/
 func updateCount(alcoholConsumed: Float)
 {
     var oldCounter = defaults.floatForKey("COUNTER")
@@ -42,7 +51,9 @@ func updateCount(alcoholConsumed: Float)
     }
 }
 
-
+/*
+*  Adds an alert with a title and message
+*/
 func alertMe(alertTitle: String, alertMessage: String)
 {
     var alertView: UIAlertView = UIAlertView()
@@ -52,16 +63,9 @@ func alertMe(alertTitle: String, alertMessage: String)
     alertView.show()
 }
 
-func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-    return UIColor(
-        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-        alpha: CGFloat(1.0)
-    )
-}
-
-
+/*
+*  Adds an extension to UIColor, allowing us to use RGB or Hex values
+*/
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
