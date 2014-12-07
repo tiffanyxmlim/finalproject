@@ -193,7 +193,7 @@ class Counter: UIViewController {
     {
         if (!timer.valid)
         {
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: defaults, repeats: true)
         }
         updateCount(1.0)
     }
@@ -203,7 +203,7 @@ class Counter: UIViewController {
     @IBAction func customButtonPressed(sender: AnyObject)
     {
         if (!timer.valid) {
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: defaults, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "update", userInfo: defaults, repeats: true)
         }
     }
     
