@@ -20,7 +20,7 @@ class Counter: UIViewController {
         labelDrinkCount.text = "\(Int(drinkCount))"
         warningMessage.text = ""
         warningMessage.textColor = UIColor.whiteColor()
-        
+        // adds borders and shadows to buttons
         borderMe(add1Button)
         borderMe(addCustomButton)
         borderMe(endButton)
@@ -28,7 +28,7 @@ class Counter: UIViewController {
         shadowMe(add1Button)
         shadowMe(addCustomButton)
     }
-    
+    // changes color of warning message depending on number of drinks
     func colorMe(warningMessage: UITextView, myRGB: Int)
     {
         warningMessage.backgroundColor = UIColor(netHex: myRGB)
@@ -48,7 +48,7 @@ class Counter: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // initializes timer
     var timer = NSTimer()
     
     @IBOutlet weak var labelBAC: UILabel!
@@ -86,6 +86,7 @@ class Counter: UIViewController {
             var weight = defaults.objectForKey("WEIGHT") as NSString
             var gender = defaults.objectForKey("GENDER") as NSString
             var genderConst = Float()
+            // constants used in Widmark formula
             if gender == "Female"
             {
                 genderConst = 0.49
@@ -108,6 +109,7 @@ class Counter: UIViewController {
             
             
             // Calculates and displays BAC level to 4 decimal places in label
+            // the Widmark formula
             var BAClevel = ((0.806 * counter * 1.2) / (0.453592 * genderConst * weightFloat)) - (0.017 * hours)
             var BAClevel2 : NSString = NSString(format: "%.04f", BAClevel)
             
@@ -122,7 +124,7 @@ class Counter: UIViewController {
             labelDrinkCount.text = "\(Int(counter))"
             
             
-            
+            // displays warning message and changes screen color depending on BAC
             if BAClevel < 0.02
             {
                 warningMessage.text = "No significant effect on your body."
@@ -188,7 +190,7 @@ class Counter: UIViewController {
     }
 
     @IBOutlet weak var labelDrinkCount: UILabel!
-    
+    // when add i button is press, start timer if not already running and update count
     @IBAction func EZButtonPressed(sender: AnyObject)
     {
         if (!timer.valid)
@@ -199,7 +201,7 @@ class Counter: UIViewController {
     }
     
     
-    
+    // if time has not already started, start when custom drink button is pressed
     @IBAction func customButtonPressed(sender: AnyObject)
     {
         if (!timer.valid) {

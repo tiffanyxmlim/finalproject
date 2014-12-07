@@ -34,7 +34,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         // Do any additional setup after loading the view.
         myPicker.delegate = self
         myPicker.dataSource = self
-        
+        // initializes labels and adds border to submit button
         drinkLabel.text = ""
         quantityLabel.text = "1"
         wineLabel.text = ""
@@ -44,24 +44,25 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     var sliderround = Float()
     
     @IBOutlet weak var slider: UISlider!
-    
+    // initializes slider for servings and sets slider value equal to a variable
     @IBAction func sliderChanged(sender: AnyObject)
     {
         sliderround = round(10*slider.value)/10
         quantityLabel.text = "\(sliderround)"
     }
+    // indictor that lets us know if picker has changed
     var pickerchanged: Int = 0
-    
+    // rows of the picker
     let wineData = [
         ["TYPE", "White", "Red", "Cooler", "Dessert", "Rose", "Port"],
         ["SIZE", "Solo cup", "Wine glass"]
     ]
-    
+    // used in calculation of number of drinks
     let wineABV: [Float] = [0, 0.11, 0.115, 0.06, 0.14, 0.105, 0.2]
     let containerVol: [Float] = [0, 16, 6]
     
     var alcoholConsumed: Float = 0
-    
+    // sets picker to have two columns filled with above data
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
         return wineData.count
@@ -87,7 +88,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
     
-    
+    // sets fonts for picker
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = wineData[component][row]
         var myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Heiti TC", size: 15.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()])
@@ -96,7 +97,7 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     var containertry = ""
     var winetry = ""
-    
+    // add labels and add images and labels
     func updateLabels()
     {
         winetry = wineData[0][myPicker.selectedRowInComponent(0)]
@@ -121,13 +122,13 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         }
 
     }
-    
+    // when picker is changed, update labels as above
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         pickerchanged = 1
         updateLabels()
     }
-    
+    // error checking on submit
     @IBAction func submitButtonPressed(sender: AnyObject)
     {
         var message = String()
@@ -153,9 +154,9 @@ class Wine: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         {
             message = "You have entered a drink."
             alertMe("Success!", message)
-            
+            // calculate number of drinks consumed
             alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * wineABV[myPicker.selectedRowInComponent(0)] / 14
-            
+           // updates drink counter
             updateCount(alcoholConsumed)
             
             // Pop to root view controller ("counter" screen)
