@@ -10,13 +10,18 @@ import UIKit
 
 class Register: UIViewController, UIPickerViewDelegate {
     
-    @IBOutlet weak var Submit: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         borderMe(Submit)
     }
+    
+    @IBOutlet weak var Submit: UIButton!
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var weightTextField: UITextField!
     
     // Define array of genders
     var gender = ["", "Female", "Male"]
@@ -26,10 +31,6 @@ class Register: UIViewController, UIPickerViewDelegate {
     // Indicator variable that user changed picker value
     var pickerchanged: Int = 0
     
-    @IBOutlet weak var nameTextField: UITextField!
-    
-    @IBOutlet weak var weightTextField: UITextField!
-
     /*
     *  Resigns keyboard when return button pressed
     */
