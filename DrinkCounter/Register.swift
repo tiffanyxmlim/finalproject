@@ -89,7 +89,9 @@ class Register: UIViewController, UIPickerViewDelegate {
         return myTitle
     }
     
-    
+    /*
+    *  When registration button pressed, check for errors and alert accordingly
+    */
     @IBAction func buttonRegisterPress(sender: AnyObject) {
         var name = nameTextField.text
         var weight = weightTextField.text

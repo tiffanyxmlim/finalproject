@@ -10,31 +10,35 @@ import UIKit
 
 class Counter: UIViewController {
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set label for drink count when screen loads, as an integer
         var drinkCount = defaults.floatForKey("COUNTER")
         labelDrinkCount.text = "\(Int(drinkCount))"
+        
+        // Reset warning message
         warningMessage.text = ""
         warningMessage.textColor = UIColor.whiteColor()
-        // adds borders and shadows to buttons
+        
+        // Adds borders and shadows to buttons
         borderMe(add1Button)
         borderMe(addCustomButton)
         borderMe(endButton)
-
         shadowMe(add1Button)
         shadowMe(addCustomButton)
     }
-    // changes color of warning message depending on number of drinks
+    
+    /*
+    *  changes color of warning message depending on number of drinks
+    */
     func colorMe(warningMessage: UITextView, myRGB: Int)
     {
         warningMessage.backgroundColor = UIColor(netHex: myRGB)
         self.view.backgroundColor = UIColor(netHex: myRGB)
     }
     
+    // Define all the outlets (labels and buttons) in view controller
     @IBOutlet weak var add1Button: UIButton!
     
     @IBOutlet weak var addCustomButton: UIButton!
@@ -43,23 +47,31 @@ class Counter: UIViewController {
     
     @IBOutlet weak var warningMessage: UITextView!
     
+    @IBOutlet weak var labelBAC: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var labelDrinkCount: UILabel!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    // initializes timer
+    
+    // Initializes timer
     var timer = NSTimer()
     
-    @IBOutlet weak var labelBAC: UILabel!
     
+    /*
+    *  When "End Session" button pushed, confirm and reset default counter
+    */
     @IBAction func endSessionPushed(sender: AnyObject) {
+        
+        // Confirmation from user
         var alert = UIAlertController(title: "Confirm", message: "Are you sure you want to end session? Your current data will not be saved.", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-        
-        // When "End Session" confirmed...
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (alertAction) -> Void in
-            
+    
             // reset counter to 0
             defaults.setObject(0, forKey: "COUNTER")
             defaults.synchronize()
@@ -68,16 +80,15 @@ class Counter: UIViewController {
             self.timer.invalidate()
             
             // return to login screen
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("login") as UIViewController
+            let vc = myStoryboard.instantiateViewControllerWithIdentifier("login") as UIViewController
             self.presentViewController(vc, animated: true, completion: nil)
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    @IBOutlet weak var timeLabel: UILabel!
-    
-    // Continuously updates in background
+    /*
+    *  Continuously updates in background
+    */
     func update() {
         
         // Grabs weight, gender, and drink count from user defaults
@@ -86,6 +97,7 @@ class Counter: UIViewController {
             var weight = defaults.objectForKey("WEIGHT") as NSString
             var gender = defaults.objectForKey("GENDER") as NSString
             var genderConst = Float()
+            
             // constants used in Widmark formula
             if gender == "Female"
             {
@@ -95,14 +107,14 @@ class Counter: UIViewController {
             {
                 genderConst = 0.58
             }
+            
             var weightFloat = weight.floatValue
             var counter = defaults.floatForKey("COUNTER")
-            
-            var startTime2 = defaults.objectForKey("STARTTIME") as NSTimeInterval
+            var startTime = defaults.objectForKey("STARTTIME") as NSTimeInterval
             
             // Sets time label to duration of drinking session
             var currentTime = NSDate.timeIntervalSinceReferenceDate()
-            var elapsedTime: NSTimeInterval = currentTime - startTime2
+            var elapsedTime: NSTimeInterval = currentTime - startTime
             let minutes = UInt8(elapsedTime / 60.0)
             timeLabel.text = "\(String(minutes)) min"
             let hours = Float(elapsedTime / 3600.0)
@@ -113,6 +125,7 @@ class Counter: UIViewController {
             var BAClevel = ((0.806 * counter * 1.2) / (0.453592 * genderConst * weightFloat)) - (0.017 * hours)
             var BAClevel2 : NSString = NSString(format: "%.04f", BAClevel)
             
+            // Only display if BAC is greater than 0
             if BAClevel > 0
             {
                 labelBAC.text = "Expected BAC: \(BAClevel2)"
@@ -124,7 +137,7 @@ class Counter: UIViewController {
             labelDrinkCount.text = "\(Int(counter))"
             
             
-            // displays warning message and changes screen color depending on BAC
+            // Displays warning message and changes screen color depending on BAC
             if BAClevel < 0.02
             {
                 warningMessage.text = "No significant effect on your body."
@@ -188,9 +201,8 @@ class Counter: UIViewController {
             }
         }
     }
-
-    @IBOutlet weak var labelDrinkCount: UILabel!
-    // when add i button is press, start timer if not already running and update count
+    
+    // When add 1 button is press, start timer if not already running and update count
     @IBAction func EZButtonPressed(sender: AnyObject)
     {
         if (!timer.valid)
@@ -201,7 +213,7 @@ class Counter: UIViewController {
     }
     
     
-    // if time has not already started, start when custom drink button is pressed
+    // If time has not already started, start when custom drink button is pressed
     @IBAction func customButtonPressed(sender: AnyObject)
     {
         if (!timer.valid) {
