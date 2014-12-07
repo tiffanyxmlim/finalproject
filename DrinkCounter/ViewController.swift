@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelName: UILabel! = nil
     
     @IBOutlet weak var Start: UIButton!
-    
+    // initializes buttons and borders for welcome screen
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
