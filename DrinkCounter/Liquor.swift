@@ -20,7 +20,7 @@ class Liquor:
     @IBOutlet weak var quantityLabel: UILabel!
     
     @IBOutlet weak var Submit: UIButton!
-    
+    // sets up buttons and adds borders
     override func viewDidLoad() {
         super.viewDidLoad()
         slider.value = 1.0
@@ -35,7 +35,7 @@ class Liquor:
         
         borderMe(Submit)
     }
-    
+    // initializes slider for servings and sets slider value equal to a variable
     var sliderround = Float()
     
     @IBOutlet weak var slider: UISlider!
@@ -48,13 +48,13 @@ class Liquor:
     
     var pickerchanged: Int = 0
     
-    
+    // rows of the picker
     let liquorData = [
         ["TYPE", "Rum", "Vodka", "Tequila", "Fireball", "Gin", "Bailey's", "Whiskey"],
         
         ["SIZE", "Shot glass", "Solo cup", "Martini"]
     ]
-    
+  // used for calculating number of standard drinks
     let containerVol: [Float] = [0, 1.5, 16, 8.8]
     let liquorABV: [Float] = [0, 0.4, 0.4, 0.4, 0.33, 0.45, 0.17, 0.43]
     var alcoholConsumed: Float = 0
@@ -63,7 +63,7 @@ class Liquor:
     {
         return liquorData.count
     }
-    
+    // sets picker to have two columns filled with above data
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component:Int) -> Int
     {
         return liquorData[component].count
@@ -82,7 +82,7 @@ class Liquor:
         default: return 22
         }
     }
-    
+    // sets fonts for picker
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = liquorData[component][row]
         var myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Heiti TC", size: 15.0)!,NSForegroundColorAttributeName:UIColor.whiteColor()])
@@ -91,7 +91,7 @@ class Liquor:
     
     var containertry = ""
     var liquortry = ""
-    
+    // adds labels and images to screen
     func updateLabels()
     {
         liquortry = liquorData[0][myPicker.selectedRowInComponent(0)]
@@ -114,13 +114,13 @@ class Liquor:
         default: return
         }
     }
-    
+    // when picker is changed, update labels
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         pickerchanged = 1
         updateLabels()
     }
-    
+    // error checking on submit
     @IBAction func liquorsubmit(sender: AnyObject) {
         var message = String()
         
@@ -144,9 +144,9 @@ class Liquor:
         {
             message = "You have entered a drink."
             alertMe("Success!", message)
-            
+            // calculate number of drinks consumed
             alcoholConsumed = containerVol[myPicker.selectedRowInComponent(1)] * 28.3495231 * sliderround * liquorABV[myPicker.selectedRowInComponent(0)] / 14
-            
+            // update drink counter
             updateCount(alcoholConsumed)
             
             // Pop to root view controller ("counter" screen)

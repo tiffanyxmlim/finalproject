@@ -9,7 +9,7 @@
 import UIKit
 
 class CustomDrink: UIViewController {
-    
+    // initializes buttons and borders
     @IBOutlet weak var Submit: UIButton!
 
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class CustomDrink: UIViewController {
     @IBOutlet weak var sliderVolume: UISlider!
     
     @IBOutlet weak var labelVolume: UILabel!
-    
+    // initializs the slider for ABV and Volume and sets those values equal to variables
     @IBAction func changeABV(sender: AnyObject)
     {
         sliderABVround = round(10 * sliderABV.value) / 10
@@ -46,7 +46,7 @@ class CustomDrink: UIViewController {
         sliderVolumeround = round(10 * sliderVolume.value) / 10
         labelVolume.text = "\(sliderVolumeround)"
     }
-    
+    // update alcohol count
     @IBAction func CustomDrinkPress(sender: AnyObject)
     {
         if (sliderVolumeround > 0 || sliderABVround > 0)
@@ -61,6 +61,7 @@ class CustomDrink: UIViewController {
             // Pop to root view controller ("counter" screen)
             self.navigationController!.popToRootViewControllerAnimated(true)
         }
+        // error checking
         else
         {
             alertMe("Error", "Volume and ABV must be set to positive values")
